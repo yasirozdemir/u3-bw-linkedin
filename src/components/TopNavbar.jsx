@@ -20,7 +20,9 @@ const TopNavbar = () => {
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
 
-  const foundedUsers = userList.filter((el) => el.name.includes(query));
+  const foundedUsers = userList.filter((el) =>
+    el.name.toLowerCase().includes(query.toLowerCase())
+  );
   console.log(foundedUsers);
 
   const handleChange = (e) => {
@@ -38,6 +40,10 @@ const TopNavbar = () => {
   useState(() => {
     dispatch(setMyInfo());
     dispatch(setUserList());
+    dispatch({
+      type: SET_SEARCH_QUERY,
+      payload: "",
+    });
   }, []);
 
   return (
@@ -45,7 +51,9 @@ const TopNavbar = () => {
       <header className="fixed-top">
         <Container>
           <Row>
-            <LinkedIn style={{ height: "2.5rem", width: "2.5rem" }} />
+            <Link to="/">
+              <LinkedIn style={{ height: "2.5rem", width: "2.5rem" }} />
+            </Link>
             <Form
               onSubmit={handleSubmit}
               className="d-flex align-items-center position-relative"
@@ -65,13 +73,18 @@ const TopNavbar = () => {
                 id="searchInput"
                 type="search"
                 placeholder="Search"
+                value={query}
               />
-              <div id="searchResults" className="position-absolute">
-                {query.length >= 2 &&
-                  foundedUsers.map((u) => {
+              {query.length >= 2 && (
+                <div id="searchResults" className="position-absolute rounded">
+                  {foundedUsers.map((u) => {
                     return <FoundedUsers user={u} />;
                   })}
-              </div>
+                  {foundedUsers.length === 0 && (
+                    <h6>No user matches your search!</h6>
+                  )}
+                </div>
+              )}
             </Form>
             <div className="d-flex ml-auto">
               <Link to="/" className="navItems">

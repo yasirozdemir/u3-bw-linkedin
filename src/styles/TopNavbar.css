@@ -34,7 +34,8 @@ header .dropdown .dropdown-toggle::after {
   content: none;
 }
 
-header .dropdown .dropdown-menu {
+header .dropdown .dropdown-menu,
+#searchResults {
   border: solid 1px #53535353;
   box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.333);
 }
@@ -104,9 +105,12 @@ form {
 #searchResults {
   top: 40px;
   left: 0;
-  height: 400px;
+  min-width: 380px;
+  max-width: 380px;
+  max-height: 400px;
   width: auto;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-top: 0.5rem;
+  padding: 0.5rem;
 }
