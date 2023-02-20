@@ -10,12 +10,26 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/TopNavbar.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMyInfo } from "../redux/actions";
+import { setMyInfo, SET_SEARCH_QUERY } from "../redux/actions";
 
 const TopNavbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myInfo = useSelector((state) => state.me);
+  const query = useSelector((state) => state.search);
+  console.log(query);
+
+  const handleChange = (e) => {
+    dispatch({
+      type: SET_SEARCH_QUERY,
+      payload: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //  dispatch(setUserList(query));
+  };
 
   useState(() => {
     dispatch(setMyInfo());
@@ -27,7 +41,10 @@ const TopNavbar = () => {
         <Container>
           <Row>
             <LinkedIn style={{ height: "2.5rem", width: "2.5rem" }} />
-            <Form className="d-flex align-items-center position-relative">
+            <Form
+              onSubmit={handleSubmit}
+              className="d-flex align-items-center position-relative"
+            >
               <svg
                 viewBox="0 0 16 16"
                 width="16"
@@ -39,6 +56,7 @@ const TopNavbar = () => {
                 <path d="M14.56 12.44L11.3 9.18a5.51 5.51 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"></path>
               </svg>
               <Form.Control
+                onChange={handleChange}
                 id="searchInput"
                 type="search"
                 placeholder="Search"

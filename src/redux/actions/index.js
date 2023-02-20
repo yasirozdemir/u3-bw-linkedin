@@ -2,6 +2,7 @@ export const GET_USER_LIST = "GET_USER_LIST";
 export const SET_MY_INFO = "SET_MY_INFO";
 export const UPDATE_MY_INFO = "UPDATE_MY_INFO";
 export const GET_USER_DATA = "GET_USER_DATA";
+export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const url = "https://striveschool-api.herokuapp.com/api/profile/";
 
 export const setMyInfo = () => {

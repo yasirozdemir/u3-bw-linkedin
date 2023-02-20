@@ -1,5 +1,6 @@
 header {
   padding-block: 8px;
+  z-index: 1000;
 }
 
 #profilePic {
@@ -35,6 +36,7 @@ header .dropdown .dropdown-toggle::after {
 
 header .dropdown .dropdown-menu {
   border: solid 1px #53535353;
+  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.333);
 }
 
 header .dropdown .dropdown-menu a {
