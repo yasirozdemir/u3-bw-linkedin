@@ -13,6 +13,14 @@ function App() {
       </BrowserRouter>
     </div>
   );
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <TopNavbar />
+        <Routes></Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
