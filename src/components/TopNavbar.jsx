@@ -10,14 +10,17 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/TopNavbar.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMyInfo, SET_SEARCH_QUERY } from "../redux/actions";
+import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
 
 const TopNavbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myInfo = useSelector((state) => state.me);
+  const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
-  console.log(query);
+
+  const foundedUsers = userList.filter((el) => el.name.includes(query));
+  console.log(foundedUsers);
 
   const handleChange = (e) => {
     dispatch({
@@ -33,6 +36,7 @@ const TopNavbar = () => {
 
   useState(() => {
     dispatch(setMyInfo());
+    dispatch(setUserList());
   }, []);
 
   return (
@@ -61,6 +65,12 @@ const TopNavbar = () => {
                 type="search"
                 placeholder="Search"
               />
+              <div id="searchResults" className="position-absolute">
+                {query.length >= 2 &&
+                  foundedUsers.map((u) => {
+                    return <h6>{u.name}</h6>;
+                  })}
+              </div>
             </Form>
             <div className="d-flex ml-auto">
               <Link to="/" className="navItems">

@@ -100,3 +100,8 @@ form {
   background-color: #0a66c220;
   box-shadow: inset 0px 0px 2px 1px #0a66c2;
 }
+
+#searchResults {
+  top: 40px;
+  left: 10%;
+}

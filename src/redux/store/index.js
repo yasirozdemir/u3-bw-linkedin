@@ -4,6 +4,7 @@ import localStorage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import myInfoReducer from "../reducers/myInfoReducer";
 import searchReducer from "../reducers/searchReducer";
+import userListReducer from "../reducers/userListReducer";
 
 const persistConfig = {
   storage: localStorage,
@@ -18,6 +19,7 @@ const persistConfig = {
 const combinedReducers = combineReducers({
   me: myInfoReducer,
   search: searchReducer,
+  users: userListReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
