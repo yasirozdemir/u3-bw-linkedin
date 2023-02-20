@@ -3,6 +3,7 @@ import Ad from "./Ad";
 import Learning from "./Learning";
 import PeopleRecommendation from "./PeopleRecommendation";
 import Promoted from "./Promoted";
+import "../styles/RightNavbar.css";
 
 const RightNavbar = () => {
   return (

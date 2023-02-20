@@ -22,7 +22,7 @@ const TopNavbar = () => {
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
 
-  const foundedUsers = userList.filter((el) =>
+  const foundedUsers = userList?.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
 

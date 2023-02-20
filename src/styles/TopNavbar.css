@@ -44,6 +44,11 @@ header .dropdown .dropdown-menu,
 
 header .dropdown .dropdown-menu a {
   color: #535353;
+  width: fit-content;
+}
+
+header .dropdown .dropdown-menu a:hover {
+  text-decoration: underline !important;
 }
 
 button.navItems {
@@ -89,7 +94,6 @@ header .navItems:hover {
   color: #191919;
   fill: #191919;
   text-decoration: none;
-  cursor: pointer;
 }
 
 form {
