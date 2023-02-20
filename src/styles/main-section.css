@@ -1,6 +1,8 @@
 .main-section {
     background-color: #1d2226;
     min-width: 576px;
+    border-radius: 0.8rem;
+    padding-bottom: 3%;
 }
 
 .main-section .main-div {
@@ -65,15 +67,36 @@
     right: 0;
 }
 
+.icons-container button {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    border-radius: 1.6rem;
+    border: 1px solid #70b5f9;
+    background-color: #00000000;   
+    box-shadow: inset 0 0 0 1px #70b5f9;
+    color: #70b5f9;
+    font-size: 1rem;
+    min-height: 2.2rem;
+    padding: 0.6rem 1.2rem;
+    line-height: 1rem;
+}
+
+.icons-container .more-button {
+    color: white;
+    border: 1px solid white;
+}
+
 .text-container p {
     text-align: left;
 }
 
 .minor-section {
-    border: 3px solid grey;
+    /* border: 3px solid grey; */
     background-color: #1d2226;
+    padding: 3% 3%;
     color: white;
     text-align: left;
+    border-radius: 0.8rem;
 }
 
 

@@ -5,7 +5,7 @@ const MainSection = () => {
     return(
         <Container>
             <Row>
-                <Col className="main-section my-3">
+                <Col className="main-section my-1">
                     <div className="main-div">
                         <div className="upper-part">
                             <img src="https://media.licdn.com/dms/image/C5616AQEMdMdUfoLALA/profile-displaybackgroundimage-shrink_350_1400/0/1642410753940?e=1682553600&v=beta&t=KCi12rGY4UskuB0E5Q0Anu9MXsFoZm0_cUUibM3-_bA" alt="" />
@@ -41,7 +41,7 @@ const MainSection = () => {
                                     <button>Message</button>
                                 </div>
                                 <div>Icon 3
-                                    <button>More</button>
+                                    <button className="more-button">More</button>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ const MainSection = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="minor-section highlights-section">
+                <Col className="minor-section highlights-section my-1">
                     <div>
                        <h2>Highlights</h2>
                        <div className="">
@@ -60,7 +60,7 @@ const MainSection = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="minor-section about-section">
+                <Col className="minor-section about-section my-1">
                     <div>
                         <h2>About</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex incidunt, asperiores odio quae itaque voluptatibus, eligendi perspiciatis sint unde provident similique nostrum aspernatur ipsum tempora eveniet laudantium! Rerum, perferendis vel!</p>
@@ -68,14 +68,14 @@ const MainSection = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="minor-section activity-section">
+                <Col className="minor-section activity-section my-1">
                     <div>
                         <h2>Activity</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                     </div>
                 </Col>
             </Row><Row>
-                <Col className="minor-section experience-section">
+                <Col className="minor-section experience-section my-1">
                     <div>
                         <h2>Experience</h2>
                     </div>
