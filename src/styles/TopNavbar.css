@@ -2,6 +2,7 @@ header {
   padding-block: 8px;
   z-index: 1000;
   height: 60px;
+  background-color: #fff;
 }
 
 #profilePic {
@@ -145,4 +146,5 @@ form {
   overflow-x: hidden;
   margin-top: 0.5rem;
   padding: 0.5rem;
+  background-color: #fff;
 }
