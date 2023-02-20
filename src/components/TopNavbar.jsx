@@ -23,6 +23,7 @@ const TopNavbar = () => {
   const foundedUsers = userList.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
+
   console.log(foundedUsers);
 
   const handleChange = (e) => {
@@ -78,7 +79,7 @@ const TopNavbar = () => {
               {query.length >= 2 && (
                 <div id="searchResults" className="position-absolute rounded">
                   {foundedUsers.map((u) => {
-                    return <FoundedUsers user={u} />;
+                    return <FoundedUsers key={u._id} user={u} />;
                   })}
                   {foundedUsers.length === 0 && (
                     <h6>No user matches your search!</h6>
