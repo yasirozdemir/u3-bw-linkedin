@@ -20,7 +20,7 @@ const FoundedUsers = ({ user }) => {
             />
           </div>
         </Col>
-        <Col className="d-flex">
+        <Col className="d-flex ml-2">
           <h6 className="mr-2">
             {user.name} {user.surname}
           </h6>
