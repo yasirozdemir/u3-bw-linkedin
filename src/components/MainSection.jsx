@@ -48,6 +48,25 @@ const MainSection = () => {
                     </div>
                 </Col>
             </Row>
+            <Row>
+                <Col className="highlights-section">
+                    <div>highlights</div>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="about-section">
+                    <div>about</div>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="activity-section">
+                    <div>Activity</div>
+                </Col>
+            </Row><Row>
+                <Col className="experience-section">
+                    <div>experience</div>
+                </Col>
+            </Row>
         </Container>
     )
 }
