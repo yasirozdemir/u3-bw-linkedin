@@ -49,22 +49,36 @@ const MainSection = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="highlights-section">
-                    <div>highlights</div>
+                <Col className="minor-section highlights-section">
+                    <div>
+                       <h2>Highlights</h2>
+                       <div className="">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, accusantium. Facilis, a corrupti. Reprehenderit nam, iure earum eius impedit error corporis, ad, eum officia cum autem nobis fugit maiores harum.</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, officia eaque quasi nisi</p>
+                        </div> 
+                    </div>
                 </Col>
             </Row>
             <Row>
-                <Col className="about-section">
-                    <div>about</div>
+                <Col className="minor-section about-section">
+                    <div>
+                        <h2>About</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex incidunt, asperiores odio quae itaque voluptatibus, eligendi perspiciatis sint unde provident similique nostrum aspernatur ipsum tempora eveniet laudantium! Rerum, perferendis vel!</p>
+                    </div>
                 </Col>
             </Row>
             <Row>
-                <Col className="activity-section">
-                    <div>Activity</div>
+                <Col className="minor-section activity-section">
+                    <div>
+                        <h2>Activity</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                    </div>
                 </Col>
             </Row><Row>
-                <Col className="experience-section">
-                    <div>experience</div>
+                <Col className="minor-section experience-section">
+                    <div>
+                        <h2>Experience</h2>
+                    </div>
                 </Col>
             </Row>
         </Container>

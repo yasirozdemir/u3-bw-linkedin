@@ -69,26 +69,11 @@
     text-align: left;
 }
 
-.highlights-section {
+.minor-section {
     border: 3px solid grey;
     background-color: #1d2226;
     color: white;
+    text-align: left;
 }
 
-.about-section {
-    border: 3px solid grey;
-    background-color: #1d2226;
-    color: white;
-}
 
-.activity-section {
-    border: 3px solid grey;
-    background-color: #1d2226;
-    color: white;
-}
-
-.experience-section {
-    border: 3px solid grey;
-    background-color: #1d2226;
-    color: white;
-}
