@@ -6,7 +6,7 @@ import { ReactComponent as Jobs } from "../assets/icons/jobs.svg";
 import { ReactComponent as Messaging } from "../assets/icons/messaging.svg";
 import { ReactComponent as Notifications } from "../assets/icons/notifications.svg";
 import { ReactComponent as Work } from "../assets/icons/work.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/TopNavbar.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,8 @@ import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
 import FoundedUsers from "./FoundedUser";
 
 const TopNavbar = () => {
+  //   const params = useParams(); //activeNavLink class will be added to the active page
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myInfo = useSelector((state) => state.me);
@@ -23,8 +25,6 @@ const TopNavbar = () => {
   const foundedUsers = userList.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
-
-  console.log(foundedUsers);
 
   const handleChange = (e) => {
     dispatch({
@@ -88,7 +88,7 @@ const TopNavbar = () => {
               )}
             </Form>
             <div className="d-flex ml-auto">
-              <Link to="/" className="navItems">
+              <Link to="/" className="navItems activeNavLink">
                 <div className="d-flex flex-column align-items-center">
                   <Home />
                   <small>Home</small>
@@ -192,7 +192,7 @@ const TopNavbar = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
-              <div className="d-flex flex-column align-items-center navItems">
+              <div className="d-none d-md-flex flex-column align-items-center navItems">
                 <Work />
                 <small className="d-flex align-items-center">
                   Work
@@ -206,7 +206,7 @@ const TopNavbar = () => {
                   </svg>
                 </small>
               </div>
-              <Link to="/" className="navItems">
+              <Link to="/" className="navItems d-none d-md-inline-block">
                 <div className="d-flex flex-column align-items-center">
                   <svg
                     viewBox="0 0 24 24"

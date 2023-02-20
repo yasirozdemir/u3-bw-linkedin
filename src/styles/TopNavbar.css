@@ -1,6 +1,7 @@
 header {
   padding-block: 8px;
   z-index: 1000;
+  height: 60px;
 }
 
 #profilePic {
@@ -55,6 +56,32 @@ header .navItems {
   fill: #535353;
   min-height: 52px;
   min-width: 80px;
+  position: relative;
+}
+
+.navItems::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-inline: auto;
+  width: 0%;
+  background-color: #0a66c2;
+  transition: width 100ms;
+}
+
+.navItems.activeNavLink::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-inline: auto;
+  width: 90%;
+  background-color: #0a66c2;
 }
 
 header .navItems:hover {
@@ -102,7 +129,12 @@ form {
   box-shadow: inset 0px 0px 2px 1px #0a66c2;
 }
 
+#searchInput:focus + #searchResults {
+  visibility: visible;
+}
+
 #searchResults {
+  visibility: hidden;
   top: 40px;
   left: 0;
   min-width: 380px;
