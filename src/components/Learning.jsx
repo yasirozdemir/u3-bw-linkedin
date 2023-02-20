@@ -5,7 +5,7 @@ import Videocard from "./Videocard";
 const Learning = () => {
   return (
     <Row>
-      <Col lg={4} md={5} className="right-navbar">
+      <Col className="right-navbar">
         <div className="right-navbar-main">
           <div className="learning">
             <h5 className="mb-3">

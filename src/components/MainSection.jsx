@@ -43,12 +43,12 @@ const MainSection = () => {
               </div>
               <div className="icons-container display-flex">
                 <div>
-                  <button>
+                  <button className="send-invite">
                     Send invitation{" "}
                     <span>
                       <svg
                         viewBox="0 0 16 16"
-                        fill="#70b5f9"
+                        fill="#6c757d"
                         width="16"
                         height="16"
                         focusable="false"
@@ -59,12 +59,13 @@ const MainSection = () => {
                   </button>
                 </div>
                 <div>
-                  <button>
+                  <button className="message-button">
                     Message{" "}
                     <span>
                       <svg
                         viewBox="0 0 16 16"
-                        fill="#70b5f9"
+                        fill="white"
+  
                         width="16"
                         height="16"
                         focusable="false"
