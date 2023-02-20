@@ -1,0 +1,39 @@
+.main-section {
+    background-color: #1d2226;
+    min-width: 576px;
+}
+
+.main-section .main-div {
+    border: 3px solid red
+
+}
+
+.main-section .main-div .upper-part {
+    border: 3px solid green;
+    min-height: 99px;
+    max-height: 99px;
+}
+
+.main-section .main-div .bottom-part {
+    border: 3px solid yellow;
+}
+
+.display-flex {
+    display: flex;
+    border: 3px solid fuchsia
+}
+
+.main-section .main-div .bottom-part .photo-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid;    
+    background-color: #1d2226;
+    aspect-ratio: auto 200 / 200;
+    cursor: pointer;
+}
+
+.main-section .main-div .bottom-part .text-container {
+    color: white;
+}
+
