@@ -1,4 +1,4 @@
-import { Dropdown, Container, Row, Form } from "react-bootstrap";
+import { Dropdown, Container, Row, Form, Col, Button } from "react-bootstrap";
 import { ReactComponent as LinkedIn } from "../assets/icons/linkedinLogo.svg";
 import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Network } from "../assets/icons/network.svg";
@@ -6,10 +6,21 @@ import { ReactComponent as Jobs } from "../assets/icons/jobs.svg";
 import { ReactComponent as Messaging } from "../assets/icons/messaging.svg";
 import { ReactComponent as Notifications } from "../assets/icons/notifications.svg";
 import { ReactComponent as Work } from "../assets/icons/work.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/TopNavbar.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setMyInfo } from "../redux/actions";
 
 const TopNavbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const myInfo = useSelector((state) => state.me);
+
+  useState(() => {
+    dispatch(setMyInfo());
+  }, []);
+
   return (
     <>
       <header className="fixed-top">
@@ -68,11 +79,7 @@ const TopNavbar = () => {
                 <Dropdown alignRight>
                   <Dropdown.Toggle>
                     <div id="profilePic">
-                      <img
-                        src="http://placekitten.com/200/300"
-                        alt=""
-                        className="w-100"
-                      />
+                      <img src={myInfo?.image} alt="user" className="w-100" />
                     </div>
                     <small className="d-flex align-items-center">
                       Me
@@ -86,8 +93,59 @@ const TopNavbar = () => {
                       </svg>
                     </small>
                   </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Menu className="px-3 mt-2">
+                    <Row style={{ width: "320px" }}>
+                      <Col xs={4}>
+                        <img
+                          src={myInfo?.image}
+                          alt="user"
+                          className="w-100"
+                          style={{ borderRadius: "50%" }}
+                        />
+                      </Col>
+                      <Col>
+                        <h5>
+                          {myInfo?.name} {myInfo?.surname}
+                        </h5>
+                        <p className="m-0">{myInfo?.title}</p>
+                      </Col>
+                    </Row>
+                    <Button
+                      onClick={() => {
+                        navigate("/in/" + myInfo?.username);
+                      }}
+                      id="viewProfileBtn"
+                      className="w-100 p-0"
+                    >
+                      View Profile
+                    </Button>
+                    <div className="d-flex flex-column mt-2">
+                      <strong>Account</strong>
+                      <Link to="/" className="mt-1">
+                        Try premium for free
+                      </Link>
+                      <Link to="/" className="mt-1">
+                        Settings & Provacy
+                      </Link>
+                      <Link to="/" className="mt-1">
+                        Help
+                      </Link>
+                      <Link to="/" className="mt-1">
+                        Language
+                      </Link>
+                    </div>
+                    <div className="d-flex flex-column mt-2">
+                      <strong>Manage</strong>
+                      <Link to="/" className="mt-1">
+                        Post & Activity
+                      </Link>
+                      <Link to="/" className="mt-1">
+                        Job Posting Account
+                      </Link>
+                      <Link to="/" className="mt-2">
+                        Sign out
+                      </Link>
+                    </div>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

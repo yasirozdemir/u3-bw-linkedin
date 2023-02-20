@@ -6,9 +6,11 @@ header {
   width: 24px;
   height: 24px;
   overflow: hidden;
-  object-position: center;
-  border-radius: 50%;
   transition: all 100ms;
+}
+
+#profilePic img {
+  border-radius: 50%;
 }
 
 header .dropdown .dropdown-toggle,
@@ -29,6 +31,14 @@ header .dropdown .dropdown-toggle:active #profilePic {
 
 header .dropdown .dropdown-toggle::after {
   content: none;
+}
+
+header .dropdown .dropdown-menu {
+  border: solid 1px #53535353;
+}
+
+header .dropdown .dropdown-menu a {
+  color: #535353;
 }
 
 button.navItems {
@@ -71,5 +81,20 @@ form {
 
 #searchInput:focus {
   border: solid 2px #0a66c2 !important;
-  max-width: 400px;
+  max-width: 380px;
+}
+
+#viewProfileBtn {
+  background-color: transparent;
+  color: #0a66c2;
+  border-radius: 1rem;
+  transition: all 0ms;
+  margin-top: 10px;
+  border: none;
+  box-shadow: inset 0px 0px 1px 1px #0a66c2;
+}
+
+#viewProfileBtn:hover {
+  background-color: #0a66c220;
+  box-shadow: inset 0px 0px 2px 1px #0a66c2;
 }
