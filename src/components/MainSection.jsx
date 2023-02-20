@@ -5,7 +5,7 @@ import "../styles/main-section.css"
 const MainSection = () => {
 
     // const URL = "https://striveschool-api.herokuapp.com/api/profile/";
-    // const authentication = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMmQ0MjgzODFmYzAwMTNmZmZhY2QiLCJpYXQiOjE2NzY4ODEyMTksImV4cCI6MTY3ODA5MDgxOX0.073k02BTB54KTV-Eiu1nUwQeX5SRIcl7r-Oo9NrEiXs";
+    // const authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMmQ0MjgzODFmYzAwMTNmZmZhY2QiLCJpYXQiOjE2NzY4ODEyMTksImV4cCI6MTY3ODA5MDgxOX0.073k02BTB54KTV-Eiu1nUwQeX5SRIcl7r-Oo9NrEiXs";
 
     const [profiles, setProfiles] = useState()
 
