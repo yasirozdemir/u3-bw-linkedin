@@ -1,0 +1,75 @@
+header {
+  padding-block: 8px;
+}
+
+#profilePic {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  object-position: center;
+  border-radius: 50%;
+  transition: all 100ms;
+}
+
+header .dropdown .dropdown-toggle,
+header .dropdown .dropdown-toggle:active:focus {
+  background-color: transparent !important;
+  border: transparent;
+  color: inherit !important;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none !important;
+}
+
+header .dropdown .dropdown-toggle:active #profilePic {
+  transform: scale(1.05);
+}
+
+header .dropdown .dropdown-toggle::after {
+  content: none;
+}
+
+button.navItems {
+  background-color: transparent;
+  border: transparent;
+  padding: 0;
+}
+
+header .navItems {
+  color: #535353;
+  fill: #535353;
+  min-height: 52px;
+  min-width: 80px;
+}
+
+header .navItems:hover {
+  color: #191919;
+  fill: #191919;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  height: 40px;
+  margin-left: 0.5rem;
+  color: #191919;
+  fill: #535353;
+  flex-grow: 1;
+}
+
+#searchInput {
+  box-shadow: none;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0;
+  padding-left: 2.7rem;
+  max-width: 250px;
+  transition: max-width 300ms ease-in;
+}
+
+#searchInput:focus {
+  border: solid 2px #0a66c2 !important;
+  max-width: 400px;
+}
