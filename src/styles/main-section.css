@@ -1,105 +1,127 @@
 .main-section {
-    background-color: #1d2226;
-    min-width: 576px;
-    border-radius: 0.8rem;
-    padding-bottom: 3%;
-    
+  background-color: white;
+  border: 1px solid rgb(216, 216, 216);
+  min-width: 576px;
+  border-radius: 0.8rem;
+  padding-bottom: 3%;
 }
 
 .text-container {
-    padding-left: 2%;
-    padding-right: 4%;
+  padding-left: 2%;
+  padding-right: 4%;
 }
 
 .main-section .main-div .upper-part {
-    /* border: 3px solid green; */
-    min-height: 99px;
-    max-height: 99px;
+  /* border: 3px solid green; */
+  min-height: 99px;
+  max-height: 99px;
 }
 
-.display-flex {
-    display: flex;
-    /* border: 3px solid fuchsia */
+.upper-part {
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .upper-part img {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    height: 100%;
-    width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.display-flex {
+  display: flex;
+  /* border: 3px solid fuchsia */
+}
+
+.upper-part img {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .main-section .main-div .bottom-part .photo-container img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 4px solid;    
-    background-color: #1d2226;
-    aspect-ratio: auto 200 / 200;
-    cursor: pointer;
-    z-index: 4;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid;
+  background-color: white;
+  aspect-ratio: auto 200 / 200;
+  cursor: pointer;
+  z-index: 4;
+  border-color: white;
 }
 
 .main-section .main-div .bottom-part .text-container {
-    color: white;
-    margin-top: 8px;
+  color: black;
+  margin-top: 8px;
 }
 
 .main-info {
-    /* border: 3px solid yellow; */
-    position: relative;
+  /* border: 3px solid yellow; */
+  position: relative;
 }
 
-.left-panel h1, .left-panel p {
-    text-align: left;  
-} 
+.left-panel h1,
+.left-panel p {
+  text-align: left;
+}
 
 .right-panel ul {
-    /* border: 3px solid blue; */
-    width: 232px;
-    list-style: none;
-    position: absolute;
-    top: 0;
-    right: 0;
+  /* border: 3px solid blue; */
+  width: 232px;
+  list-style: none;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .icons-container {
-    padding-left: 2%;
-    width: 400px;
-    justify-content: space-between;
-} 
+  padding-left: 2%;
+  width: 400px;
+  justify-content: space-between;
+}
 
 .icons-container button {
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-    border-radius: 1.6rem;
-    border: 1px solid #70b5f9;
-    background-color: #00000000;   
-    box-shadow: inset 0 0 0 1px #70b5f9;
-    color: #70b5f9;
-    font-size: 1rem;
-    min-height: 2.2rem;
-    padding: 0.6rem 1.2rem;
-    line-height: 1rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  border-radius: 1.6rem;
+  /* border: 1px solid #70b5f9; */
+  background-color: #00000000;
+  /* box-shadow: inset 0 0 0 1px #70b5f9; */
+  /* color: #70b5f9; */
+  font-size: 1rem;
+  min-height: 2.2rem;
+  padding: 0.6rem 1.2rem;
+  line-height: 1rem;
 }
 
 .icons-container .more-button {
-    color: white;
-    border: 1px solid white;
+  color: white;
+  border: 1px solid white;
 }
 
 .text-container p {
-    text-align: left;
+  text-align: left;
 }
 
 .minor-section {
-    /* border: 3px solid grey; */
-    background-color: #1d2226;
-    padding: 3% 3%;
-    color: white;
-    text-align: left;
-    border-radius: 0.8rem;
+  /* border: 3px solid grey; */
+  border: 1px solid rgb(216, 216, 216);
+  background-color: white;
+  padding: 3% 3%;
+  color: black;
+  text-align: left;
+  border-radius: 0.8rem;
 }
 
+.message-button {
+  background-color: #0b66c2 !important;
+  color: white !important;
+  border: 1px solid #0b66c2 !important;
+}
 
+.send-invite {
+  border: 2px solid #6c757d !important;
+  font-weight: 700;
+}

@@ -1,4 +1,12 @@
+.App {
+  background-color: #f3f2ef;
+}
 
 .topHeaderFix {
-  margin-top: 60px;
+  margin-top: 95px;
+}
+
+.right-navbar-outer {
+  margin-top: 90px;
+  margin-right: -10px !important;
 }

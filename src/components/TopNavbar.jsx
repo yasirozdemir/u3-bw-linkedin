@@ -26,6 +26,7 @@ const TopNavbar = () => {
     el.name.toLowerCase().includes(query.toLowerCase())
   );
 
+
   const handleChange = (e) => {
     dispatch({
       type: SET_SEARCH_QUERY,
@@ -51,7 +52,7 @@ const TopNavbar = () => {
     <>
       <header className="fixed-top">
         <Container>
-          <Row>
+          <Row className="pl-3 pr-3">
             <Link to="/">
               <LinkedIn style={{ height: "2.5rem", width: "2.5rem" }} />
             </Link>

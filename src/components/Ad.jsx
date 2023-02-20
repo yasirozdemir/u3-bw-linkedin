@@ -3,7 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 const Ad = () => {
   return (
     <Row>
-      <Col lg={4} md={5} className="right-navbar">
+      <Col className="right-navbar">
         <div className="right-navbar-main">
           <div className="ad-section">
             <div className="mb-3">
@@ -27,9 +27,12 @@ const Ad = () => {
                 Nikolai, explore relevant opportunities with Trendyol Group
               </h3>
             </div>
+            <div className="d-flex justify-content-center">
             <Button className="ad-button" variant="outline-primary">
               Follow
+            
             </Button>
+            </div>
           </div>
         </div>
       </Col>
