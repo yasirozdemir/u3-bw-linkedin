@@ -1,7 +1,36 @@
+import { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import "../styles/main-section.css"
 
 const MainSection = () => {
+
+    // const URL = "https://striveschool-api.herokuapp.com/api/profile/";
+    // const authentication = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMmQ0MjgzODFmYzAwMTNmZmZhY2QiLCJpYXQiOjE2NzY4ODEyMTksImV4cCI6MTY3ODA5MDgxOX0.073k02BTB54KTV-Eiu1nUwQeX5SRIcl7r-Oo9NrEiXs";
+
+    const [profiles, setProfiles] = useState()
+
+    const fetchProfiles = async () => {
+        try {
+            let res = await fetch('https://striveschool-api.herokuapp.com/api/profile/',
+            {headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMmQ0MjgzODFmYzAwMTNmZmZhY2QiLCJpYXQiOjE2NzY4ODEyMTksImV4cCI6MTY3ODA5MDgxOX0.073k02BTB54KTV-Eiu1nUwQeX5SRIcl7r-Oo9NrEiXs'
+            } })
+            if (res.ok) {
+                let profilesFromApi = await res.json()
+                console.log(profilesFromApi)
+                setProfiles(profilesFromApi)
+            } else {
+                console.log("Error! :(")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        fetchProfiles()
+    }, [])
+
     return(
         <Container>
             <Row>
