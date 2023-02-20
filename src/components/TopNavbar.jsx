@@ -11,6 +11,7 @@ import "../styles/TopNavbar.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
+import FoundedUsers from "./FoundedUser";
 
 const TopNavbar = () => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ const TopNavbar = () => {
               <div id="searchResults" className="position-absolute">
                 {query.length >= 2 &&
                   foundedUsers.map((u) => {
-                    return <h6>{u.name}</h6>;
+                    return <FoundedUsers user={u} />;
                   })}
               </div>
             </Form>
