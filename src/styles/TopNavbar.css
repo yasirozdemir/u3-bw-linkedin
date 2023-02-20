@@ -112,6 +112,7 @@ form {
   padding-left: 2.7rem;
   max-width: 250px;
   transition: max-width 300ms ease-in;
+  background-color: #eef3f8;
 }
 
 #searchInput:focus {
@@ -151,4 +152,19 @@ form {
   margin-top: 0.5rem;
   padding: 0.5rem;
   background-color: #fff;
+}
+
+.meDropdownWrapper {
+  position: relative;
+}
+
+.meDropdownWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 85%;
+  width: 1px;
+  background-color: #68686863;
 }
