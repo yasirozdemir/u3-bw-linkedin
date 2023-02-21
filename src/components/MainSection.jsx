@@ -1,36 +1,63 @@
-
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
 import { parseISO, format } from "date-fns";
 
-import { setSpecificUserExperience } from "../redux/actions";
-
-
+import { removeExperience, setSpecificUserExperience } from "../redux/actions";
+import ExperienceInput from "./ExperienceInput";
+import Modal from "react-bootstrap/Modal";
 
 const MainSection = () => {
+  const [show, setShow] = useState(false);
+  const [method, setMethod] = useState("");
+  const [heading, setHeading] = useState("");
+  const [experience, setExperience] = useState("");
+
+  const handleClose = () => setShow(false);
+
+  const setAddExperience = () => {
+    setMethod("POST");
+    setHeading("Add an Experience");
+    setShow(true);
+    setExperience("");
+  };
+
+  const setEditExperience = (e) => {
+    setMethod("PUT");
+    setHeading("Edit this Experience");
+    setShow(true);
+    setExperience(e);
+    console.log("aldkfjlakjdf", e);
+  };
+
+  const setRemoveExperience = (e) => {
+    // e.preventDefault();
+    console.log("Delete triggered");
+    console.log(e);
+    dispatch(removeExperience(userId, e._id));
+  };
 
   const userId = useParams().userId;
   const dispatch = useDispatch();
-  const experienceData = useSelector(state => state.experienceData)
-  // const myInfoData = useSelector(state => state.me)
-  const userListData = useSelector(state => state.users)
-  const specificPerson = userListData.find((u) => { return (
-    userId === u._id)
-  })
-  console.log(specificPerson)
-  // console.log(experienceData)
-  // console.log(myInfoData)
-  console.log(userListData)
+  const experienceData = useSelector((state) => state.experienceData);
 
+  // const myInfoData = useSelector(state => state.me)
+  const userListData = useSelector((state) => state.users);
+  const specificPerson = userListData.find((u) => {
+    return userId === u._id;
+  });
+
+  const handlePopupClose = () => {
+    setShow(false);
+  };
 
   useEffect(() => {
-    dispatch(setSpecificUserExperience(userId))
-  }, [userId])
+    dispatch(setSpecificUserExperience(userId));
+  }, [userId]);
 
   return (
     <Container className="topHeaderFix">
@@ -46,17 +73,16 @@ const MainSection = () => {
             <div className="bottom-part">
               <div className="photo-container">
                 <div className="display-flex">
-                  <img
-                    src={specificPerson?.image}
-                    alt="Profile img"
-                  />
+                  <img src={specificPerson?.image} alt="Profile img" />
                 </div>
                 <div className="flex-1 flex-column"></div>
               </div>
               <div className="text-container">
                 <div className="main-info">
                   <div className="left-panel">
-                    <h1>{specificPerson?.name} {specificPerson?.surname}</h1>
+                    <h1>
+                      {specificPerson?.name} {specificPerson?.surname}
+                    </h1>
                     <p>{specificPerson?.title}</p>
                     <p>Area: {specificPerson?.area}</p>
                     <p>Username: {specificPerson?.username}</p>
@@ -94,7 +120,6 @@ const MainSection = () => {
                       <svg
                         viewBox="0 0 16 16"
                         fill="white"
-  
                         width="16"
                         height="16"
                         focusable="false"
@@ -117,9 +142,7 @@ const MainSection = () => {
           <div>
             <h2>Highlights</h2>
             <div className="">
-              <p>
-              {specificPerson?.bio}
-              </p>
+              <p>{specificPerson?.bio}</p>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Architecto, officia eaque quasi nisi
@@ -132,11 +155,9 @@ const MainSection = () => {
         <Col className="minor-section about-section my-1">
           <div>
             <h2>About</h2>
-                <>
-                <p>
-                  {specificPerson?.bio}
-                </p>
-                </>
+            <>
+              <p>{specificPerson?.bio}</p>
+            </>
           </div>
         </Col>
       </Row>
@@ -144,26 +165,78 @@ const MainSection = () => {
         <Col className="minor-section activity-section my-1">
           <div>
             <h2>Activity</h2>
-            <p>Created on: {format(parseISO(specificPerson?.createdAt), "EEEE, MMMM do")} <br /> Updated on: {format(parseISO(specificPerson.updatedAt), "EEEE, MMMM do")}</p>
+            <p>
+              Created on:{" "}
+              {format(parseISO(specificPerson?.createdAt), "EEEE, MMMM do")}{" "}
+              <br /> Updated on:{" "}
+              {format(parseISO(specificPerson.updatedAt), "EEEE, MMMM do")}
+            </p>
           </div>
         </Col>
       </Row>
       <Row>
         <Col className="minor-section experience-section my-1">
           <div>
-            <h2>Experience</h2>
+            <div
+              className="d-flex justify-content-between"
+              style={{ alignItems: "center" }}
+            >
+              <h2>Experience</h2>
+              {userId === "63f3370b8381fc0013fffad1" && (
+                <Button
+                  className="add-experience-button"
+                  variant="outline-primary"
+                  onClick={setAddExperience}
+                >
+                  +
+                </Button>
+              )}
+            </div>
             <br />
-            { experienceData && experienceData.map((e) => {
-              return(
-                <>
-                <h5>Role: {e.role}</h5>
-                <p>At {e.company}, located in {e.area}<br /><p>In charge of: {e.description}</p></p>
-                
-                </>
-              )
-            } ) }
+            {experienceData &&
+              experienceData.map((e) => {
+                return (
+                  <>
+                    <div key={e._id}>
+                      <h5>Role: {e.role}</h5>
+                      <p>
+                        At {e.company}, located in {e.area}
+                        <br />
+                        <p>In charge of: {e.description}</p>
+                      </p>
+                      {userId === "63f3370b8381fc0013fffad1" && (
+                        <div className="d-flex gap">
+                          <p
+                            onClick={() => setEditExperience(e)}
+                            className="edit-experience-button"
+                          >
+                            edit
+                          </p>
+                          <p
+                            onClick={() => setRemoveExperience(e)}
+                            className="remove-experience-button ml-3"
+                          >
+                            remove
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
+              })}
           </div>
         </Col>
+        <div>
+          <Modal id="popup" className="popup" show={show} onHide={handleClose}>
+            <ExperienceInput
+              userId={userId}
+              method={method}
+              heading={heading}
+              onClose={handlePopupClose}
+              experience={experience}
+            />
+          </Modal>
+        </div>
       </Row>
     </Container>
   );
