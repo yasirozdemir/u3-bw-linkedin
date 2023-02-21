@@ -3,12 +3,12 @@ export const SET_MY_INFO = "SET_MY_INFO";
 export const UPDATE_MY_INFO = "UPDATE_MY_INFO";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
-export const url = "https://striveschool-api.herokuapp.com/api/profile/";
+export const url = "https://striveschool-api.herokuapp.com/api/";
 
 export const setMyInfo = () => {
   return async (dispatch) => {
     try {
-      const res = await fetch(url + "me", {
+      const res = await fetch(url + "profile/me", {
         method: "GET",
         headers: {
           Authorization:
@@ -33,7 +33,7 @@ export const setMyInfo = () => {
 export const setUserList = () => {
   return async (dispatch) => {
     try {
-      const res = await fetch(url, {
+      const res = await fetch(url + "profile/", {
         method: "GET",
         headers: {
           Authorization:
