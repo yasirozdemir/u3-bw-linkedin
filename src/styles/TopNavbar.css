@@ -135,12 +135,12 @@ form {
   box-shadow: inset 0px 0px 2px 1px #0a66c2;
 }
 
-#searchInput:focus + #searchResults {
+/* #searchInput:focus + #searchResults {
   visibility: visible;
-}
+} */
 
 #searchResults {
-  visibility: hidden;
+  /* visibility: hidden; */
   top: 40px;
   left: 0;
   min-width: 380px;
