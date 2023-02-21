@@ -22,7 +22,7 @@ const MainSection = () => {
 
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId))
-  }, [])
+  }, [userId])
 
   return (
     <Container className="topHeaderFix">
@@ -39,8 +39,8 @@ const MainSection = () => {
               <div className="photo-container">
                 <div className="display-flex">
                   <img
-                    src="https://media.licdn.com/dms/image/C5103AQGmrLRIn_91KA/profile-displayphoto-shrink_400_400/0/1519565533648?e=1682553600&v=beta&t=YsMv7v7JcxiplahDtiFQadVyu-dymQTP6KToIvmfPCE"
-                    alt=""
+                    src={specificPerson?.image}
+                    alt="Profile img"
                   />
                 </div>
                 <div className="flex-1 flex-column"></div>
@@ -48,9 +48,10 @@ const MainSection = () => {
               <div className="text-container">
                 <div className="main-info">
                   <div className="left-panel">
-                    <h1>May Hemade</h1>
-                    <p>Teacher Assistant at Epicode</p>
-                    <p>Current location</p>
+                    <h1>{specificPerson?.name}{specificPerson?.surname}</h1>
+                    <p>{specificPerson?.title}</p>
+                    <p>Area: {specificPerson?.area}</p>
+                    <p>Username: {specificPerson?.username}</p>
                   </div>
                   <div className="right-panel">
                     <ul>
@@ -60,7 +61,6 @@ const MainSection = () => {
                   </div>
                 </div>
                 <p>500+ connections</p>
-                <p>mutual connections</p>
               </div>
               <div className="icons-container display-flex">
                 <div>
@@ -110,10 +110,7 @@ const MainSection = () => {
             <h2>Highlights</h2>
             <div className="">
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aliquid, accusantium. Facilis, a corrupti. Reprehenderit nam,
-                iure earum eius impedit error corporis, ad, eum officia cum
-                autem nobis fugit maiores harum.
+              {specificPerson?.bio}
               </p>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
