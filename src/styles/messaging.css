@@ -78,16 +78,20 @@
 }
 
 #msgMore {
-  height: 640px;
+  height: 70vh;
   overflow-y: scroll;
+}
+
+#msgMore input[type="text"] {
+  background-color: #057642;
 }
 
 #msgSearchIcon {
   top: 40%;
-  left: 0;
+  left: 22px;
 }
 
 #msgSettingsIcon {
   top: 40%;
-  right: 0;
+  right: 22px;
 }
