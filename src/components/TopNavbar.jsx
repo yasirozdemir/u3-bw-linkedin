@@ -244,14 +244,20 @@ const TopNavbar = () => {
               </Link>
             </div>
           </Row>
-          <Row
-            id="subNavbarWrappingRow"
-            className={scrollValue <= 360 ? "show" : "hide"}
-          >
+        </Container>
+      </header>
+      <Container
+        fluid
+        id="subNavbarWrapper"
+        className={scrollValue >= 450 ? "fixed-top show" : "fixed-top hide"}
+      >
+        <Container>
+          {/* increase the value */}
+          <Row className="py-1 px-3 justify-content-between align-items-center">
             <SubNavbar />
           </Row>
         </Container>
-      </header>
+      </Container>
     </>
   );
 };
