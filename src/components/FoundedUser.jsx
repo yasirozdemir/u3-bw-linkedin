@@ -2,9 +2,15 @@ import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const FoundedUsers = ({ user }) => {
+
+  const hideTab = () => {
+    let searchTab = document.getElementById("SearchResults")
+    searchTab.style.display = 'none';
+  }
+
   return (
     <>
-      <Link to={"/in/" + user._id}>
+      <Link onClick={hideTab} to={"/in/" + user._id}>
         <Row className="align-items-center mb-2">
           <Col xs={2}>
             <div
