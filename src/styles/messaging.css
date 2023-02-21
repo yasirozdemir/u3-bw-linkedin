@@ -97,20 +97,22 @@
   border-radius: 0.25rem;
   border: transparent;
   margin-bottom: 0.5rem;
+  padding-block: 5px;
 }
 
 #msgSearchIcon {
-  top: 33%;
+  top: 35%;
   left: 22px;
 }
 
 #msgSettingsIcon {
-  top: 33%;
+  top: 35%;
   right: 22px;
 }
 
 .msgUser {
   padding-top: 5px;
+  cursor: pointer;
 }
 
 .msgUser:hover {
