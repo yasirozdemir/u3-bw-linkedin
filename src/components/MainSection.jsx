@@ -140,11 +140,13 @@ const MainSection = () => {
         <Col className="minor-section experience-section my-1">
           <div>
             <h2>Experience</h2>
+            <br />
             { experienceData && experienceData.map((e) => {
               return(
                 <>
-                <h5>{e.area}, {e.company}</h5>
-                <h6>{e.startDate} - {}</h6>
+                <h5>Role: {e.role}</h5>
+                <h6>At {e.company}, located in {e.area}</h6>
+                <p>In charge of: {e.description}</p>
                 </>
               )
             } ) }
