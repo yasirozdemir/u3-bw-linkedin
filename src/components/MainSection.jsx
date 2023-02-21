@@ -25,7 +25,7 @@ const MainSection = () => {
 
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId));
-    dispatch(setSpecificUser(userId));
+    dispatch(setSpecificUser(specificPerson));
   }, [userId]);
 
   return (

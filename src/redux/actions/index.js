@@ -62,11 +62,11 @@ export const setUserList = () => {
   };
 };
 
-export const setSpecificUser = (userId) => {
+export const setSpecificUser = (user) => {
   return (dispatch) => {
     dispatch({
       type: SET_SPECIFIC_USER,
-      payload: userId,
+      payload: user,
     });
   };
 };

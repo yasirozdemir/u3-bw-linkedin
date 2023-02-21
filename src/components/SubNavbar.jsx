@@ -1,12 +1,7 @@
 import { useSelector } from "react-redux";
 
 const SubNavbar = () => {
-  const userListData = useSelector((state) => state.users);
-  const userId = useSelector((state) => state.specificUserId);
-  const specificPerson = userListData?.find((u) => {
-    return userId === u._id;
-  });
-  console.log(specificPerson);
+  const specificPerson = useSelector((state) => state.specificUserId);
 
   return (
     <>
