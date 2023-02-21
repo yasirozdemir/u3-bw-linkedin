@@ -5,7 +5,11 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import myInfoReducer from "../reducers/myInfoReducer";
 import searchReducer from "../reducers/searchReducer";
 import userListReducer from "../reducers/userListReducer";
+
+import userExperienceReducer from "../reducers/experiencesReducer";
+
 import setNetworkReducer from "../reducers/setNetworkReducer";
+
 
 const persistConfig = {
   storage: localStorage,
@@ -21,7 +25,11 @@ const combinedReducers = combineReducers({
   me: myInfoReducer,
   search: searchReducer,
   users: userListReducer,
+
+  experienceData: userExperienceReducer,
+
   network: setNetworkReducer,
+
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);

@@ -140,7 +140,7 @@ form {
 }
 
 #searchResults {
-  visibility: hidden;
+  /* visibility: hidden; */
   top: 40px;
   left: 0;
   min-width: 380px;
