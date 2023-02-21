@@ -167,3 +167,17 @@ form {
   width: 1px;
   background-color: #68686863;
 }
+
+#subNavbarWrappingRow {
+  transition: all 300ms;
+}
+
+#subNavbarWrappingRow.show {
+  opacity: 0%;
+  visibility: hidden;
+}
+
+#subNavbarWrappingRow.hide {
+  opacity: 100%;
+  visibility: visible;
+}

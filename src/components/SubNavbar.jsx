@@ -1,9 +1,5 @@
 const SubNavbar = () => {
-  return (
-    <div>
-      <h1>helo</h1>
-    </div>
-  );
+  return <div>img</div>;
 };
 
 export default SubNavbar;

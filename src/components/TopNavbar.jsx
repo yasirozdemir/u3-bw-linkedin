@@ -15,7 +15,7 @@ import FoundedUsers from "./FoundedUser";
 import SubNavbar from "./SubNavbar";
 
 const TopNavbar = () => {
-  //   const params = useParams(); //activeNavLink class will be added to the active page
+  // const params = useParams(); //activeNavLink class will be added to the active page
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +24,6 @@ const TopNavbar = () => {
   const query = useSelector((state) => state.search);
   const [scrollValue, setScrollValue] = useState(0);
 
-  console.log(scrollValue);
   const foundedUsers = userList?.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -247,7 +246,7 @@ const TopNavbar = () => {
           </Row>
           <Row
             id="subNavbarWrappingRow"
-            className={scrollValue >= 360 ? "show" : "hide"}
+            className={scrollValue <= 360 ? "show" : "hide"}
           >
             <SubNavbar />
           </Row>
