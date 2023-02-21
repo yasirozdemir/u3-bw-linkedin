@@ -12,6 +12,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
 import FoundedUsers from "./FoundedUser";
+import SubNavbar from "./SubNavbar";
 
 const TopNavbar = () => {
   //   const params = useParams(); //activeNavLink class will be added to the active page
@@ -21,11 +22,12 @@ const TopNavbar = () => {
   const myInfo = useSelector((state) => state.me);
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
+  const [scrollValue, setScrollValue] = useState(0);
 
+  console.log(scrollValue);
   const foundedUsers = userList?.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
-
 
   const handleChange = (e) => {
     dispatch({
@@ -39,7 +41,13 @@ const TopNavbar = () => {
     //  dispatch(setUserList(query));
   };
 
+  const handleScroll = () => {
+    let scrollValue = document.documentElement.scrollTop;
+    setScrollValue(scrollValue);
+  };
+
   useState(() => {
+    window.addEventListener("scroll", handleScroll);
     dispatch(setMyInfo());
     dispatch(setUserList());
     dispatch({
@@ -236,6 +244,12 @@ const TopNavbar = () => {
                 </div>
               </Link>
             </div>
+          </Row>
+          <Row
+            id="subNavbarWrappingRow"
+            className={scrollValue >= 360 ? "show" : "hide"}
+          >
+            <SubNavbar />
           </Row>
         </Container>
       </header>
