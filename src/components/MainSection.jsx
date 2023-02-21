@@ -1,4 +1,3 @@
-
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -8,29 +7,26 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
 import { parseISO, format } from "date-fns";
 
-import { setSpecificUserExperience } from "../redux/actions";
-
-
+import { setSpecificUser, setSpecificUserExperience } from "../redux/actions";
 
 const MainSection = () => {
-
   const userId = useParams().userId;
   const dispatch = useDispatch();
-  const experienceData = useSelector(state => state.experienceData)
+  const experienceData = useSelector((state) => state.experienceData);
   // const myInfoData = useSelector(state => state.me)
-  const userListData = useSelector(state => state.users)
-  const specificPerson = userListData.find((u) => { return (
-    userId === u._id)
-  })
-  console.log(specificPerson)
+  const userListData = useSelector((state) => state.users);
+  const specificPerson = userListData?.find((u) => {
+    return userId === u._id;
+  });
+  console.log(specificPerson);
   // console.log(experienceData)
   // console.log(myInfoData)
-  console.log(userListData)
-
+  console.log(userListData);
 
   useEffect(() => {
-    dispatch(setSpecificUserExperience(userId))
-  }, [userId])
+    dispatch(setSpecificUserExperience(userId));
+    dispatch(setSpecificUser(userId));
+  }, [userId]);
 
   return (
     <Container className="topHeaderFix">
@@ -46,17 +42,16 @@ const MainSection = () => {
             <div className="bottom-part">
               <div className="photo-container">
                 <div className="display-flex">
-                  <img
-                    src={specificPerson?.image}
-                    alt="Profile img"
-                  />
+                  <img src={specificPerson?.image} alt="Profile img" />
                 </div>
                 <div className="flex-1 flex-column"></div>
               </div>
               <div className="text-container">
                 <div className="main-info">
                   <div className="left-panel">
-                    <h1>{specificPerson?.name} {specificPerson?.surname}</h1>
+                    <h1>
+                      {specificPerson?.name} {specificPerson?.surname}
+                    </h1>
                     <p>{specificPerson?.title}</p>
                     <p>Area: {specificPerson?.area}</p>
                     <p>Username: {specificPerson?.username}</p>
@@ -94,7 +89,6 @@ const MainSection = () => {
                       <svg
                         viewBox="0 0 16 16"
                         fill="white"
-  
                         width="16"
                         height="16"
                         focusable="false"
@@ -117,9 +111,7 @@ const MainSection = () => {
           <div>
             <h2>Highlights</h2>
             <div className="">
-              <p>
-              {specificPerson?.bio}
-              </p>
+              <p>{specificPerson?.bio}</p>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Architecto, officia eaque quasi nisi
@@ -132,11 +124,9 @@ const MainSection = () => {
         <Col className="minor-section about-section my-1">
           <div>
             <h2>About</h2>
-                <>
-                <p>
-                  {specificPerson?.bio}
-                </p>
-                </>
+            <>
+              <p>{specificPerson?.bio}</p>
+            </>
           </div>
         </Col>
       </Row>
@@ -144,7 +134,12 @@ const MainSection = () => {
         <Col className="minor-section activity-section my-1">
           <div>
             <h2>Activity</h2>
-            <p>Created on: {format(parseISO(specificPerson?.createdAt), "EEEE, MMMM do")} <br /> Updated on: {format(parseISO(specificPerson.updatedAt), "EEEE, MMMM do")}</p>
+            <p>
+              Created on:{" "}
+              {format(parseISO(specificPerson?.createdAt), "EEEE, MMMM do")}{" "}
+              <br /> Updated on:{" "}
+              {format(parseISO(specificPerson.updatedAt), "EEEE, MMMM do")}
+            </p>
           </div>
         </Col>
       </Row>
@@ -153,15 +148,19 @@ const MainSection = () => {
           <div>
             <h2>Experience</h2>
             <br />
-            { experienceData && experienceData.map((e) => {
-              return(
-                <>
-                <h5>Role: {e.role}</h5>
-                <p>At {e.company}, located in {e.area}<br /><p>In charge of: {e.description}</p></p>
-                
-                </>
-              )
-            } ) }
+            {experienceData &&
+              experienceData.map((e) => {
+                return (
+                  <>
+                    <h5 key={e._id}>Role: {e.role}</h5>
+                    <p>
+                      At {e.company}, located in {e.area}
+                      <br />
+                      <p>In charge of: {e.description}</p>
+                    </p>
+                  </>
+                );
+              })}
           </div>
         </Col>
       </Row>

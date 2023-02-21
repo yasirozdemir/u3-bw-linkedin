@@ -3,6 +3,7 @@ export const SET_MY_INFO = "SET_MY_INFO";
 export const UPDATE_MY_INFO = "UPDATE_MY_INFO";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
+export const SET_SPECIFIC_USER = "SET_SPECIFIC_USER";
 
 export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
 export const SET_USER_EXPERIENCES = "SET_USER_EXPERIENCES";
@@ -61,6 +62,14 @@ export const setUserList = () => {
   };
 };
 
+export const setSpecificUser = (userId) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_SPECIFIC_USER,
+      payload: userId,
+    });
+  };
+};
 
 export const setSpecificUserExperience = (userId) => {
   return async (dispatch) => {

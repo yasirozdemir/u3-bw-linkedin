@@ -1,19 +1,35 @@
+import { useSelector } from "react-redux";
+
 const SubNavbar = () => {
+  const userListData = useSelector((state) => state.users);
+  const userId = useSelector((state) => state.specificUserId);
+  const specificPerson = userListData?.find((u) => {
+    return userId === u._id;
+  });
+  console.log(specificPerson);
+
   return (
     <>
       <div className="d-flex align-items-center">
-        <div style={{ width: "32px", height: "32px" }}>
+        <div>
           <img
-            src="https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png"
+            src={specificPerson?.image}
             alt=""
             className="w-100 rounded-circle"
+            style={{
+              minWidth: "32px",
+              height: "32px",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         </div>
         <div className="ml-2">
           <p className="m-0" style={{ fontWeight: "600" }}>
-            Username
+            {specificPerson?.name}
+            {specificPerson?.surname}
           </p>
-          <small className="m-0">User Title</small>
+          <small className="m-0">{specificPerson?.title}</small>
         </div>
       </div>
       <div className="d-flex align-items-center">

@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const Messaging = () => {
   const myInfo = useSelector((state) => state.me);
-  const userList = useSelector((state) => state.users).slice(0, 12);
+  const userList = useSelector((state) => state.users)?.slice(0, 15);
   const [showMore, setShowMore] = useState(false);
   return (
     <>
@@ -24,9 +24,15 @@ const Messaging = () => {
           <div className="d-flex align-items-center">
             <div id="msgImgWrapper">
               <img
-                src={myInfo.image}
-                style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+                src={myInfo?.image}
+                style={{
+                  maxWidth: "32px",
+                  height: "32px",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
                 alt=""
+                className="rounded-circle"
               />
             </div>
             <p className="ml-2 m-0">Messaging</p>
