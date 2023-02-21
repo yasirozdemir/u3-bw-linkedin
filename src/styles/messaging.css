@@ -1,0 +1,93 @@
+#messageBox {
+  padding: 0.5rem 0;
+  background-color: #fff;
+  left: auto;
+  width: 300px;
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  user-select: none;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+  /* transform: translateY(-100px); */
+}
+
+#messageBox > div:nth-of-type(1) {
+  padding: 0 0.5rem;
+}
+
+#messageBox #msgImgWrapper {
+  position: relative;
+}
+
+#messageBox #msgImgWrapper + p {
+  font-weight: 600;
+}
+
+#messageBox #msgImgWrapper::after,
+#messageBox .userImgWrapper::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #057642;
+}
+
+#messageBox #msgImgWrapper::after {
+  width: 8px;
+  height: 8px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#messageBox .userImgWrapper::after {
+  width: 10px;
+  height: 10px;
+  right: 3px;
+  bottom: 3px;
+}
+
+#messageBox button {
+  border: transparent;
+  padding: 0;
+  background-color: transparent;
+}
+
+.msgIcons {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msgIcons:hover {
+  background-color: #e6e6e7;
+}
+
+#messageBox .userImgWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+}
+
+#messageBox .userImgWrapper + div h6:nth-of-type(2) {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#msgMore {
+  height: 640px;
+  overflow-y: scroll;
+}
+
+#msgSearchIcon {
+  top: 40%;
+  left: 0;
+}
+
+#msgSettingsIcon {
+  top: 40%;
+  right: 0;
+}
