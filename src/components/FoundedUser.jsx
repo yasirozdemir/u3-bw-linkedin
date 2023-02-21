@@ -5,7 +5,7 @@ const FoundedUsers = ({ user }) => {
   return (
     <>
       <Link to={"/in/" + user._id}>
-        <Row className="align-items-center mb-2">
+        <Row className="align-items-center my-1">
           <Col xs={2}>
             <div
               className="d-flex justify-content-center"
