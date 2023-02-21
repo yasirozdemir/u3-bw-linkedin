@@ -119,7 +119,7 @@ const TopNavbar = () => {
                   <small>Notifications</small>
                 </div>
               </Link>
-              <div className="d-flex flex-column align-items-center navItems">
+              <div className="d-flex flex-column align-items-center navItems meDropdownWrapper">
                 <Dropdown alignRight>
                   <Dropdown.Toggle>
                     <div id="profilePic">
