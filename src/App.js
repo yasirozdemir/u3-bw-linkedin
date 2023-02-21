@@ -17,7 +17,7 @@ function App() {
           <Row>
             <Col md={8}>
               <Routes>
-                <Route path="/" element={<MainSection />} />
+                <Route path="/in/:userId" element={<MainSection />} />
               </Routes>
             </Col>
             <Col md={4} className="sidebar">

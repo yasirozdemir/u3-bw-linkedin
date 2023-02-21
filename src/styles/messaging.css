@@ -7,11 +7,16 @@
   border-top-left-radius: 0.3rem;
   user-select: none;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
-  /* transform: translateY(-100px); */
+  transition: all 500ms;
+}
+
+#messageBox.hide {
+  transform: translateY(75vh);
 }
 
 #messageBox > div:nth-of-type(1) {
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 #messageBox #msgImgWrapper {
@@ -82,16 +87,32 @@
   overflow-y: scroll;
 }
 
-#msgMore input[type="text"] {
-  background-color: #057642;
+#msgMore {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+#messageBox input[type="text"] {
+  background-color: #eef3f8;
+  border-radius: 0.25rem;
+  border: transparent;
+  margin-bottom: 0.5rem;
 }
 
 #msgSearchIcon {
-  top: 40%;
+  top: 33%;
   left: 22px;
 }
 
 #msgSettingsIcon {
-  top: 40%;
+  top: 33%;
   right: 22px;
+}
+
+.msgUser {
+  padding-top: 5px;
+}
+
+.msgUser:hover {
+  background-color: #eef3f8;
 }

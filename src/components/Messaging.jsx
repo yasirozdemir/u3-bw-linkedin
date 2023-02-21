@@ -12,7 +12,14 @@ const Messaging = () => {
   const [showMore, setShowMore] = useState(false);
   return (
     <>
-      <div id="messageBox" className="fixed-bottom d-flex flex-column">
+      <div
+        id="messageBox"
+        className={
+          showMore
+            ? "show fixed-bottom d-flex flex-column"
+            : "hide fixed-bottom d-flex flex-column"
+        }
+      >
         <div className="d-flex justify-content-between w-100 ml-auto">
           <div className="d-flex align-items-center">
             <div id="msgImgWrapper">
@@ -72,13 +79,13 @@ const Messaging = () => {
             style={{ transform: "rotate(90deg)" }}
           />
         </div>
-        <div id="msgMore" className={showMore ? "show" : "hide"}>
+        <div id="msgMore">
           {userList &&
             userList.map((u) => {
               return (
                 <div
                   key={u._id}
-                  className="d-flex align-items-center pl-2 mt-3"
+                  className="msgUser d-flex align-items-center pl-2 mt-3"
                 >
                   <div className="userImgWrapper">
                     <img
