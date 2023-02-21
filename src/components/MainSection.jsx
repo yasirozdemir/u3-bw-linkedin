@@ -4,13 +4,21 @@ import { useParams } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
-import { setSpecificUserExperience } from "../redux/actions";
+import { setSpecificUserExperience, setMyInfo, setUserList } from "../redux/actions";
 
 const MainSection = () => {
   const userId = useParams().userId;
   const dispatch = useDispatch();
   const experienceData = useSelector(state => state.experienceData)
-  console.log(experienceData)
+  const myInfoData = useSelector(state => state.me)
+  const userListData = useSelector(state => state.users)
+  const specificPerson = userListData.find((u) => { return (
+    userId === u._id)
+  })
+  console.log(specificPerson)
+  // console.log(experienceData)
+  // console.log(myInfoData)
+  console.log(userListData)
 
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId))
@@ -119,12 +127,11 @@ const MainSection = () => {
         <Col className="minor-section about-section my-1">
           <div>
             <h2>About</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex
-              incidunt, asperiores odio quae itaque voluptatibus, eligendi
-              perspiciatis sint unde provident similique nostrum aspernatur
-              ipsum tempora eveniet laudantium! Rerum, perferendis vel!
-            </p>
+                <>
+                <p>
+                  {specificPerson?.bio}
+                </p>
+                </>
           </div>
         </Col>
       </Row>
