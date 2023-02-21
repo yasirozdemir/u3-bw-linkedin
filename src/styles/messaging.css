@@ -12,7 +12,7 @@
 }
 
 #messageBox.hide {
-  transform: translateY(75vh);
+  transform: translateY(550px);
 }
 
 #messageBox > div:nth-of-type(1) {
@@ -84,12 +84,7 @@
 }
 
 #msgMore {
-  height: 70vh;
-  overflow-y: scroll;
-}
-
-#msgMore {
-  height: 70vh;
+  height: 500px;
   overflow-y: scroll;
 }
 
