@@ -253,7 +253,7 @@ const TopNavbar = () => {
       >
         <Container>
           {/* increase the value */}
-          <Row className="py-1 px-3 justify-content-between align-items-center">
+          <Row className="px-3 justify-content-between align-items-center">
             <SubNavbar />
           </Row>
         </Container>
