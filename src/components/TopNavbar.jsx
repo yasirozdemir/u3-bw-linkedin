@@ -35,7 +35,9 @@ const TopNavbar = () => {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
+    
     //  dispatch(setUserList(query));
   };
 
