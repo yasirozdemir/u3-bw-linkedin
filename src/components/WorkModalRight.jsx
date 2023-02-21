@@ -21,7 +21,9 @@ const WorkModalRight = ({ show, setShow }) => {
       <Container
         id="workModal"
         className={
-          show ? "show fixed-top py-2 px-5" : "hide fixed-top py-2 px-5"
+          show
+            ? "show ml-auto fixed-top mr-0 py-2 px-5"
+            : "hide fixed-top py-2 mr-0 px-5"
         }
       >
         <Row className="align-items-center">
@@ -118,7 +120,7 @@ const WorkModalRight = ({ show, setShow }) => {
                 </small>
               </Link>
             </Card.Body>
-            <Card.Footer>
+            <Card.Footer style={{ backgroundColor: "transparent" }}>
               <Link to="/" className="text-dark">
                 Create a Company Page
               </Link>
