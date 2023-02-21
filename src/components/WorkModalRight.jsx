@@ -1,10 +1,12 @@
-import { Container, Row, Card, Col } from "react-bootstrap";
+import { Container, Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/WorkModalRight.css";
 
 const WorkModalRight = ({ show, setShow }) => {
   if (show) {
     document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
   }
 
   return (
@@ -14,11 +16,13 @@ const WorkModalRight = ({ show, setShow }) => {
         onClick={() => {
           setShow(false);
         }}
-        className={show ? "show" : "hide"}
+        className={show ? "fixed-top show" : "fixed-top hide"}
       ></div>
       <Container
         id="workModal"
-        className={show ? "show py-2 px-5" : "hide py-2 px-5"}
+        className={
+          show ? "show fixed-top py-2 px-5" : "hide fixed-top py-2 px-5"
+        }
       >
         <Row className="align-items-center">
           <h5 className="mt-1" style={{ fontWeight: "600" }}>
