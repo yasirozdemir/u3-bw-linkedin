@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+
 import { Col, Container, Row } from "react-bootstrap";
 import "../styles/main-section.css";
 
+
+
 const MainSection = () => {
+
+
   return (
     <Container className="topHeaderFix">
       <Row>

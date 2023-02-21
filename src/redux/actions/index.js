@@ -3,6 +3,7 @@ export const SET_MY_INFO = "SET_MY_INFO";
 export const UPDATE_MY_INFO = "UPDATE_MY_INFO";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
+export const SET_NETWORK_LIST = "SET_NETWORK_LIST";
 export const url = "https://striveschool-api.herokuapp.com/api/";
 
 export const setMyInfo = () => {
@@ -51,6 +52,31 @@ export const setUserList = () => {
       }
     } catch (error) {
       console.error("error");
+    }
+  };
+};
+
+export const setNetworkList = () => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "profile/", {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0",
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const shuffledUsers = [...data].sort(() => 0.5 - Math.random());
+        console.log(data);
+        dispatch({
+          type: SET_NETWORK_LIST,
+          payload: shuffledUsers,
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 };

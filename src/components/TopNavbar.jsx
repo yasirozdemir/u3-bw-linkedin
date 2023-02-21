@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
 import FoundedUsers from "./FoundedUser";
 
+
 const TopNavbar = () => {
   //   const params = useParams(); //activeNavLink class will be added to the active page
 
@@ -42,6 +43,7 @@ const TopNavbar = () => {
   useState(() => {
     dispatch(setMyInfo());
     dispatch(setUserList());
+    
     dispatch({
       type: SET_SEARCH_QUERY,
       payload: "",
