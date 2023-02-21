@@ -6,27 +6,29 @@ import { ReactComponent as Jobs } from "../assets/icons/jobs.svg";
 import { ReactComponent as Messaging } from "../assets/icons/messaging.svg";
 import { ReactComponent as Notifications } from "../assets/icons/notifications.svg";
 import { ReactComponent as Work } from "../assets/icons/work.svg";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/TopNavbar.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMyInfo, setUserList, SET_SEARCH_QUERY } from "../redux/actions";
 import FoundedUsers from "./FoundedUser";
+import SubNavbar from "./SubNavbar";
+import WorkModalRight from "./WorkModalRight";
 
 
 const TopNavbar = () => {
-  //   const params = useParams(); //activeNavLink class will be added to the active page
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myInfo = useSelector((state) => state.me);
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
+  const [scrollValue, setScrollValue] = useState(0);
 
   const foundedUsers = userList?.filter((el) =>
     el.name.toLowerCase().includes(query.toLowerCase())
   );
 
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     dispatch({
@@ -40,7 +42,13 @@ const TopNavbar = () => {
     //  dispatch(setUserList(query));
   };
 
+  const handleScroll = () => {
+    let scrollValue = document.documentElement.scrollTop;
+    setScrollValue(scrollValue);
+  };
+
   useState(() => {
+    window.addEventListener("scroll", handleScroll);
     dispatch(setMyInfo());
     dispatch(setUserList());
     
@@ -52,6 +60,7 @@ const TopNavbar = () => {
 
   return (
     <>
+      <WorkModalRight show={showModal} setShow={setShowModal} />
       <header className="fixed-top">
         <Container>
           <Row className="pl-3 pr-3">
@@ -195,7 +204,11 @@ const TopNavbar = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
-              <div className="d-none d-md-flex flex-column align-items-center navItems">
+              <div
+                className="d-none d-md-flex flex-column align-items-center navItems"
+                onClick={() => setShowModal(true)}
+                style={{ cursor: "pointer" }}
+              >
                 <Work />
                 <small className="d-flex align-items-center">
                   Work
@@ -241,6 +254,18 @@ const TopNavbar = () => {
           </Row>
         </Container>
       </header>
+      <Container
+        fluid
+        id="subNavbarWrapper"
+        className={scrollValue >= 450 ? "fixed-top show" : "fixed-top hide"}
+      >
+        <Container>
+          {/* increase the value */}
+          <Row className="px-3 justify-content-between align-items-center">
+            <SubNavbar />
+          </Row>
+        </Container>
+      </Container>
     </>
   );
 };

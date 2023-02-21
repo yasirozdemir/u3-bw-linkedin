@@ -1,12 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FoundedUsers = ({ user }) => {
-
   const hideTab = () => {
-    let searchTab = document.getElementById("SearchResults")
-    searchTab.style.display = 'none';
-  }
+    let searchTab = document.getElementById("SearchResults");
+    searchTab.style.display = "none";
+  };
 
   return (
     <>

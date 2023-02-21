@@ -6,13 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainSection from "./components/MainSection";
 import TopNavbar from "./components/TopNavbar";
 import { Container, Row, Col } from "react-bootstrap";
+import Messaging from "./components/Messaging";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <TopNavbar />
         <Container>
-          <TopNavbar />
           <Row>
             <Col md={8}>
               <Routes>
@@ -24,6 +25,7 @@ function App() {
             </Col>
           </Row>
         </Container>
+        <Messaging />
       </BrowserRouter>
     </div>
   );

@@ -1,0 +1,49 @@
+#modalBG {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  transition: all 500ms;
+}
+
+#workModal {
+  z-index: 1000;
+  top: 60px;
+  bottom: 0;
+  width: 380px;
+  background-color: white;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  transition: all 500ms;
+}
+
+#modalBG.show,
+#workModal.show {
+  visibility: visible;
+  opacity: 100%;
+}
+
+#modalBG.hide,
+#workModal.hide {
+  visibility: hidden;
+  opacity: 0%;
+}
+
+#workModal .row:nth-of-type(1) button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: #797979;
+}
+
+#workModal .row:nth-of-type(1) button:hover {
+  background-color: #ebebeb;
+}
+
+#workModal.hide {
+  transform: translateX(380px);
+}

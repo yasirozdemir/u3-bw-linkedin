@@ -1,0 +1,116 @@
+#messageBox {
+  padding: 0.5rem 0;
+  background-color: #fff;
+  left: auto;
+  width: 300px;
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  user-select: none;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+  transition: all 500ms;
+  z-index: 500;
+}
+
+#messageBox.hide {
+  transform: translateY(550px);
+}
+
+#messageBox > div:nth-of-type(1) {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+#messageBox #msgImgWrapper {
+  position: relative;
+}
+
+#messageBox #msgImgWrapper + p {
+  font-weight: 600;
+}
+
+#messageBox #msgImgWrapper::after,
+#messageBox .userImgWrapper::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #057642;
+}
+
+#messageBox #msgImgWrapper::after {
+  width: 8px;
+  height: 8px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#messageBox .userImgWrapper::after {
+  width: 10px;
+  height: 10px;
+  right: 3px;
+  bottom: 3px;
+}
+
+#messageBox button {
+  border: transparent;
+  padding: 0;
+  background-color: transparent;
+}
+
+.msgIcons {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.msgIcons:hover {
+  background-color: #e6e6e7;
+}
+
+#messageBox .userImgWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+}
+
+#messageBox .userImgWrapper + div h6:nth-of-type(2) {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#msgMore {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+#messageBox input[type="text"] {
+  background-color: #eef3f8;
+  border-radius: 0.25rem;
+  border: transparent;
+  margin-bottom: 0.5rem;
+  padding-block: 5px;
+}
+
+#msgSearchIcon {
+  top: 35%;
+  left: 22px;
+}
+
+#msgSettingsIcon {
+  top: 35%;
+  right: 22px;
+}
+
+.msgUser {
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.msgUser:hover {
+  background-color: #eef3f8;
+}
