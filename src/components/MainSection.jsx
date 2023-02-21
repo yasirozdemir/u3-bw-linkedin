@@ -9,12 +9,12 @@ import { setSpecificUserExperience } from "../redux/actions";
 const MainSection = () => {
   const userId = useParams().userId;
   const dispatch = useDispatch();
-  let experienceData = useSelector((state) => state.experienceData);
-  console.log(experienceData);
+  const experienceData = useSelector(state => state.experienceData)
+  console.log(experienceData)
 
   useEffect(() => {
-    dispatch(setSpecificUserExperience(userId));
-  }, []);
+    dispatch(setSpecificUserExperience(userId))
+  }, [])
 
   return (
     <Container className="topHeaderFix">
@@ -78,6 +78,7 @@ const MainSection = () => {
                       <svg
                         viewBox="0 0 16 16"
                         fill="white"
+  
                         width="16"
                         height="16"
                         focusable="false"
@@ -139,10 +140,14 @@ const MainSection = () => {
         <Col className="minor-section experience-section my-1">
           <div>
             <h2>Experience</h2>
-            {experienceData &&
-              experienceData.map((e) => {
-                return <h2>{e.company}</h2>;
-              })}
+            { experienceData && experienceData.map((e) => {
+              return(
+                <>
+                <h5>{e.area}, {e.company}</h5>
+                <h6>{e.startDate} - {}</h6>
+                </>
+              )
+            } ) }
           </div>
         </Col>
       </Row>
