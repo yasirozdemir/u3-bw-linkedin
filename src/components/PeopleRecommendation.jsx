@@ -1,23 +1,25 @@
-import { Row, Col} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import ContactCard from "./ContactCard";
 
+const PeopleRecommendation = ({ title, profiles }) => {
+  return (
+    <Row>
+      <Col className="right-navbar">
+        <div className="right-navbar-main">
+          <div className="nav-section">
+            <h5 className="mb-3">{title}</h5>
+            {profiles.map((profile) => {
+              return <ContactCard profile={profile} />;
+            })}
 
-const PeopleRecommendation = ({title, profile}) => {
-    return(
-        <Row>
-        <Col className="right-navbar">
-          <div className="right-navbar-main">
-            <div className="nav-section">
-              <h5 className="mb-3">{title}</h5>
-              <ContactCard />
-              <div className="show-more">
-                <p>Show more</p>
-              </div>
+            <div className="show-more">
+              <p>Show more</p>
             </div>
           </div>
-        </Col>
-      </Row>
-    )
-}
+        </div>
+      </Col>
+    </Row>
+  );
+};
 
-export default PeopleRecommendation
+export default PeopleRecommendation;
