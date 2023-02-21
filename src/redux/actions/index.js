@@ -3,6 +3,8 @@ export const SET_MY_INFO = "SET_MY_INFO";
 export const UPDATE_MY_INFO = "UPDATE_MY_INFO";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
+export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
+export const SET_USER_EXPERIENCES = "SET_USER_EXPERIENCES";
 export const url = "https://striveschool-api.herokuapp.com/api/";
 
 export const setMyInfo = () => {
@@ -51,6 +53,32 @@ export const setUserList = () => {
       }
     } catch (error) {
       console.error("error");
+    }
+  };
+};
+
+export const setSpecificUserExperience = (userId) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "profile/" + userId + "/experiences", {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data);
+        dispatch({
+          type: GET_SPECIFIC_USER,
+          payload: data,
+        });
+      } else {
+        console.log("error fetching specific user data");
+      }
+    } catch (error) {
+      console.log("error fetching specific user data");
     }
   };
 };

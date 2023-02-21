@@ -1,8 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
+import { setSpecificUserExperience } from "../redux/actions";
 
 const MainSection = () => {
+  const userId = useParams().userId;
+  const dispatch = useDispatch();
+  const experienceData = useSelector(state => state.experienceData)
+  console.log(experienceData)
+
+  useEffect(() => {
+    dispatch(setSpecificUserExperience(userId))
+  }, [])
+
   return (
     <Container className="topHeaderFix">
       <Row>
@@ -127,6 +140,11 @@ const MainSection = () => {
         <Col className="minor-section experience-section my-1">
           <div>
             <h2>Experience</h2>
+            { experienceData && experienceData.map((e) => {
+              return(
+                <h2>{e.company}</h2>
+              )
+            } ) }
           </div>
         </Col>
       </Row>
