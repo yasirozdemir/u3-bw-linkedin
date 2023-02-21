@@ -68,10 +68,11 @@ export const setNetworkList = () => {
       });
       if (res.ok) {
         const data = await res.json();
+        const shuffledUsers = [...data].sort(() => 0.5 - Math.random());
         console.log(data);
         dispatch({
           type: SET_NETWORK_LIST,
-          payload: data,
+          payload: shuffledUsers,
         });
       }
     } catch (error) {

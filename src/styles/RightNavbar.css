@@ -49,6 +49,9 @@
   padding-left: 15px;
   text-align: left;
   text-decoration: none;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 .promo-details {
   padding-left: 15px;
@@ -88,6 +91,10 @@
   font-size: 14px;
   color: black;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .promo-details p {

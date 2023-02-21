@@ -11,9 +11,8 @@ import Promoted from "./Promoted";
 const RightNavbar = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.network.profiles);
-  const shuffledUsers = [...users].sort(() => 0.5 - Math.random());
-  const randomPeopleRecommendation = shuffledUsers.slice(0, 3);
-  const randomViewRecommendation = shuffledUsers.slice(4, 6);
+  const randomPeopleRecommendation = users.slice(0, 3);
+  const randomViewRecommendation = users.slice(4, 6);
 
   useEffect(() => {
     dispatch(setNetworkList());
