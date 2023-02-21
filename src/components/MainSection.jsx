@@ -1,6 +1,8 @@
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
@@ -8,7 +10,10 @@ import { parseISO, format } from "date-fns";
 
 import { setSpecificUserExperience } from "../redux/actions";
 
+
+
 const MainSection = () => {
+
   const userId = useParams().userId;
   const dispatch = useDispatch();
   const experienceData = useSelector(state => state.experienceData)
