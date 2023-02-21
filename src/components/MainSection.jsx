@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
-import { setSpecificUserExperience, setMyInfo, setUserList } from "../redux/actions";
+import { parseISO, format } from "date-fns";
+
+import { setSpecificUserExperience } from "../redux/actions";
 
 const MainSection = () => {
   const userId = useParams().userId;
   const dispatch = useDispatch();
   const experienceData = useSelector(state => state.experienceData)
-  const myInfoData = useSelector(state => state.me)
+  // const myInfoData = useSelector(state => state.me)
   const userListData = useSelector(state => state.users)
   const specificPerson = userListData.find((u) => { return (
     userId === u._id)
@@ -19,6 +21,7 @@ const MainSection = () => {
   // console.log(experienceData)
   // console.log(myInfoData)
   console.log(userListData)
+
 
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId))
@@ -48,7 +51,7 @@ const MainSection = () => {
               <div className="text-container">
                 <div className="main-info">
                   <div className="left-panel">
-                    <h1>{specificPerson?.name}{specificPerson?.surname}</h1>
+                    <h1>{specificPerson?.name} {specificPerson?.surname}</h1>
                     <p>{specificPerson?.title}</p>
                     <p>Area: {specificPerson?.area}</p>
                     <p>Username: {specificPerson?.username}</p>
@@ -136,7 +139,7 @@ const MainSection = () => {
         <Col className="minor-section activity-section my-1">
           <div>
             <h2>Activity</h2>
-            <p>{specificPerson?.createdAt}</p>
+            <p>Created on: {format(parseISO(specificPerson?.createdAt), "EEEE, MMMM do")} <br /> Updated on: {format(parseISO(specificPerson.updatedAt), "EEEE, MMMM do")}</p>
           </div>
         </Col>
       </Row>
@@ -149,8 +152,8 @@ const MainSection = () => {
               return(
                 <>
                 <h5>Role: {e.role}</h5>
-                <h6>At {e.company}, located in {e.area}</h6>
-                <p>In charge of: {e.description}</p>
+                <p>At {e.company}, located in {e.area}<br /><p>In charge of: {e.description}</p></p>
+                
                 </>
               )
             } ) }
