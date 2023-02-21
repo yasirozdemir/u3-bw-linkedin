@@ -136,7 +136,7 @@ const MainSection = () => {
         <Col className="minor-section activity-section my-1">
           <div>
             <h2>Activity</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p>{specificPerson?.createdAt}</p>
           </div>
         </Col>
       </Row>
