@@ -22,7 +22,6 @@ const TopNavbar = () => {
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
   const urlParams = useSelector((state) => state.urlParams);
-  console.log(urlParams);
   const [scrollValue, setScrollValue] = useState(0);
 
   const foundedUsers = userList?.filter((el) =>
