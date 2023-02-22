@@ -96,6 +96,11 @@
   padding-block: 5px;
 }
 
+#messageBox input[type="text"]:hover {
+  background-color: #ebebeb;
+  outline: solid 2px rgba(43, 43, 43, 0.61);
+}
+
 #msgSearchIcon {
   top: 35%;
   left: 22px;
