@@ -21,8 +21,7 @@ const SubNavbar = () => {
         </div>
         <div className="ml-2">
           <p className="m-0" style={{ fontWeight: "600" }}>
-            {specificPerson?.name}
-            {specificPerson?.surname}
+            {specificPerson?.name} {specificPerson?.surname}
           </p>
           <small className="m-0">{specificPerson?.title}</small>
         </div>
