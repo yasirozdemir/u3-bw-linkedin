@@ -196,7 +196,6 @@ export const removeExperience = (userId, experience) => {
   };
 };
 
-
 export const addPost = (post) => {
   console.log("add post triggered");
   return async (dispatch) => {
@@ -211,11 +210,12 @@ export const addPost = (post) => {
         body: JSON.stringify(post),
       });
       const newPost = await response.json();
+      console.log(newPost);
       dispatch({
         type: ADD_POST,
         payload: newPost,
       });
-       } catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
