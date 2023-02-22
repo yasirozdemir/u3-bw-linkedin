@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
 import { parseISO, format } from "date-fns";
 
+
 import { removeExperience, setSpecificUserExperience } from "../redux/actions";
 import ExperienceInput from "./ExperienceInput";
 import Modal from "react-bootstrap/Modal";
@@ -57,6 +58,27 @@ const MainSection = () => {
 
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId));
+
+import { setSpecificUser, setSpecificUserExperience } from "../redux/actions";
+
+const MainSection = () => {
+  const userId = useParams().userId;
+  const dispatch = useDispatch();
+  const experienceData = useSelector((state) => state.experienceData);
+  // const myInfoData = useSelector(state => state.me)
+  const userListData = useSelector((state) => state.users);
+  const specificPerson = userListData?.find((u) => {
+    return userId === u._id;
+  });
+  console.log(specificPerson);
+  // console.log(experienceData)
+  // console.log(myInfoData)
+  console.log(userListData);
+
+  useEffect(() => {
+    dispatch(setSpecificUserExperience(userId));
+    dispatch(setSpecificUser(specificPerson));
+
   }, [userId]);
 
   return (
@@ -197,6 +219,7 @@ const MainSection = () => {
               experienceData.map((e) => {
                 return (
                   <>
+
                     <div key={e._id}>
                       <h5>Role: {e.role}</h5>
                       <p>
@@ -221,6 +244,14 @@ const MainSection = () => {
                         </div>
                       )}
                     </div>
+
+                    <h5 key={e._id}>Role: {e.role}</h5>
+                    <p>
+                      At {e.company}, located in {e.area}
+                      <br />
+                      <p>In charge of: {e.description}</p>
+                    </p>
+
                   </>
                 );
               })}
