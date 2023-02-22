@@ -1,0 +1,24 @@
+footer a {
+  color: rgb(77, 77, 77);
+}
+
+footer a:hover {
+  text-decoration: underline !important;
+}
+
+footer svg {
+  fill: rgb(77, 77, 77);
+}
+
+footer select {
+  font-size: 0.9rem;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 0.25rem;
+  border: transparent;
+  border: solid 1px;
+}
+
+footer select:hover {
+  box-shadow: inset 0px 0px 0px 1px rgba(128, 128, 128, 0.555);
+}
