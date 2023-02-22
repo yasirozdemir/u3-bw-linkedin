@@ -125,37 +125,3 @@
   border: 2px solid #6c757d !important;
   font-weight: 700;
 }
-
-.popup-form {
-  background-color: white;
-}
-
-.popup .modal-body {
-  min-height: 725px;
-}
-
-.add-experience-button {
-  max-height: 30px !important;
-  display: flex;
-  align-items: center;
-  border-color: #0b66c2 !important;
-  color: #0b66c2 !important;
-}
-
-.add-experience-button:hover {
-  background-color: #0b66c2 !important;
-  color: white !important;
-}
-
-.edit-experience-button {
-  font-size: 13px !important;
-  color: #0b66c2 !important;
-  margin-top: -12px !important;
-  cursor: pointer;
-}
-.remove-experience-button {
-  font-size: 13px !important;
-  color: red !important;
-  margin-top: -12px !important;
-  cursor: pointer;
-}
