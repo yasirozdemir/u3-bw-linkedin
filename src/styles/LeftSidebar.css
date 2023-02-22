@@ -1,0 +1,62 @@
+#leftSidebar {
+  margin-block: 60px;
+  width: 225px;
+}
+
+#leftSidebar #first,
+#leftSidebar #second {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: solid 1px rgba(60, 60, 60, 0.2);
+}
+
+#leftSidebar #bgImg {
+  background-image: url(https://cdn.jetphotos.com/400/6/43669_1669056146.jpg?v=0);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 55px;
+}
+
+#leftSidebar .imgWrapper {
+  position: absolute;
+  top: 20px;
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px #fff;
+}
+
+#leftSidebar a:hover {
+  text-decoration: underline !important;
+}
+
+#leftSidebar .hover:hover {
+  cursor: pointer;
+  background-color: #c4c4c4bb;
+}
+
+#leftSidebar .evPlsIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: #727272;
+  transition: all 300ms ease;
+  box-sizing: content-box;
+  padding: 5px;
+}
+
+#leftSidebar .evPlsIcon:hover {
+  fill: #000;
+  background-color: #ebebeb;
+}
+
+.hovAnim {
+  transition: all 300ms;
+}

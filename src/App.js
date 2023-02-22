@@ -8,6 +8,7 @@ import MainSection from "./components/MainSection";
 import TopNavbar from "./components/TopNavbar";
 import { Container, Row, Col } from "react-bootstrap";
 import Messaging from "./components/Messaging";
+import CustomFooter from "./components/CustomFooter";
 import FeedList from "./components/FeedList";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           </Row>
         </Container>
         <Messaging />
+        <CustomFooter />
       </BrowserRouter>
     </div>
   );
