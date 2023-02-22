@@ -542,7 +542,7 @@ export const getAllPosts = () => {
   };
 };
 
-export const editPost = (postId, data) => {
+export const doEditPost = (postId, data) => {
   console.log("action triggered", postId, data);
   return async (dispatch) => {
     const editUrl = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;

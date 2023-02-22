@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 // import { editPost } from "../redux/actions";
-import { editPost } from "../redux/actions";
+import { doEditPost } from "../redux/actions";
 
 const SinglePost = ({ post }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const SinglePost = ({ post }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(editPost(post._id, editPost));
+    dispatch(doEditPost(post._id, editPost));
   };
 
   return (
