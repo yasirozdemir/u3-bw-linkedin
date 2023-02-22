@@ -5,6 +5,7 @@ export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 export const SET_SPECIFIC_USER = "SET_SPECIFIC_USER";
+export const GET_ALL_POSTS = "GET_ALL_POSTS";
 
 export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
 export const SET_USER_EXPERIENCES = "SET_USER_EXPERIENCES";
@@ -195,6 +196,7 @@ export const removeExperience = (userId, experience) => {
   };
 };
 
+
 export const addPost = (post) => {
   console.log("add post triggered");
   return async (dispatch) => {
@@ -213,6 +215,31 @@ export const addPost = (post) => {
         type: ADD_POST,
         payload: newPost,
       });
+       } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getAllPosts = () => {
+  const getUrl = "https://striveschool-api.herokuapp.com/api/posts/";
+  return async (dispatch) => {
+    try {
+      const res = await fetch(getUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0`,
+        },
+      });
+      if (res.ok) {
+        const posts = await res.json();
+        console.log("posts fetched successfully:", posts);
+        dispatch({
+          type: GET_ALL_POSTS,
+          payload: posts,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
