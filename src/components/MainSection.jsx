@@ -14,6 +14,7 @@ import {
 } from "../redux/actions";
 import ExperienceInput from "./ExperienceInput";
 import Modal from "react-bootstrap/Modal";
+import PostInput from "./PostInput";
 
 const MainSection = () => {
   const [show, setShow] = useState(false);
@@ -144,7 +145,7 @@ const MainSection = () => {
       </Row>
       <Row>
         <Col className="minor-section highlights-section my-1">
-          <div>
+            <div>
             <h2>Highlights</h2>
             <div className="">
               <p>{specificPerson?.bio}</p>
@@ -238,6 +239,10 @@ const MainSection = () => {
             />
           </Modal>
         </div>
+      </Row>
+      <br />
+      <Row>
+      <PostInput />
       </Row>
     </Container>
   );

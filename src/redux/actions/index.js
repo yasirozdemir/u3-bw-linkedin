@@ -12,6 +12,8 @@ export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
 
 export const SET_NETWORK_LIST = "SET_NETWORK_LIST";
 
+export const ADD_POST = "ADD_POST";
+
 export const url = "https://striveschool-api.herokuapp.com/api/";
 
 export const setMyInfo = () => {
@@ -187,6 +189,30 @@ export const removeExperience = (userId, experience) => {
       });
 
       dispatch(setSpecificUserExperience(userId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const addPost = (post) => {
+  console.log("add post triggered");
+  return async (dispatch) => {
+    try {
+      const url = `https://striveschool-api.herokuapp.com/api/posts/`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+        },
+        body: JSON.stringify(post),
+      });
+      const newPost = await response.json();
+      dispatch({
+        type: ADD_POST,
+        payload: newPost,
+      });
     } catch (error) {
       console.log(error);
     }
