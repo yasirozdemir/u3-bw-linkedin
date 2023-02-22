@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Col } from "react-bootstrap"
+import { Button, Col, Row} from "react-bootstrap"
+import PostInput from "./PostInput";
 
 const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
   
@@ -11,6 +12,7 @@ const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
   }
 
   return (
+    <>
     <Col className="feed-main">
       <div className="profile-card">
         <a href="" className="d-flex">
@@ -27,7 +29,17 @@ const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
         <p>{text}</p>
         <Button onClick={handleState}>Edit</Button>
       </div>
+      <div>
+      
+      </div>
+        
     </Col>
+    <Row>
+    <Col>
+    <PostInput /></Col>
+    </Row>
+    
+    </>
   );
 }
 
