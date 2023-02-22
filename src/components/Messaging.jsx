@@ -20,8 +20,13 @@ const Messaging = () => {
             : "hide fixed-bottom d-flex flex-column"
         }
       >
-        <div className="d-flex justify-content-between w-100 ml-auto">
-          <div className="d-flex align-items-center">
+        <div className="d-flex w-100 ml-auto">
+          <div
+            className="d-flex align-items-center col p-0"
+            onClick={() => {
+              setShowMore(!showMore);
+            }}
+          >
             <div id="msgImgWrapper">
               <img
                 src={myInfo?.image}

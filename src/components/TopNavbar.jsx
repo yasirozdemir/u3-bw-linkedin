@@ -205,7 +205,7 @@ const TopNavbar = () => {
               </div>
               <div
                 className="d-none d-md-flex flex-column align-items-center navItems"
-                onClick={() => setShowModal(true)}
+                onClick={() => setShowModal(!showModal)}
                 style={{ cursor: "pointer" }}
               >
                 <Work />
