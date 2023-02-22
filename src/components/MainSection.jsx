@@ -145,7 +145,7 @@ const MainSection = () => {
       </Row>
       <Row>
         <Col className="minor-section highlights-section my-1">
-            <div>
+          <div>
             <h2>Highlights</h2>
             <div className="">
               <p>{specificPerson?.bio}</p>
@@ -241,9 +241,9 @@ const MainSection = () => {
         </div>
       </Row>
       <br />
-      <Row>
+      {/* <Row>
       <PostInput />
-      </Row>
+      </Row> */}
     </Container>
   );
 };

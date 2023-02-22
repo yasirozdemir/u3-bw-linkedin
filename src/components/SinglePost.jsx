@@ -30,14 +30,9 @@ const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
         <Button onClick={handleState}>Edit</Button>
       </div>
       <div>
-      
+      <PostInput />
       </div>
-        
     </Col>
-    <Row>
-    <Col>
-    <PostInput /></Col>
-    </Row>
     
     </>
   );
