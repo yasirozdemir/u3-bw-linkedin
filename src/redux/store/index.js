@@ -10,6 +10,8 @@ import specificUserReducer from "../reducers/specificUserReducer";
 import userExperienceReducer from "../reducers/experiencesReducer";
 
 import setNetworkReducer from "../reducers/setNetworkReducer";
+import addExperience from "../reducers/addExperience";
+import { editExperience } from "../actions";
 
 const persistConfig = {
   storage: localStorage,
@@ -30,6 +32,8 @@ const combinedReducers = combineReducers({
   experienceData: userExperienceReducer,
 
   network: setNetworkReducer,
+  newExperience: addExperience,
+  editExperience: editExperience,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
