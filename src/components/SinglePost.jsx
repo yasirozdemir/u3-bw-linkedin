@@ -1,6 +1,15 @@
-import { Col } from "react-bootstrap"
+import { useState } from "react";
+import { Button, Col } from "react-bootstrap"
 
 const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
+  
+  const [method, setMethod] = useState("")
+
+  const handleState = () => {
+    setMethod("PUT")
+    console.log("method", method)
+  }
+
   return (
     <Col className="feed-main">
       <div className="profile-card">
@@ -16,6 +25,7 @@ const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
       </div>
       <div className="post-list-post">
         <p>{text}</p>
+        <Button onClick={handleState}>Edit</Button>
       </div>
     </Col>
   );
