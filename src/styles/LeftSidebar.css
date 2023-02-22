@@ -1,11 +1,11 @@
 #leftSidebar {
-  margin-block: 60px;
   width: 225px;
 }
 
 #leftSidebar #first,
 #leftSidebar #second {
   position: relative;
+  background-color: white;
   border-radius: 0.5rem;
   overflow: hidden;
   border: solid 1px rgba(60, 60, 60, 0.2);

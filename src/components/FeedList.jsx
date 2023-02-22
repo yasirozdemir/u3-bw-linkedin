@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../redux/actions";
 import PostInput from "./PostInput";
 import SinglePost from "./SinglePost";
+import LeftSidebar from "./LeftSidebar";
 
 const FeedList = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const FeedList = () => {
       <Container className="feed-list-main">
         <Row className="d-flex">
           <Col md={3}>
+            <LeftSidebar />
             <PostInput />
           </Col>
           <Col className="d-flex flex-column" md={9}>
