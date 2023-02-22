@@ -148,10 +148,6 @@ const MainSection = () => {
             <h2>Highlights</h2>
             <div className="">
               <p>{specificPerson?.bio}</p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto, officia eaque quasi nisi
-              </p>
             </div>
           </div>
         </Col>
