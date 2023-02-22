@@ -8,12 +8,14 @@ import TopNavbar from "./components/TopNavbar";
 import { Container, Row, Col } from "react-bootstrap";
 import Messaging from "./components/Messaging";
 import CustomFooter from "./components/CustomFooter";
+import LeftSidebar from "./components/LeftSidebar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <TopNavbar />
+        <LeftSidebar />
         <Container>
           <Row>
             <Col md={8}>
