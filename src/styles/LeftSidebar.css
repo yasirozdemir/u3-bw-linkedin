@@ -1,6 +1,10 @@
 #leftSidebar {
   margin-block: 60px;
   width: 225px;
+}
+
+#leftSidebar #first,
+#leftSidebar #second {
   position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -35,4 +39,24 @@
 #leftSidebar .hover:hover {
   cursor: pointer;
   background-color: #c4c4c4bb;
+}
+
+#leftSidebar .evPlsIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: #727272;
+  transition: all 300ms ease;
+  box-sizing: content-box;
+  padding: 5px;
+}
+
+#leftSidebar .evPlsIcon:hover {
+  fill: #000;
+  background-color: #ebebeb;
+}
+
+.hovAnim {
+  transition: all 300ms;
 }
