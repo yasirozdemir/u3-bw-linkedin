@@ -23,6 +23,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
   );
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
     setData({ ...data, [name]: value });
     console.log(value);
   };
