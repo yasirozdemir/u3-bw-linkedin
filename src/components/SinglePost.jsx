@@ -1,18 +1,7 @@
-import { useState } from "react";
-import { Button, Col, Row} from "react-bootstrap"
-import PostInput from "./PostInput";
+import { Col } from "react-bootstrap"
 
 const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
-  
-  const [method, setMethod] = useState("")
-
-  const handleState = () => {
-    setMethod("PUT")
-    console.log("method", method)
-  }
-
   return (
-    <>
     <Col className="feed-main">
       <div className="profile-card">
         <a href="" className="d-flex">
@@ -27,14 +16,8 @@ const SinglePost = ({ post: { text, user: { name, image, title } } }) => {
       </div>
       <div className="post-list-post">
         <p>{text}</p>
-        <Button onClick={handleState}>Edit</Button>
-      </div>
-      <div>
-      <PostInput />
       </div>
     </Col>
-    
-    </>
   );
 }
 
