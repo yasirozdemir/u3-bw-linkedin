@@ -1,11 +1,63 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
 import { parseISO, format } from "date-fns";
+
+
+import { removeExperience, setSpecificUserExperience } from "../redux/actions";
+import ExperienceInput from "./ExperienceInput";
+import Modal from "react-bootstrap/Modal";
+
+const MainSection = () => {
+  const [show, setShow] = useState(false);
+  const [method, setMethod] = useState("");
+  const [heading, setHeading] = useState("");
+  const [experience, setExperience] = useState("");
+
+  const handleClose = () => setShow(false);
+
+  const setAddExperience = () => {
+    setMethod("POST");
+    setHeading("Add an Experience");
+    setShow(true);
+    setExperience("");
+  };
+
+  const setEditExperience = (e) => {
+    setMethod("PUT");
+    setHeading("Edit this Experience");
+    setShow(true);
+    setExperience(e);
+    console.log("aldkfjlakjdf", e);
+  };
+
+  const setRemoveExperience = (e) => {
+    // e.preventDefault();
+    console.log("Delete triggered");
+    console.log(e);
+    dispatch(removeExperience(userId, e._id));
+  };
+
+  const userId = useParams().userId;
+  const dispatch = useDispatch();
+  const experienceData = useSelector((state) => state.experienceData);
+
+  // const myInfoData = useSelector(state => state.me)
+  const userListData = useSelector((state) => state.users);
+  const specificPerson = userListData.find((u) => {
+    return userId === u._id;
+  });
+
+  const handlePopupClose = () => {
+    setShow(false);
+  };
+
+  useEffect(() => {
+    dispatch(setSpecificUserExperience(userId));
 
 import { setSpecificUser, setSpecificUserExperience } from "../redux/actions";
 
@@ -26,6 +78,7 @@ const MainSection = () => {
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId));
     dispatch(setSpecificUser(specificPerson));
+
   }, [userId]);
 
   return (
@@ -146,23 +199,75 @@ const MainSection = () => {
       <Row>
         <Col className="minor-section experience-section my-1">
           <div>
-            <h2>Experience</h2>
+            <div
+              className="d-flex justify-content-between"
+              style={{ alignItems: "center" }}
+            >
+              <h2>Experience</h2>
+              {userId === "63f3370b8381fc0013fffad1" && (
+                <Button
+                  className="add-experience-button"
+                  variant="outline-primary"
+                  onClick={setAddExperience}
+                >
+                  +
+                </Button>
+              )}
+            </div>
             <br />
             {experienceData &&
               experienceData.map((e) => {
                 return (
                   <>
+
+                    <div key={e._id}>
+                      <h5>Role: {e.role}</h5>
+                      <p>
+                        At {e.company}, located in {e.area}
+                        <br />
+                        <p>In charge of: {e.description}</p>
+                      </p>
+                      {userId === "63f3370b8381fc0013fffad1" && (
+                        <div className="d-flex gap">
+                          <p
+                            onClick={() => setEditExperience(e)}
+                            className="edit-experience-button"
+                          >
+                            edit
+                          </p>
+                          <p
+                            onClick={() => setRemoveExperience(e)}
+                            className="remove-experience-button ml-3"
+                          >
+                            remove
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
                     <h5 key={e._id}>Role: {e.role}</h5>
                     <p>
                       At {e.company}, located in {e.area}
                       <br />
                       <p>In charge of: {e.description}</p>
                     </p>
+
                   </>
                 );
               })}
           </div>
         </Col>
+        <div>
+          <Modal id="popup" className="popup" show={show} onHide={handleClose}>
+            <ExperienceInput
+              userId={userId}
+              method={method}
+              heading={heading}
+              onClose={handlePopupClose}
+              experience={experience}
+            />
+          </Modal>
+        </div>
       </Row>
     </Container>
   );
