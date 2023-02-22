@@ -21,6 +21,8 @@ const TopNavbar = () => {
   const myInfo = useSelector((state) => state.me);
   const userList = useSelector((state) => state.users);
   const query = useSelector((state) => state.search);
+  const urlParams = useSelector((state) => state.urlParams);
+  console.log(urlParams);
   const [scrollValue, setScrollValue] = useState(0);
 
   const foundedUsers = userList?.filter((el) =>
@@ -253,18 +255,20 @@ const TopNavbar = () => {
           </Row>
         </Container>
       </header>
-      <Container
-        fluid
-        id="subNavbarWrapper"
-        className={scrollValue >= 450 ? "fixed-top show" : "fixed-top hide"}
-      >
-        <Container>
-          {/* increase the value */}
-          <Row className="px-3 justify-content-between align-items-center">
-            <SubNavbar />
-          </Row>
+      {urlParams && (
+        <Container
+          fluid
+          id="subNavbarWrapper"
+          className={scrollValue >= 450 ? "fixed-top show" : "fixed-top hide"}
+        >
+          <Container>
+            {/* increase the value */}
+            <Row className="px-3 justify-content-between align-items-center">
+              <SubNavbar />
+            </Row>
+          </Container>
         </Container>
-      </Container>
+      )}
     </>
   );
 };

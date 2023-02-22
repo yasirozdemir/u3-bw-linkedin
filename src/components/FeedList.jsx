@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPosts } from "../redux/actions";
+import { getAllPosts, setUrlParam } from "../redux/actions";
 import PostInput from "./PostInput";
 import SinglePost from "./SinglePost";
 import LeftSidebar from "./LeftSidebar";
@@ -18,6 +18,7 @@ const FeedList = () => {
   useEffect(() => {
     console.log("UEf triggered");
     dispatch(getAllPosts());
+    dispatch(setUrlParam(null));
   }, []);
 
   return (

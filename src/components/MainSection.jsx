@@ -11,6 +11,7 @@ import {
   removeExperience,
   setSpecificUserExperience,
   setSpecificUser,
+  setUrlParam,
 } from "../redux/actions";
 import ExperienceInput from "./ExperienceInput";
 import Modal from "react-bootstrap/Modal";
@@ -46,7 +47,8 @@ const MainSection = () => {
     dispatch(removeExperience(userId, e._id));
   };
 
-  const userId = useParams().userId;
+  const params = useParams();
+  const userId = params.userId;
   const dispatch = useDispatch();
   const experienceData = useSelector((state) => state.experienceData);
 
@@ -63,6 +65,7 @@ const MainSection = () => {
   useEffect(() => {
     dispatch(setSpecificUserExperience(userId));
     dispatch(setSpecificUser(specificPerson));
+    dispatch(setUrlParam(params));
   }, [userId]);
 
   return (

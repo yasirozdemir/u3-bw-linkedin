@@ -5,6 +5,7 @@ export const GET_USER_DATA = "GET_USER_DATA";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 export const SET_SPECIFIC_USER = "SET_SPECIFIC_USER";
+export const SET_URL_PARAM = "SET_URL_PARAM";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 
 export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
@@ -72,6 +73,15 @@ export const setSpecificUser = (user) => {
     dispatch({
       type: SET_SPECIFIC_USER,
       payload: user,
+    });
+  };
+};
+
+export const setUrlParam = (param) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_URL_PARAM,
+      payload: param,
     });
   };
 };
