@@ -15,7 +15,6 @@ import FoundedUsers from "./FoundedUser";
 import SubNavbar from "./SubNavbar";
 import WorkModalRight from "./WorkModalRight";
 
-
 const TopNavbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -51,7 +50,7 @@ const TopNavbar = () => {
     window.addEventListener("scroll", handleScroll);
     dispatch(setMyInfo());
     dispatch(setUserList());
-    
+
     dispatch({
       type: SET_SEARCH_QUERY,
       payload: "",
@@ -167,7 +166,7 @@ const TopNavbar = () => {
                     </Row>
                     <Button
                       onClick={() => {
-                        navigate("/in/" + myInfo?.username);
+                        navigate("/in/" + myInfo?._id);
                       }}
                       id="viewProfileBtn"
                       className="w-100 p-0"
@@ -206,7 +205,7 @@ const TopNavbar = () => {
               </div>
               <div
                 className="d-none d-md-flex flex-column align-items-center navItems"
-                onClick={() => setShowModal(true)}
+                onClick={() => setShowModal(!showModal)}
                 style={{ cursor: "pointer" }}
               >
                 <Work />
