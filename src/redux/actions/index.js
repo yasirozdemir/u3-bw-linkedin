@@ -245,3 +245,24 @@ export const getAllPosts = () => {
     }
   };
 };
+
+export const editPost = (postId, data) => {
+  console.log("action triggered", postId, data);
+  return async (dispatch) => {
+    const editUrl = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
+    try {
+      const res = await fetch(editUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+        },
+        body: JSON.stringify(data),
+      });
+      const editedPost = await res.json();
+      console.log("successfully edited", editedPost);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
