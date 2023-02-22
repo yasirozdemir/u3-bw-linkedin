@@ -5,7 +5,7 @@ const SubNavbar = () => {
 
   return (
     <>
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center my-2">
         <div>
           <img
             src={specificPerson?.image}
