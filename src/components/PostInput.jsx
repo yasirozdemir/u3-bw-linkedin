@@ -3,7 +3,6 @@ import { Button, Form } from "react-bootstrap"
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions";
 
-
 function PostInput () {
     const dispatch = useDispatch();
 
@@ -28,16 +27,16 @@ function PostInput () {
 
     return(
         <>
-        <Form onSubmit={handleSubmit}>
+        <Form className="post-form" onSubmit={handleSubmit}>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label><h5>Create new post</h5></Form.Label>
+            <Form.Label><h5>Create a post</h5></Form.Label>
             <Form.Control as="textarea" rows={3} type="text"
               name="text"
               value={post.text}
               onChange={handleInputChange}
             />
             </Form.Group>
-        <Button variant="primary" type="submit">Submit</Button>
+        <Button variant="primary" type="submit">Post</Button>
         </Form>
         </>
     )
