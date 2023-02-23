@@ -1,12 +1,13 @@
 import { useRef, useState } from "react";
 import { Form, Modal } from "react-bootstrap";
 import { MdOutlineSaveAlt } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPP } from "../redux/actions";
 
-const PPModal = ({ userId, showPPModal, setShowPPModal, userImage }) => {
+const PPModal = ({ showPPModal, setShowPPModal }) => {
   const dispatch = useDispatch();
   const [imgData, setImgData] = useState(null);
+  const myInfo = useSelector((state) => state.me);
 
   const inputRef = useRef(null);
 
@@ -23,7 +24,7 @@ const PPModal = ({ userId, showPPModal, setShowPPModal, userImage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setPP(userId, imgData));
+    dispatch(setPP(myInfo?._id, imgData));
   };
 
   return (
@@ -48,7 +49,7 @@ const PPModal = ({ userId, showPPModal, setShowPPModal, userImage }) => {
       </Modal.Header>
       <Modal.Body>
         <img
-          src={userImage}
+          src={myInfo?.image}
           className="w-100 rounded-circle"
           alt="Profile img"
           onClick={() => {

@@ -10,7 +10,7 @@ const SubNavbar = () => {
       <div className="d-flex align-items-center">
         <div>
           <img
-            src={specificPerson?.image}
+            src={isMe ? myInfo.image : specificPerson.image}
             alt=""
             className="w-100 rounded-circle"
             style={{

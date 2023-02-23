@@ -397,9 +397,25 @@ export const setPP = (userId, img) => {
       });
       if (res.ok) {
         console.log("well done");
+        dispatch(setMyInfo());
       } else {
         console.log("error");
       }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const removePP = (userId) => {
+  return async () => {
+    try {
+      const res = await fetch(url + "profile/" + userId + "/picture", {
+        method: "DELETE",
+        headers: {
+          Authorization: auth,
+        },
+      });
     } catch (error) {
       console.error(error);
     }

@@ -89,7 +89,7 @@ const MainSection = () => {
               <div className="photo-container">
                 <div className="display-flex">
                   <img
-                    src={specificPerson?.image}
+                    src={myInfo?.image}
                     alt="Profile img"
                     onClick={() => {
                       setShowPPModal(true);
