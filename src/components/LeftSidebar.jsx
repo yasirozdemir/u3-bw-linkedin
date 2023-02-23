@@ -2,9 +2,20 @@ import { Link } from "react-router-dom";
 import { BsBookmarkFill } from "react-icons/bs";
 import "../styles/LeftSidebar.css";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const LeftSidebar = () => {
   const myInfo = useSelector((state) => state.me);
+  const [scrollValue, setScrollValue] = useState(0);
+  const handleScroll = () => {
+    let scrollValue = document.documentElement.scrollTop;
+    setScrollValue(scrollValue);
+  };
+  useState(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
+  const isFixed = scrollValue >= 370;
 
   return (
     <>
@@ -13,7 +24,7 @@ const LeftSidebar = () => {
           <div id="bgImg"></div>
           <div className="px-2">
             <Link
-              to="/"
+              to={"/in/" + myInfo?._id}
               className="d-flex flex-column justify-content-center align-items-center"
             >
               <div className="imgWrapper">
@@ -111,7 +122,7 @@ const LeftSidebar = () => {
             </span>
           </div>
         </div>
-        <div id="second">
+        <div id="second" className={isFixed ? "fixed" : ""}>
           <div className="p-2 d-flex flex-column">
             <Link
               to="/"

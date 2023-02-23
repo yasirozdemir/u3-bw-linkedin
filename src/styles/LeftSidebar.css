@@ -11,6 +11,12 @@
   border: solid 1px rgba(60, 60, 60, 0.2);
 }
 
+#leftSidebar #second.fixed {
+  position: fixed;
+  width: 225px;
+  top: 70px;
+}
+
 #leftSidebar #bgImg {
   background-image: url(https://cdn.jetphotos.com/400/6/43669_1669056146.jpg?v=0);
   background-position: center;
