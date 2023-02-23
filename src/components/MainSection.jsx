@@ -278,14 +278,14 @@ const MainSection = () => {
                       <p className="greyClass"> {e.area}</p>
                       <p className="greyClass">
                         {" "}
-                        {e.startDate.slice(0, 10)} - {e.endDate.slice(0, 10)}
+                        {e.startDate?.slice(0, 10)} - {e.endDate?.slice(0, 10)}
                       </p>
 
                       <p className="exp-description">{e.description}</p>
 
                       {e.image && (
                         <div className="exp-image">
-                          <img src={e.image}></img>
+                          <img src={e.image} alt=""></img>
                         </div>
                       )}
                     </div>
