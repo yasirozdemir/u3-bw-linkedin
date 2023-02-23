@@ -39,7 +39,6 @@ const TopNavbar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //  dispatch(setUserList(query));
   };
 
   const handleScroll = () => {
@@ -100,7 +99,10 @@ const TopNavbar = () => {
               )}
             </Form>
             <div className="d-flex ml-auto">
-              <Link to="/" className="navItems activeNavLink">
+              <Link
+                to="/feed"
+                className={urlParams ? "navItems" : "navItems activeNavLink"}
+              >
                 <div className="d-flex flex-column align-items-center">
                   <Home />
                   <small>Home</small>
@@ -205,7 +207,11 @@ const TopNavbar = () => {
                 </Dropdown>
               </div>
               <div
-                className="d-none d-md-flex flex-column align-items-center navItems"
+                className={
+                  showModal
+                    ? "d-none d-md-flex flex-column align-items-center navItems activeNavLink"
+                    : "d-none d-md-flex flex-column align-items-center navItems"
+                }
                 onClick={() => setShowModal(!showModal)}
                 style={{ cursor: "pointer" }}
               >
