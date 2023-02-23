@@ -18,11 +18,24 @@ function PostInput () {
         // console.log("Hello:" , value)
     };
 
-    const handleSubmit = async (event) => {
-        console.log("successfully submitted");
+    const [ img, setImg ] = useState(null);
 
+    const handleSubmit = async (event) => {
+        const postSth = JSON.stringify(post);
         event.preventDefault();
-        dispatch(addPost(post));        
+        console.log("successfully submitted");
+        const imgForm = new FormData();
+        imgForm.append("post", img);
+        imgForm.append("postData", postSth);       
+        dispatch(addPost(imgForm));
+        console.log(imgForm.get("postData"))       
+    }
+ 
+
+    const handleFileChange = (event) => {
+        const img = event.target.files[0];
+        setImg(img);
+        // console.log(img)
     }
 
     return(
@@ -36,7 +49,14 @@ function PostInput () {
               onChange={handleInputChange}
             />
             </Form.Group>
-        <Button variant="primary" type="submit">Post</Button>
+        <Button variant="primary" type="submit">Post picture</Button>
+        <Form.Group>
+            <Form.File
+              id="imageFile"
+              label="Choose an image file"
+              onChange={handleFileChange}
+            />
+          </Form.Group>
         </Form>
         </>
     )

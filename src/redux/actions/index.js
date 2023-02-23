@@ -503,8 +503,12 @@ export const removeExperience = (userId, experience) => {
   };
 };
 
-export const addPost = (post) => {
-  console.log("add post triggered");
+export const addPost = (imgForm) => {
+  const picture = imgForm.get("post");
+  const data = imgForm.get("postData");
+  const dataFinal = JSON.parse(data);
+  console.log("hello:", data, picture);
+
   return async (dispatch) => {
     try {
       const url = `https://striveschool-api.herokuapp.com/api/posts/`;
@@ -514,19 +518,73 @@ export const addPost = (post) => {
           "Content-Type": "application/json",
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
         },
-        body: JSON.stringify(post),
+        body: JSON.stringify(dataFinal),
       });
       const newPost = await response.json();
+      console.log("successfully submitted");
       console.log(newPost);
       dispatch({
         type: ADD_POST,
         payload: newPost,
       });
+      dispatch(setPostPicture(picture, newPost._id));
     } catch (error) {
       console.log(error);
     }
   };
 };
+
+export const setPostPicture = (picture, postId) => {
+  console.log("consollogging picture:", picture);
+  const formData = new FormData();
+  formData.append("post", picture);
+  // console.log(imgForm.get("postData"));
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "posts/" + postId, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      console.log(res);
+      if (res.ok) {
+        console.log("okay!");
+      } else {
+        console.log("Error :(");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+// export const addPost = (post) => {
+//   console.log("add post triggered");
+//   return async (dispatch) => {
+//     try {
+//       const url = `https://striveschool-api.herokuapp.com/api/posts/`;
+//       const response = await fetch(url, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+//         },
+//         body: JSON.stringify(post),
+//       });
+//       const newPost = await response.json();
+//       console.log(newPost);
+//       dispatch({
+//         type: ADD_POST,
+//         payload: newPost,
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 export const getAllPosts = () => {
   const getUrl = "https://striveschool-api.herokuapp.com/api/posts/";
@@ -618,26 +676,3 @@ export const removePost = (postId) => {
     }
   };
 };
-
-// export const setPostPicture = (postId, img, setIsChanging) => {
-//   return async (dispatch) => {
-//     try {
-//       const res = await fetch(url + "posts/" + postId, {
-//         method: "POST",
-//         body: img,
-//         headers: {
-//           Authorization:
-//             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
-//         },
-//       });
-//       console.log(res);
-//       if (res.ok) {
-//         console.log("okay!");
-//       } else {
-//         console.log("Error :(");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };

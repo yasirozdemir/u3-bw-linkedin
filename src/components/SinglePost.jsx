@@ -53,6 +53,25 @@ const SinglePost = ({ post }) => {
         <div className="post-list-post">
           <p>{post.text}</p>
         </div>
+        {post.image && (
+          <div
+            style={{
+              maxWidth: "300px",
+              maxHeight: "200px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src={post.image}
+              alt="stuff"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        )}
         <Form className="post-form" onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>
