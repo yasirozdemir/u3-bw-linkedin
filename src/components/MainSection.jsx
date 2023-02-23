@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
+import "../styles/PPModal.css";
 import { parseISO, format } from "date-fns";
 
 import {
@@ -16,9 +17,11 @@ import {
 import ExperienceInput from "./ExperienceInput";
 import Modal from "react-bootstrap/Modal";
 import PostInput from "./PostInput";
+import PPModal from "./PPModal";
 
 const MainSection = () => {
   const [show, setShow] = useState(false);
+  const [showPPModal, setShowPPModal] = useState(false);
   const [method, setMethod] = useState("");
   const [heading, setHeading] = useState("");
   const [experience, setExperience] = useState("");
@@ -35,8 +38,8 @@ const MainSection = () => {
   const setEditExperience = (e) => {
     setMethod("PUT");
     setHeading("Edit this Experience");
-    setShow(true);
     setExperience(e);
+    setShow(true);
     console.log("aldkfjlakjdf", e);
   };
 
@@ -69,6 +72,8 @@ const MainSection = () => {
     dispatch(setSpecificUserExperience(userId));
     dispatch(setSpecificUser(specificPerson));
     dispatch(setUrlParam(params));
+    window.scrollTo(0, 0);
+    document.title = `${specificPerson.name} ${specificPerson.surname} | LinkedIn`;
   }, [userId]);
 
   return (
@@ -78,14 +83,31 @@ const MainSection = () => {
           <div className="main-div">
             <div className="upper-part">
               <img
-                src="https://media.licdn.com/dms/image/C5616AQEMdMdUfoLALA/profile-displaybackgroundimage-shrink_350_1400/0/1642410753940?e=1682553600&v=beta&t=KCi12rGY4UskuB0E5Q0Anu9MXsFoZm0_cUUibM3-_bA"
+                src="https://live-production.wcms.abc-cdn.net.au/8393f16b3a14cd32d0d5d75c1c05d56b?impolicy=wcms_crop_resize&cropH=1080&cropW=1918&xPos=1&yPos=0&width=862&height=485"
+                className="w-100"
+                style={{ height: "220px", objectFit: "cover" }}
                 alt=""
               />
             </div>
             <div className="bottom-part">
               <div className="photo-container">
                 <div className="display-flex">
-                  <img src={specificPerson?.image} alt="Profile img" />
+                  <img
+                    src={isMe ? myInfo?.image : specificPerson?.image}
+                    alt="Profile img"
+                    onClick={() => {
+                      setShowPPModal(true);
+                    }}
+                    style={{ objectFit: "cover" }}
+                  />
+                  {isMe && (
+                    <PPModal
+                      userId={userId}
+                      showPPModal={showPPModal}
+                      setShowPPModal={setShowPPModal}
+                      userImage={specificPerson?.image}
+                    />
+                  )}
                 </div>
                 <div className="flex-1 flex-column"></div>
               </div>
@@ -95,9 +117,9 @@ const MainSection = () => {
                     <h1>
                       {specificPerson?.name} {specificPerson?.surname}
                     </h1>
-                    <p>{specificPerson?.title}</p>
-                    <p>Area: {specificPerson?.area}</p>
-                    <p>Username: {specificPerson?.username}</p>
+                    <p className="mb-0">{specificPerson?.title}</p>
+                    <p className="greyClass"> {specificPerson?.area}</p>
+                    {/* <p>Username: {specificPerson?.username}</p> */}
                   </div>
                   <div className="right-panel">
                     <ul>
@@ -106,7 +128,7 @@ const MainSection = () => {
                     </ul>
                   </div>
                 </div>
-                <p>500+ connections</p>
+                <p className="connections">500+ connections</p>
               </div>
               <div className="icons-container display-flex">
                 {isMe ? (
@@ -197,50 +219,81 @@ const MainSection = () => {
         <Col className="minor-section experience-section my-1">
           <div>
             <div
-              className="d-flex justify-content-between"
+              className="d-flex justify-content-between mb-3"
               style={{ alignItems: "center" }}
             >
-              <h2>Experience</h2>
+              <h2 className="mb-0">Experience</h2>
               {userId === "63f3370b8381fc0013fffad1" && (
-                <Button
-                  className="add-experience-button"
-                  variant="outline-primary"
-                  onClick={setAddExperience}
-                >
-                  +
-                </Button>
+                <div onClick={setAddExperience}>
+                  <svg height="23" width="23">
+                    <path
+                      fill="grey"
+                      d="M11 5.5v12M5.5 11h12"
+                      stroke="grey"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               )}
             </div>
-            <br />
+
             {experienceData &&
-              experienceData.map((e) => {
-                return (
-                  <div key={e._id}>
-                    <h5>Role: {e.role}</h5>
-                    <p>
-                      At {e.company}, located in {e.area}
-                      <br />
-                      <span>In charge of: {e.description}</span>
-                    </p>
-                    {userId === "63f3370b8381fc0013fffad1" && (
-                      <div className="d-flex gap">
-                        <p
-                          onClick={() => setEditExperience(e)}
-                          className="edit-experience-button"
-                        >
-                          edit
-                        </p>
-                        <p
-                          onClick={() => setRemoveExperience(e)}
-                          className="remove-experience-button ml-3"
-                        >
-                          remove
-                        </p>
+              experienceData
+                .slice(0)
+                .reverse()
+                .map((e) => {
+                  return (
+                    <div className="exp-card" key={e._id}>
+                      <div className="d-flex justify-content-between">
+                        <h5>{e.role}</h5>
+                        {userId === "63f3370b8381fc0013fffad1" && (
+                          <div className="d-flex gap">
+                            <div
+                              onClick={() => setEditExperience(e)}
+                              className="edit-experience-button"
+                            >
+                              <svg height={23} width={23}>
+                                <path
+                                  fill="grey"
+                                  d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"
+                                />
+                              </svg>
+                            </div>
+                            <div
+                              onClick={() => setRemoveExperience(e)}
+                              className="remove-experience-button ml-3"
+                            >
+                              <svg height={23} width={23}>
+                                <path
+                                  fill="none"
+                                  stroke="grey"
+                                  strokeWidth="2"
+                                  d="M19.5 12.5H3.5C3.22 12.5 3 12.28 3 12s.22-.5.5-.5h16c.28 0 .5.22.5.5s-.22.5-.5.5z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
+                      <p className="company">{e.company.toUpperCase()} </p>
+                      <p className="greyClass"> {e.area}</p>
+                      <p className="greyClass">
+                        {" "}
+                        {e.startDate?.slice(0, 10)} - {e.endDate?.slice(0, 10)}
+                      </p>
+
+                      <p className="exp-description">{e.description}</p>
+
+                      {e.image && (
+                        <div className="exp-image">
+                          <img src={e.image} alt=""></img>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
           </div>
         </Col>
         <div>

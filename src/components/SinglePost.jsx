@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 // import { editPost } from "../redux/actions";
 import { doEditPost } from "../redux/actions";
 import { useParams } from "react-router-dom";
@@ -36,7 +37,7 @@ const SinglePost = ({ post }) => {
     <Row>
       <Col className="feed-main">
         <div className="profile-card">
-          <a href="" className="d-flex">
+          <Link to={"/in/" + post.user._id} className="d-flex">
             <div>
               <img
                 alt="profile"
@@ -48,7 +49,7 @@ const SinglePost = ({ post }) => {
               <h6>{post.user.name}</h6>
               <p className="profile-description">{post.user.title}</p>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="post-list-post">
           <p>{post.text}</p>

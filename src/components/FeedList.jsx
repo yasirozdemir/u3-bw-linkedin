@@ -16,12 +16,18 @@ const FeedList = () => {
   // const currentUser = { id: 123 };
   const userPosts = allPosts.filter((post) => post.username === "dianabertego");
 
+  const reversedPosts = allPosts.slice().reverse().slice(0, 30);
+  console.log("reversedPosts:", reversedPosts);
+
   console.log("here are the sorted", userPosts);
 
   useEffect(() => {
     console.log("UEf triggered");
     dispatch(getAllPosts());
     dispatch(setUrlParam(null));
+    window.scrollTo(0, 0);
+    document.title = "Feed | LinkedIn";
+    // eslint-disable-next-line
   }, []);
 
  
@@ -34,12 +40,12 @@ const FeedList = () => {
             <PostInput />
           </Col>
           <Col className="d-flex flex-column" md={8}>
-            {userPosts.length > 0 &&
+            {/* {userPosts.length > 0 &&
               userPosts.map((post) => {
                 return <SinglePost key={post._id} post={post} />;
-              })}
-            {allPosts.length > 0 &&
-              sortedPosts.map((post) => {
+              })} */}
+            {reversedPosts.length > 0 &&
+              reversedPosts.map((post) => {
                 return <SinglePost key={post._id} post={post} />;
               
               })

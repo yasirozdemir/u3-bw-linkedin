@@ -21,7 +21,14 @@ const LeftSidebar = () => {
     <>
       <div id="leftSidebar">
         <div id="first" className="mb-2">
-          <div id="bgImg"></div>
+          <div id="bgImg">
+            <img
+              src="https://live-production.wcms.abc-cdn.net.au/8393f16b3a14cd32d0d5d75c1c05d56b?impolicy=wcms_crop_resize&cropH=1080&cropW=1918&xPos=1&yPos=0&width=862&height=485"
+              alt=""
+              className="w-100 h-100"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
           <div className="px-2">
             <Link
               to={"/in/" + myInfo?._id}
@@ -53,7 +60,7 @@ const LeftSidebar = () => {
           >
             <div className="d-flex align-items-center py-1 px-2  hover hovAnim">
               <small className="text-muted" style={{ fontSize: "0.7rem" }}>
-                Whos's viewed your profile
+                Who's viewed your profile
               </small>
               <span
                 className="ml-auto"

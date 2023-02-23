@@ -6,7 +6,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 function ExperienceInput({ userId, method, heading, onClose, experience }) {
+  console.log("experienceInput triggered:", experience);
   const dispatch = useDispatch();
+  const [imageFile, setImageFile] = useState(null);
 
   const [data, setData] = useState(
     method === "POST"
@@ -21,19 +23,33 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
         }
       : experience
   );
+
+  const handleFileChange = (event) => {
+    const image = event.target.files[0];
+    setImageFile(image);
+    console.log(image);
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
     setData({ ...data, [name]: value });
-    console.log(value);
+    console.log(data);
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     console.log("submitted successfully");
+
+    const formData = new FormData();
+    const procData = JSON.stringify(data);
+    formData.append("imageFile", imageFile);
+    formData.append("experience", procData);
+    formData.append("userId", userId);
 
     if (method === "POST") {
       event.preventDefault();
-      dispatch(addExperience(userId, data));
+      dispatch(addExperience(formData));
       onClose();
     } else if (method === "PUT") {
       event.preventDefault();
@@ -98,7 +114,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
             <Form.Control
               type="date"
               name="startDate"
-              value={data.startDate}
+              value={data.startDate.slice(0, 10)}
               onChange={handleInputChange}
             />
           </Form.Group>
@@ -108,18 +124,15 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
             <Form.Control
               type="date"
               name="endDate"
-              value={data.endDate}
+              value={data.endDate.slice(0, 10)}
               onChange={handleInputChange}
             />
           </Form.Group>
-
           <Form.Group>
-            <Form.Label>Image</Form.Label>
-            <Form.Control
-              type="text"
-              name="image"
-              value={data.image}
-              onChange={handleInputChange}
+            <Form.File
+              id="imageFile"
+              label="Choose an image file"
+              onChange={handleFileChange}
             />
           </Form.Group>
 
