@@ -3,7 +3,7 @@ import "./styles/RightNavbar.css";
 import "./styles/FeedList.css";
 import RightNavbar from "./components/RightNavbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainSection from "./components/MainSection";
 import TopNavbar from "./components/TopNavbar";
 import { Container, Row, Col } from "react-bootstrap";
@@ -13,13 +13,14 @@ import FeedList from "./components/FeedList";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <TopNavbar />
         <Container>
           <Row>
             <Col md={8}>
               <Routes>
+                <Route path="/" element={<Navigate to="/feed" />} />
                 <Route path="/in/:userId" element={<MainSection />} />
                 <Route path="/feed" element={<FeedList />} />
               </Routes>
@@ -31,8 +32,8 @@ function App() {
         </Container>
         <Messaging />
         <CustomFooter />
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
