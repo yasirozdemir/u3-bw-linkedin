@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Form, Modal } from "react-bootstrap";
+import { Form, Modal, Spinner } from "react-bootstrap";
 import { MdOutlineSaveAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setPP } from "../redux/actions";
@@ -7,6 +7,7 @@ import { setPP } from "../redux/actions";
 const PPModal = ({ showPPModal, setShowPPModal }) => {
   const dispatch = useDispatch();
   const [imgData, setImgData] = useState(null);
+  const [isChanging, setIsChanging] = useState(false);
   const myInfo = useSelector((state) => state.me);
 
   const inputRef = useRef(null);
@@ -24,7 +25,7 @@ const PPModal = ({ showPPModal, setShowPPModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setPP(myInfo?._id, imgData));
+    dispatch(setPP(myInfo?._id, imgData, setIsChanging));
   };
 
   return (
@@ -48,14 +49,23 @@ const PPModal = ({ showPPModal, setShowPPModal }) => {
         </button>
       </Modal.Header>
       <Modal.Body>
-        <img
-          src={myInfo?.image}
-          className="w-100 rounded-circle"
-          alt="Profile img"
-          onClick={() => {
-            setShowPPModal(true);
-          }}
-        />
+        {isChanging ? (
+          <div
+            className="d-flex align-items-center"
+            style={{ height: "280px" }}
+          >
+            <Spinner animation="border" variant="light" />
+          </div>
+        ) : (
+          <img
+            src={myInfo?.image}
+            className="w-100 rounded-circle"
+            alt="Profile img"
+            onClick={() => {
+              setShowPPModal(true);
+            }}
+          />
+        )}
       </Modal.Body>
       <Form onSubmit={handleSubmit} style={{ height: "fit-content" }}>
         <Modal.Footer>
@@ -85,6 +95,9 @@ const PPModal = ({ showPPModal, setShowPPModal }) => {
           ></input>
           <button
             className="d-flex flex-column align-items-center"
+            onClick={() => {
+              setIsChanging(true);
+            }}
             type="submit"
           >
             <MdOutlineSaveAlt
@@ -92,12 +105,7 @@ const PPModal = ({ showPPModal, setShowPPModal }) => {
             />
             Submit
           </button>
-          <button
-            onClick={() => {
-              //   dispatch(removePP(myInfo._id));
-            }}
-            className="d-flex flex-column align-items-center ml-auto"
-          >
+          <button className="d-flex flex-column align-items-center ml-auto">
             <svg viewBox="0 0 24 24" width="24" height="24">
               <path d="M20 4v1H4V4a1 1 0 011-1h4a1 1 0 011-1h4a1 1 0 011 1h4a1 1 0 011 1zM5 6h14v13a3 3 0 01-3 3H8a3 3 0 01-3-3zm9 12h1V8h-1zm-5 0h1V8H9z"></path>
             </svg>

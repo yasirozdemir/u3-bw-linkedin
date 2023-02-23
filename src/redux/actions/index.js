@@ -89,7 +89,7 @@ export const setUrlParam = (param) => {
   };
 };
 
-export const setPP = (userId, img) => {
+export const setPP = (userId, img, setIsChanging) => {
   return async (dispatch) => {
     try {
       const res = await fetch(url + "profile/" + userId + "/picture", {
@@ -102,6 +102,7 @@ export const setPP = (userId, img) => {
       if (res.ok) {
         console.log("well done");
         dispatch(setMyInfo());
+        setIsChanging();
       } else {
         console.log("error");
       }
