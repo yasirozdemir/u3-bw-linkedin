@@ -6,8 +6,36 @@
   background-color: #fff;
   min-width: 100%;
   margin-inline: -1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.25rem;
   border-radius: 0.75rem;
+  margin-block-end: 2rem;
+  position: relative;
+  border: 1px solid #77777750;
+}
+
+#createPostWrapper::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  left: 0;
+  bottom: -1.2rem;
+  background-color: #77777770;
+  width: 100%;
+  height: 1px;
+}
+
+#createPostWrapper button {
+  background-color: transparent;
+  color: #777777;
+  fill: #777777;
+  border: transparent;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  transition: 300ms;
+}
+
+#createPostWrapper button:hover {
+  background-color: #ebebeb;
 }
 
 #createPostWrapper input[type="text"] {

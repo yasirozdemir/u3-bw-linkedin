@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { MdOutlineSaveAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../redux/actions";
 import "../styles/PostInput.css";
@@ -40,14 +41,14 @@ function PostInput() {
   return (
     <div id="createPostWrapper">
       <Form className="post-form" onSubmit={handleSubmit}>
-        <div className="d-flex w-100 my-2">
+        <div className="d-flex w-100 mt-2">
           <div
             className="d-flex align-items-center justify-content-center mr-2"
             style={{ width: "48px", height: "48px", objectFit: "cover" }}
           >
             <img src={myInfo?.image} alt="" className="w-100 rounded-circle" />
           </div>
-          <Form.Group style={{ flexGrow: "1" }}>
+          <Form.Group style={{ flexGrow: "0.95" }}>
             <Form.Control
               type="text"
               value={post.text}
@@ -56,10 +57,21 @@ function PostInput() {
             />
           </Form.Group>
         </div>
-        <div>
-          <button type="submit">Share</button>
-          <button>Image</button>
-          <Form.Group>
+        <div className="d-flex align-items-center justify-content-center">
+          <button type="submit" className="mr-3">
+            <MdOutlineSaveAlt
+              className="mr-1"
+              style={{ fontSize: "1.5rem", transform: "rotate(180deg)" }}
+            />
+            Share
+          </button>
+          <button>
+            <svg className="mr-1" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M16 13a4 4 0 11-4-4 4 4 0 014 4zm6-4v11H2V9a3 3 0 013-3h1.3l1.2-3h9l1.2 3H19a3 3 0 013 3zm-5 4a5 5 0 10-5 5 5 5 0 005-5z"></path>
+            </svg>
+            Add Image
+          </button>
+          <Form.Group className="d-none">
             <Form.File id="imageFile" onChange={handleFileChange} />
           </Form.Group>
         </div>
