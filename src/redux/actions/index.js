@@ -311,6 +311,7 @@ export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
 export const SET_NETWORK_LIST = "SET_NETWORK_LIST";
 
 export const ADD_POST = "ADD_POST";
+export const GET_SPECIFIC_POST = "GET_SPECIFIC_POST";
 
 export const url = "https://striveschool-api.herokuapp.com/api/";
 
@@ -573,6 +574,32 @@ export const doEditPost = (postId, data) => {
   };
 };
 
+export const setSpecificPost = (postId) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "posts/" + postId, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      if (res.ok) {
+        const postData = await res.json();
+        console.log("postData:", postData);
+        dispatch({
+          type: GET_SPECIFIC_POST,
+          payload: postData,
+        });
+      } else {
+        console.log("error fetching specific post data");
+      }
+    } catch (error) {
+      console.log("error fetching specific post data");
+    }
+  };
+};
+
 export const removePost = (postId) => {
   console.log("Post deleted");
   return async (dispatch) => {
@@ -585,6 +612,7 @@ export const removePost = (postId) => {
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
         },
       });
+      dispatch(setSpecificPost(postId));
     } catch (error) {
       console.log(error);
     }

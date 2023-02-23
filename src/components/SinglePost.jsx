@@ -17,12 +17,6 @@ const SinglePost = ({ post }) => {
     console.log(name, value);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // console.log("submit has been triggered")
-  //   dispatch(editPost(post._id, editPost))
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(doEditPost(post._id, editPost));
@@ -32,7 +26,7 @@ const SinglePost = ({ post }) => {
     //e.preventDefault(e);
     console.log("Delete post triggered");
     console.log(e);
-    dispatch(removePost(postId));
+    dispatch(removePost(post._id, postId));
   };
 
   const params = useParams();
@@ -77,7 +71,7 @@ const SinglePost = ({ post }) => {
             Update
           </Button>
           <br />
-          <Button variant="danger" onClick={() => setRemovePost(post)}>
+          <Button variant="danger" onClick={() => setRemovePost(postId)}>
             Remove
           </Button>
         </Form>
