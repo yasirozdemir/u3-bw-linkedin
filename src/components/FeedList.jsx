@@ -8,7 +8,6 @@ import PostInput from "./PostInput";
 import SinglePost from "./SinglePost";
 import LeftSidebar from "./LeftSidebar";
 
-
 const FeedList = () => {
   const dispatch = useDispatch();
   const allPosts = useSelector((state) => state.allPosts.posts);
@@ -30,26 +29,23 @@ const FeedList = () => {
     // eslint-disable-next-line
   }, []);
 
- 
   return (
     <>
       <Container className="feed-list-main">
         <Row className="d-flex">
           <Col md={4}>
             <LeftSidebar />
-            <PostInput />
           </Col>
           <Col className="d-flex flex-column" md={8}>
             {/* {userPosts.length > 0 &&
               userPosts.map((post) => {
                 return <SinglePost key={post._id} post={post} />;
               })} */}
+            <PostInput />
             {reversedPosts.length > 0 &&
               reversedPosts.map((post) => {
                 return <SinglePost key={post._id} post={post} />;
-              
-              })
-              }
+              })}
           </Col>
         </Row>
       </Container>

@@ -1,3 +1,24 @@
 .post-form Form.Control {
-    border-radius: 30px;
+  border-radius: 30px;
+}
+
+#createPostWrapper {
+  background-color: #fff;
+  min-width: 100%;
+  margin-inline: -1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+#createPostWrapper input[type="text"] {
+  background-color: transparent;
+  border: transparent;
+  color: #000;
+  border-radius: 2rem;
+  padding: 1.5rem 1rem;
+  outline: solid 1px #777777;
+}
+
+#createPostWrapper input[type="text"]:focus {
+  box-shadow: none;
 }
