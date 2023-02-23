@@ -178,6 +178,8 @@ form {
   z-index: 100;
   transition: transform 600ms;
   height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 #subNavbarWrapper.show {
