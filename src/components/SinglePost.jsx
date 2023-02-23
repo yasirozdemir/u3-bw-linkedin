@@ -65,7 +65,7 @@ const SinglePost = ({ post }) => {
                   setWannaEdit(!wannaEdit);
                 }}
               >
-                <svg viewBox="0 0 24 24" width="16" height="16">
+                <svg viewBox="0 0 24 24" width="22" height="22">
                   <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
                 </svg>
               </button>
@@ -74,7 +74,7 @@ const SinglePost = ({ post }) => {
                   setRemovePost(postId);
                 }}
               >
-                <svg viewBox="0 0 24 24" width="16" height="16">
+                <svg viewBox="0 0 24 24" width="22" height="22">
                   <path d="M20 4v1H4V4a1 1 0 011-1h4a1 1 0 011-1h4a1 1 0 011 1h4a1 1 0 011 1zM5 6h14v13a3 3 0 01-3 3H8a3 3 0 01-3-3zm9 12h1V8h-1zm-5 0h1V8H9z"></path>
                 </svg>
               </button>

@@ -11,8 +11,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 }
 
 .postEditDelete button:nth-of-type(1):hover {
