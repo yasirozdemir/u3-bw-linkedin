@@ -3,6 +3,8 @@ import { Col, Row, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 // import { editPost } from "../redux/actions";
 import { doEditPost } from "../redux/actions";
+import { useParams } from "react-router-dom";
+import { removePost } from "../redux/actions";
 
 const SinglePost = ({ post }) => {
   const dispatch = useDispatch();
@@ -25,6 +27,16 @@ const SinglePost = ({ post }) => {
     event.preventDefault();
     dispatch(doEditPost(post._id, editPost));
   };
+
+  const setRemovePost = (e) => {
+    //e.preventDefault(e);
+    console.log("Delete post triggered");
+    console.log(e);
+    dispatch(removePost(postId));
+  };
+
+  const params = useParams();
+  const postId = params.postId;
 
   return (
     <Row>
@@ -63,6 +75,10 @@ const SinglePost = ({ post }) => {
           </Form.Group>
           <Button variant="primary" type="submit">
             Update
+          </Button>
+          <br />
+          <Button variant="danger" onClick={() => setRemovePost(post)}>
+            Remove
           </Button>
         </Form>
       </Col>

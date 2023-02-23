@@ -1,10 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts, setUrlParam } from "../redux/actions";
+
 import PostInput from "./PostInput";
 import SinglePost from "./SinglePost";
 import LeftSidebar from "./LeftSidebar";
+
 
 const FeedList = () => {
   const dispatch = useDispatch();
@@ -21,6 +24,7 @@ const FeedList = () => {
     dispatch(setUrlParam(null));
   }, []);
 
+ 
   return (
     <>
       <Container className="feed-list-main">
@@ -37,7 +41,9 @@ const FeedList = () => {
             {allPosts.length > 0 &&
               sortedPosts.map((post) => {
                 return <SinglePost key={post._id} post={post} />;
-              })}
+              
+              })
+              }
           </Col>
         </Row>
       </Container>

@@ -572,3 +572,21 @@ export const doEditPost = (postId, data) => {
     }
   };
 };
+
+export const removePost = (postId) => {
+  console.log("Post deleted");
+  return async (dispatch) => {
+    try {
+      const removePostURL = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
+      const res = await fetch(removePostURL, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
