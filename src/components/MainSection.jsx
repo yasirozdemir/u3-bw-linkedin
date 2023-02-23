@@ -96,6 +96,7 @@ const MainSection = () => {
                     onClick={() => {
                       setShowPPModal(true);
                     }}
+                    style={{ objectFit: "cover" }}
                   />
                   {isMe && (
                     <PPModal
