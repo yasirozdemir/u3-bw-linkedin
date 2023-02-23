@@ -433,8 +433,14 @@ export const setNetworkList = () => {
   };
 };
 
-export const addExperience = (userId, data) => {
-  console.log("add experiences triggered");
+export const addExperience = (formData) => {
+  console.log("action triggered");
+  const userId = formData.get("userId");
+  const imageFile = formData.get("imageFile");
+  const data = JSON.parse(formData.get("experience"));
+
+  console.log(imageFile);
+
   return async (dispatch) => {
     try {
       const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
@@ -451,7 +457,8 @@ export const addExperience = (userId, data) => {
         type: ADD_EXPERIENCE,
         payload: newExperience,
       });
-      dispatch(setSpecificUserExperience(userId));
+      dispatch(setExperienceImage(userId, newExperience._id, imageFile));
+      // dispatch(setSpecificUserExperience(userId));
     } catch (error) {
       console.log(error);
     }
@@ -567,6 +574,32 @@ export const doEditPost = (postId, data) => {
       });
       const editedPost = await res.json();
       console.log("successfully edited", editedPost);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const setExperienceImage = (userId, expId, image) => {
+  console.log("setImage triggered", image);
+  console.log("userId", userId);
+  console.log("expId", expId);
+
+  const formData = new FormData();
+  formData.append("image", image);
+
+  const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`;
+
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0`,
+        },
+        body: formData,
+      });
+      console.log("addes");
     } catch (error) {
       console.log(error);
     }

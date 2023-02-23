@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 
 function ExperienceInput({ userId, method, heading, onClose, experience }) {
   const dispatch = useDispatch();
+  const [imageFile, setImageFile] = useState(null);
 
   const [data, setData] = useState(
     method === "POST"
@@ -21,19 +22,31 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
         }
       : experience
   );
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
     setData({ ...data, [name]: value });
-    console.log(value);
+    console.log(data);
+  };
+
+  const handleFileChange = (event) => {
+    const image = event.target.files[0];
+    setImageFile(image);
+    console.log(image);
   };
 
   const handleSubmit = async (event) => {
-    console.log("submitted successfully");
+    event.preventDefault();
+    const formData = new FormData();
+    const procData = JSON.stringify(data);
+    formData.append("imageFile", imageFile);
+    formData.append("experience", procData);
+    formData.append("userId", userId);
 
     if (method === "POST") {
       event.preventDefault();
-      dispatch(addExperience(userId, data));
+      dispatch(addExperience(formData));
       onClose();
     } else if (method === "PUT") {
       event.preventDefault();
@@ -120,6 +133,14 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               name="image"
               value={data.image}
               onChange={handleInputChange}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.File
+              id="imageFile"
+              label="Choose an image file"
+              onChange={handleFileChange}
             />
           </Form.Group>
 

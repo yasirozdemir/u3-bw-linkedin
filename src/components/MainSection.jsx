@@ -317,7 +317,7 @@ const MainSection = () => {
               method={method}
               heading={heading}
               onClose={handlePopupClose}
-              experience={experience}
+              experienceData={experience}
             />
           </Modal>
         </div>
