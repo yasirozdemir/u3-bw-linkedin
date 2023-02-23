@@ -195,3 +195,56 @@
   margin-top: -12px !important;
   cursor: pointer;
 }
+
+.exp-image {
+  margin-bottom: 13px;
+  padding-bottom: 30px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.exp-card {
+  padding-top: 10px;
+}
+
+.exp-image img {
+  width: 300px;
+  object-fit: cover;
+  max-height: 150px;
+  border-radius: 10px;
+}
+
+.minor-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.minor-section h5 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.minor-section p {
+  font-size: 13px;
+  color: black;
+  margin-bottom: 0px;
+}
+
+.main-info h1 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.greyClass {
+  color: grey !important;
+}
+
+.company {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.exp-description {
+  font-size: 15px !important;
+  margin-top: 10px;
+}

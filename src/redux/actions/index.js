@@ -586,7 +586,7 @@ export const setExperienceImage = (userId, expId, image) => {
   console.log("expId", expId);
 
   const formData = new FormData();
-  formData.append("image", image);
+  formData.append("experience", image);
 
   const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`;
 
@@ -600,6 +600,7 @@ export const setExperienceImage = (userId, expId, image) => {
         body: formData,
       });
       console.log("addes");
+      dispatch(setSpecificUserExperience(userId));
     } catch (error) {
       console.log(error);
     }

@@ -37,8 +37,8 @@ const MainSection = () => {
   const setEditExperience = (e) => {
     setMethod("PUT");
     setHeading("Edit this Experience");
-    setShow(true);
     setExperience(e);
+    setShow(true);
     console.log("aldkfjlakjdf", e);
   };
 
@@ -264,50 +264,81 @@ const MainSection = () => {
         <Col className="minor-section experience-section my-1">
           <div>
             <div
-              className="d-flex justify-content-between"
+              className="d-flex justify-content-between mb-3"
               style={{ alignItems: "center" }}
             >
-              <h2>Experience</h2>
+              <h2 className="mb-0">Experience</h2>
               {userId === "63f3370b8381fc0013fffad1" && (
-                <Button
-                  className="add-experience-button"
-                  variant="outline-primary"
-                  onClick={setAddExperience}
-                >
-                  +
-                </Button>
+                <div onClick={setAddExperience}>
+                  <svg height="23" width="23">
+                    <path
+                      fill="grey"
+                      d="M11 5.5v12M5.5 11h12"
+                      stroke="grey"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               )}
             </div>
-            <br />
+
             {experienceData &&
-              experienceData.map((e) => {
-                return (
-                  <div key={e._id}>
-                    <h5>Role: {e.role}</h5>
-                    <p>
-                      At {e.company}, located in {e.area}
-                      <br />
-                      <span>In charge of: {e.description}</span>
-                    </p>
-                    {userId === "63f3370b8381fc0013fffad1" && (
-                      <div className="d-flex gap">
-                        <p
-                          onClick={() => setEditExperience(e)}
-                          className="edit-experience-button"
-                        >
-                          edit
-                        </p>
-                        <p
-                          onClick={() => setRemoveExperience(e)}
-                          className="remove-experience-button ml-3"
-                        >
-                          remove
-                        </p>
+              experienceData
+                .slice(0)
+                .reverse()
+                .map((e) => {
+                  return (
+                    <div className="exp-card" key={e._id}>
+                      <div className="d-flex justify-content-between">
+                        <h5>{e.role}</h5>
+                        {userId === "63f3370b8381fc0013fffad1" && (
+                          <div className="d-flex gap">
+                            <div
+                              onClick={() => setEditExperience(e)}
+                              className="edit-experience-button"
+                            >
+                              <svg height={23} width={23}>
+                                <path
+                                  fill="grey"
+                                  d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"
+                                />
+                              </svg>
+                            </div>
+                            <div
+                              onClick={() => setRemoveExperience(e)}
+                              className="remove-experience-button ml-3"
+                            >
+                              <svg height={23} width={23}>
+                                <path
+                                  fill="none"
+                                  stroke="grey"
+                                  strokeWidth="2"
+                                  d="M19.5 12.5H3.5C3.22 12.5 3 12.28 3 12s.22-.5.5-.5h16c.28 0 .5.22.5.5s-.22.5-.5.5z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
+                      <p className="company">{e.company.toUpperCase()} </p>
+                      <p className="greyClass"> {e.area}</p>
+                      <p className="greyClass">
+                        {" "}
+                        {e.startDate.slice(0, 10)} - {e.endDate.slice(0, 10)}
+                      </p>
+
+                      <p className="exp-description">{e.description}</p>
+
+                      {e.image && (
+                        <div className="exp-image">
+                          <img src={e.image}></img>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
           </div>
         </Col>
         <div>
@@ -317,7 +348,7 @@ const MainSection = () => {
               method={method}
               heading={heading}
               onClose={handlePopupClose}
-              experienceData={experience}
+              experience={experience}
             />
           </Modal>
         </div>
