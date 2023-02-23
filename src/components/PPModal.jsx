@@ -92,7 +92,12 @@ const PPModal = ({ showPPModal, setShowPPModal }) => {
             />
             Submit
           </button>
-          <button className="d-flex flex-column align-items-center ml-auto">
+          <button
+            onClick={() => {
+              //   dispatch(removePP(myInfo._id));
+            }}
+            className="d-flex flex-column align-items-center ml-auto"
+          >
             <svg viewBox="0 0 24 24" width="24" height="24">
               <path d="M20 4v1H4V4a1 1 0 011-1h4a1 1 0 011-1h4a1 1 0 011 1h4a1 1 0 011 1zM5 6h14v13a3 3 0 01-3 3H8a3 3 0 01-3-3zm9 12h1V8h-1zm-5 0h1V8H9z"></path>
             </svg>
