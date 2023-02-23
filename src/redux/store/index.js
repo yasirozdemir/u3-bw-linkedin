@@ -14,6 +14,7 @@ import addExperience from "../reducers/addExperience";
 import { editExperience } from "../actions";
 import getPostsReducer from "../reducers/getPostsReducer";
 import urlParamReducer from "../reducers/urlParamReducer";
+import specificPostReducer from "../reducers/specificPostReducer";
 
 const persistConfig = {
   storage: localStorage,
@@ -34,6 +35,8 @@ const combinedReducers = combineReducers({
 
   allPosts: getPostsReducer,
   experienceData: userExperienceReducer,
+
+  specificPost: specificPostReducer,
 
   network: setNetworkReducer,
   newExperience: addExperience,
