@@ -72,6 +72,7 @@ const MainSection = () => {
     dispatch(setSpecificUserExperience(userId));
     dispatch(setSpecificUser(specificPerson));
     dispatch(setUrlParam(params));
+    window.scrollTo(0, 0);
   }, [userId]);
 
   return (
