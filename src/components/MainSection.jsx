@@ -58,6 +58,9 @@ const MainSection = () => {
     return userId === u._id;
   });
 
+  const myInfo = useSelector((state) => state.me);
+  const isMe = specificPerson._id === myInfo._id;
+
   const handlePopupClose = () => {
     setShow(false);
   };
@@ -106,38 +109,49 @@ const MainSection = () => {
                 <p>500+ connections</p>
               </div>
               <div className="icons-container display-flex">
-                <div>
-                  <button className="send-invite">
-                    Send invitation{" "}
-                    <span>
-                      <svg
-                        viewBox="0 0 16 16"
-                        fill="#6c757d"
-                        width="16"
-                        height="16"
-                        focusable="false"
-                      >
-                        <path d="M9 4a3 3 0 11-3-3 3 3 0 013 3zM6.75 8h-1.5A2.25 2.25 0 003 10.25V15h6v-4.75A2.25 2.25 0 006.75 8zM13 8V6h-1v2h-2v1h2v2h1V9h2V8z"></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-                <div>
-                  <button className="message-button">
-                    Message{" "}
-                    <span>
-                      <svg
-                        viewBox="0 0 16 16"
-                        fill="white"
-                        width="16"
-                        height="16"
-                        focusable="false"
-                      >
-                        <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
+                {isMe ? (
+                  <>
+                    <button className="meBtns third">
+                      Add profile section
+                    </button>
+                    <button className="meBtns second">Open to</button>
+                  </>
+                ) : (
+                  <>
+                    <div>
+                      <button className="send-invite">
+                        Send invitation
+                        <span>
+                          <svg
+                            viewBox="0 0 16 16"
+                            fill="#6c757d"
+                            width="16"
+                            height="16"
+                            focusable="false"
+                          >
+                            <path d="M9 4a3 3 0 11-3-3 3 3 0 013 3zM6.75 8h-1.5A2.25 2.25 0 003 10.25V15h6v-4.75A2.25 2.25 0 006.75 8zM13 8V6h-1v2h-2v1h2v2h1V9h2V8z"></path>
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button className="message-button">
+                        Message
+                        <span className="ml-2">
+                          <svg
+                            viewBox="0 0 16 16"
+                            fill="white"
+                            width="16"
+                            height="16"
+                            focusable="false"
+                          >
+                            <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </>
+                )}
                 <div>
                   <button className="more-button">More</button>
                 </div>

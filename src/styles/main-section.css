@@ -96,11 +96,6 @@
   line-height: 1rem;
 }
 
-.icons-container .more-button {
-  color: white;
-  border: 1px solid white;
-}
-
 .text-container p {
   text-align: left;
 }
@@ -116,13 +111,54 @@
 }
 
 .message-button {
+  border: transparent;
   background-color: #0b66c2 !important;
   color: white !important;
-  border: 1px solid #0b66c2 !important;
+  outline: 1px solid #0b66c2 !important;
+}
+
+.meBtns {
+  border: transparent;
+}
+
+.meBtns:nth-of-type(1) {
+  background-color: #0a66c2;
+  color: #fff;
+  fill: #fff;
+}
+
+.meBtns:nth-of-type(1):hover {
+  background-color: #084685;
+}
+
+.meBtns:nth-of-type(2) {
+  color: #0a66c2;
+  outline: solid 1px #0a66c2;
+}
+
+.meBtns:nth-of-type(2):hover {
+  background-color: #0a66c223;
+  box-shadow: inset 0px 0px 0px 1px #155df88a;
+}
+
+.more-button {
+  background-color: transparent;
+  border: transparent !important;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  outline: solid 1px rgba(32, 32, 32, 0.695);
+  font-weight: 600;
+  color: #6c757d !important;
+}
+
+.more-button:hover {
+  background-color: #ebebeb;
+  box-shadow: inset 0px 0px 0px 1px #0000008a;
 }
 
 .send-invite {
-  border: 2px solid #6c757d !important;
+  border: transparent;
+  outline: 2px solid #6c757d !important;
   font-weight: 700;
 }
 

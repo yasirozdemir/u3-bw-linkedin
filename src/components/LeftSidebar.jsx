@@ -49,7 +49,7 @@ const LeftSidebar = () => {
                 style={{
                   fontSize: "0.8rem",
                   color: "#0A66C2",
-                  fontWeight: "700",
+                  fontWeight: "600",
                 }}
               >
                 962
