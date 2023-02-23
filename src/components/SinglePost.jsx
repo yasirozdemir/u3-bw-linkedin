@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { editPost } from "../redux/actions";
 import { doEditPost } from "../redux/actions";
 import { useParams } from "react-router-dom";
 import { removePost } from "../redux/actions";
+import PostPictureModal from "./PostPictureModal";
 
 const SinglePost = ({ post }) => {
+  const [showPostPictureModal, setShowPostPictureModal] = useState(false);
+
   const dispatch = useDispatch();
 
   const [editPost, setEditPost] = useState(post);
@@ -29,6 +32,9 @@ const SinglePost = ({ post }) => {
     dispatch(removePost(post._id, postId));
   };
 
+  const postInfo = useSelector((state) => state.specificPost);
+  const isPost = post._id === postInfo._id;
+
   const params = useParams();
   const postId = params.postId;
 
@@ -41,8 +47,19 @@ const SinglePost = ({ post }) => {
               <img
                 alt="profile"
                 className="right-nav-profile-img"
-                src={post.user.image}
+                src={isPost ? postInfo?.image : post.user.image}
+                onClick={() => {
+                  setShowPostPictureModal(true);
+                }}
               />
+              {isPost && (
+                <PostPictureModal
+                  postId={postId}
+                  showPostPictureModal={showPostPictureModal}
+                  setShowPostPictureModal={setShowPostPictureModal}
+                  postImage={post.user.image}
+                />
+              )}
             </div>
             <div className="d-flex flex-column profile-details">
               <h6>{post.user.name}</h6>

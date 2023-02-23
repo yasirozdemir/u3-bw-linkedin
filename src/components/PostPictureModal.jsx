@@ -5,6 +5,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPostPicture } from "../redux/actions";
 
 const PostPictureModal = ({ showPostPictureModal, setShowPostPictureModal }) => {
+
+    const dispatch = useDispatch();
+    const [imgData, setImgData] = useState(null);
+    const [isChanging, setIsChanging] = useState(false);
+    const postInfo = useSelector((state) => state.specificPost);
+
+    const inputRef = useRef(null);
+
+    const imitateInputFile = () => {
+        inputRef.current.click();
+    };
+
+    const handleChange = (e) => {
+   
+        const img = e.target.files[0];
+        const imgData = new FormData();
+        imgData.append("post", img);
+        // setImgData(imgData);
+        console.log(" imgData: ", imgData)
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(setPostPicture(postInfo?._id, imgData, setIsChanging));
+    }
+
     return(
         <Modal
       id="PostPictureModal"
@@ -35,11 +61,11 @@ const PostPictureModal = ({ showPostPictureModal, setShowPostPictureModal }) => 
           </div>
         ) : (
           <img
-            src={myInfo?.image}
+            src={postInfo?.image}
             className="w-100 rounded-circle"
             alt="Profile img"
             onClick={() => {
-              setShowPPModal(true);
+              setShowPostPictureModal(true);
             }}
           />
         )}
@@ -92,4 +118,6 @@ const PostPictureModal = ({ showPostPictureModal, setShowPostPictureModal }) => 
       </Form>
     </Modal>
     )
-}
+};
+
+export default PostPictureModal

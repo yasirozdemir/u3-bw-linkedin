@@ -630,10 +630,9 @@ export const setPostPicture = (postId, img, setIsChanging) => {
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
         },
       });
+      console.log(res);
       if (res.ok) {
         console.log("okay!");
-        dispatch(setSpecificPost());
-        setIsChanging();
       } else {
         console.log("Error :(");
       }
