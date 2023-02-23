@@ -63,7 +63,6 @@ const MainSection = () => {
 
   const myInfo = useSelector((state) => state.me);
   const isMe = specificPerson._id === myInfo._id;
-  console.log(isMe);
 
   const handlePopupClose = () => {
     setShow(false);
