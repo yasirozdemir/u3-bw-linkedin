@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Form } from "react-bootstrap";
 import { MdOutlineSaveAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +7,11 @@ import "../styles/PostInput.css";
 
 function PostInput() {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
+
+  const imitateInputFile = () => {
+    inputRef.current.click();
+  };
 
   const myInfo = useSelector((state) => state.me);
   const [post, setPost] = useState({
@@ -65,14 +70,18 @@ function PostInput() {
             />
             Share
           </button>
-          <button>
+          <button onClick={imitateInputFile}>
             <svg className="mr-1" viewBox="0 0 24 24" width="24" height="24">
               <path d="M16 13a4 4 0 11-4-4 4 4 0 014 4zm6-4v11H2V9a3 3 0 013-3h1.3l1.2-3h9l1.2 3H19a3 3 0 013 3zm-5 4a5 5 0 10-5 5 5 5 0 005-5z"></path>
             </svg>
             Add Image
           </button>
           <Form.Group className="d-none">
-            <Form.File id="imageFile" onChange={handleFileChange} />
+            <Form.File
+              ref={inputRef}
+              id="imageFile"
+              onChange={handleFileChange}
+            />
           </Form.Group>
         </div>
       </Form>
