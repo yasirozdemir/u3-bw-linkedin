@@ -18,6 +18,7 @@ export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
 export const SET_NETWORK_LIST = "SET_NETWORK_LIST";
 
 export const ADD_POST = "ADD_POST";
+export const GET_SPECIFIC_POST = "GET_SPECIFIC_POST";
 
 export const url = "https://striveschool-api.herokuapp.com/api/";
 export const auth =
@@ -239,8 +240,12 @@ export const removeExperience = (userId, experience) => {
   };
 };
 
-export const addPost = (post) => {
-  console.log("add post triggered");
+export const addPost = (imgForm) => {
+  const picture = imgForm.get("post");
+  const data = imgForm.get("postData");
+  const dataFinal = JSON.parse(data);
+  console.log("hello:", data, picture);
+
   return async (dispatch) => {
     try {
       const url = `https://striveschool-api.herokuapp.com/api/posts/`;
@@ -250,14 +255,43 @@ export const addPost = (post) => {
           "Content-Type": "application/json",
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
         },
-        body: JSON.stringify(post),
+        body: JSON.stringify(dataFinal),
       });
       const newPost = await response.json();
+      console.log("successfully submitted");
       console.log(newPost);
       dispatch({
         type: ADD_POST,
         payload: newPost,
       });
+      dispatch(setPostPicture(picture, newPost._id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const setPostPicture = (picture, postId) => {
+  console.log("consollogging picture:", picture);
+  const formData = new FormData();
+  formData.append("post", picture);
+  // console.log(imgForm.get("postData"));
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "posts/" + postId, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      console.log(res);
+      if (res.ok) {
+        console.log("okay!");
+      } else {
+        console.log("Error :(");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -305,6 +339,52 @@ export const doEditPost = (postId, data) => {
       const editedPost = await res.json();
       console.log("successfully edited", editedPost);
     } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+export const setSpecificPost = (postId) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "posts/" + postId, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      if (res.ok) {
+        const postData = await res.json();
+        console.log("postData:", postData);
+        dispatch({
+          type: GET_SPECIFIC_POST,
+          payload: postData,
+        });
+      } else {
+        console.log("error fetching specific post data");
+      }
+    } catch (error) {
+      console.log("error fetching specific post data");
+    }
+  };
+};
+
+export const removePost = (postId) => {
+  console.log("Post deleted");
+  return async (dispatch) => {
+    try {
+      const removePostURL = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
+      const res = await fetch(removePostURL, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+        },
+      });
+      dispatch(setSpecificPost(postId));
+       } catch (error) {
       console.log(error);
     }
   };

@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 // import { editPost } from "../redux/actions";
 import { doEditPost } from "../redux/actions";
+import { useParams } from "react-router-dom";
+import { removePost } from "../redux/actions";
 
 const SinglePost = ({ post }) => {
   const dispatch = useDispatch();
@@ -16,16 +18,20 @@ const SinglePost = ({ post }) => {
     console.log(name, value);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // console.log("submit has been triggered")
-  //   dispatch(editPost(post._id, editPost))
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(doEditPost(post._id, editPost));
   };
+
+  const setRemovePost = (e) => {
+    //e.preventDefault(e);
+    console.log("Delete post triggered");
+    console.log(e);
+    dispatch(removePost(post._id, postId));
+  };
+
+  const params = useParams();
+  const postId = params.postId;
 
   return (
     <Row>
@@ -48,6 +54,25 @@ const SinglePost = ({ post }) => {
         <div className="post-list-post">
           <p>{post.text}</p>
         </div>
+        {post.image && (
+          <div
+            style={{
+              maxWidth: "300px",
+              maxHeight: "200px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src={post.image}
+              alt="stuff"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        )}
         <Form className="post-form" onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>
@@ -64,6 +89,10 @@ const SinglePost = ({ post }) => {
           </Form.Group>
           <Button variant="primary" type="submit">
             Update
+          </Button>
+          <br />
+          <Button variant="danger" onClick={() => setRemovePost(postId)}>
+            Remove
           </Button>
         </Form>
       </Col>
