@@ -248,3 +248,8 @@
   font-size: 15px !important;
   margin-top: 10px;
 }
+
+.connections {
+  color: #0b66c2;
+  font-weight: 700;
+}
