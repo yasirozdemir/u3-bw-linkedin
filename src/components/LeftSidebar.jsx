@@ -53,7 +53,7 @@ const LeftSidebar = () => {
           >
             <div className="d-flex align-items-center py-1 px-2  hover hovAnim">
               <small className="text-muted" style={{ fontSize: "0.7rem" }}>
-                Whos's viewed your profile
+                Who's viewed your profile
               </small>
               <span
                 className="ml-auto"
