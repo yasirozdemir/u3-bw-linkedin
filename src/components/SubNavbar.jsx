@@ -7,10 +7,16 @@ const SubNavbar = () => {
 
   return (
     <>
-      <div className="d-flex align-items-center">
-        <div>
+      <div
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+        className="d-flex align-items-center"
+        style={{ cursor: "pointer", flexGrow: "1" }}
+      >
+        <div className="sbnavbarImgWrapper">
           <img
-            src={specificPerson?.image}
+            src={isMe ? myInfo.image : specificPerson.image}
             alt=""
             className="w-100 rounded-circle"
             style={{

@@ -7,6 +7,9 @@ header {
 }
 
 #profilePic {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
   overflow: hidden;
@@ -77,6 +80,11 @@ header .navItems {
   width: 0%;
   background-color: #0a66c2;
   transition: width 100ms;
+}
+
+.navItems.activeNavLink {
+  color: #000;
+  fill: #000;
 }
 
 .navItems.activeNavLink::after {
@@ -175,6 +183,8 @@ form {
   z-index: 100;
   transition: transform 600ms;
   height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 #subNavbarWrapper.show {
@@ -214,4 +224,18 @@ form {
 #subNavbarWrapper button.third:hover {
   background-color: #0a66c223;
   box-shadow: inset 0px 0px 0px 1px #155df88a;
+}
+
+.sbnavbarImgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foundedUsers {
+  color: black;
+}
+
+.foundedUsers:hover {
+  background-color: #e9e9e983;
 }
