@@ -20,6 +20,7 @@ const FeedList = () => {
     dispatch(getAllPosts());
     dispatch(setUrlParam(null));
     window.scrollTo(0, 0);
+    document.title = "Feed | LinkedIn";
     // eslint-disable-next-line
   }, []);
 

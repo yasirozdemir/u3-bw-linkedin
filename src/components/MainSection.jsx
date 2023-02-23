@@ -73,6 +73,7 @@ const MainSection = () => {
     dispatch(setSpecificUser(specificPerson));
     dispatch(setUrlParam(params));
     window.scrollTo(0, 0);
+    document.title = `${specificPerson.name} ${specificPerson.surname} | LinkedIn`;
   }, [userId]);
 
   return (
