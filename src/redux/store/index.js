@@ -29,7 +29,7 @@ const combinedReducers = combineReducers({
   me: myInfoReducer,
   search: searchReducer,
   users: userListReducer,
-  specificUserId: specificUserReducer,
+  specificUser: specificUserReducer,
   urlParams: urlParamReducer,
 
   allPosts: getPostsReducer,

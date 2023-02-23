@@ -196,8 +196,22 @@ form {
   box-shadow: inset 0px 0px 0px 1px #0000008a;
 }
 
-#subNavbarWrapper button:nth-of-type(2) {
+#subNavbarWrapper button.second {
   background-color: #0a66c2;
   color: #fff;
   fill: #fff;
+}
+
+#subNavbarWrapper button.second:hover {
+  background-color: #084685;
+}
+
+#subNavbarWrapper button.third {
+  color: #0a66c2;
+  outline-color: #0a66c2;
+}
+
+#subNavbarWrapper button.third:hover {
+  background-color: #0a66c223;
+  box-shadow: inset 0px 0px 0px 1px #155df88a;
 }

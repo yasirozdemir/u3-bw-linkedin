@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 
 const SubNavbar = () => {
-  const specificPerson = useSelector((state) => state.specificUserId);
+  const specificPerson = useSelector((state) => state.specificUser);
+  const myInfo = useSelector((state) => state.me);
+  const isMe = specificPerson._id === myInfo._id;
 
   return (
     <>
@@ -28,12 +30,21 @@ const SubNavbar = () => {
       </div>
       <div className="d-flex align-items-center">
         <button className="mr-2">More</button>
-        <button className="d-inline-flex align-items-center">
-          <svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
-            <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
-          </svg>
-          <span className="ml-2">Message</span>
-        </button>
+        {isMe ? (
+          <>
+            <button className="third mr-2">Add profile section</button>
+            <button className="second">Open to</button>
+          </>
+        ) : (
+          <>
+            <button className="second d-inline-flex align-items-center">
+              <svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
+                <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
+              </svg>
+              <span className="ml-2">Message</span>
+            </button>
+          </>
+        )}
       </div>
     </>
   );
