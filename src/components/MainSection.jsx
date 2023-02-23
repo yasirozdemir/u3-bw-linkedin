@@ -162,9 +162,9 @@ const MainSection = () => {
                     <h1>
                       {specificPerson?.name} {specificPerson?.surname}
                     </h1>
-                    <p>{specificPerson?.title}</p>
-                    <p>Area: {specificPerson?.area}</p>
-                    <p>Username: {specificPerson?.username}</p>
+                    <p className="mb-0">{specificPerson?.title}</p>
+                    <p className="greyClass"> {specificPerson?.area}</p>
+                    {/* <p>Username: {specificPerson?.username}</p> */}
                   </div>
                   <div className="right-panel">
                     <ul>
@@ -173,7 +173,7 @@ const MainSection = () => {
                     </ul>
                   </div>
                 </div>
-                <p>500+ connections</p>
+                <p className="connections">500+ connections</p>
               </div>
               <div className="icons-container display-flex">
                 {isMe ? (
