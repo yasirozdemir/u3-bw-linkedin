@@ -111,30 +111,6 @@ export const setPP = (userId, img) => {
   };
 };
 
-// export const removePP = (userId) => {
-//   return async () => {
-//     try {
-//       const res = await fetch(url + "profile/" + userId + "/picture", {
-//         method: "DELETE",
-//         headers: {
-//           "Content-Type": "application/json",
-
-//           Authorization: auth,
-//         },
-//       });
-//       console.log(res);
-
-//       if (res.ok) {
-//         console.log("pfp deleted");
-//       } else {
-//         console.log("smth went wrong deleting pfp");
-//       }
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-// };
-
 export const setSpecificUserExperience = (userId) => {
   return async (dispatch) => {
     try {
