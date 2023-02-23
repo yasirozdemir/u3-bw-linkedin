@@ -618,3 +618,27 @@ export const removePost = (postId) => {
     }
   };
 };
+
+export const setPostPicture = (postId, img, setIsChanging) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "posts/" + postId, {
+        method: "POST",
+        body: img,
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+        },
+      });
+      if (res.ok) {
+        console.log("okay!");
+        dispatch(setSpecificPost());
+        setIsChanging();
+      } else {
+        console.log("Error :(");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
