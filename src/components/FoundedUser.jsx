@@ -10,7 +10,7 @@ const FoundedUsers = ({ user }) => {
   return (
     <>
       <Link onClick={hideTab} to={"/in/" + user._id}>
-        <Row className="align-items-center my-2">
+        <Row className="align-items-center my-2 foundedUsers">
           <Col xs={2}>
             <div
               className="d-flex justify-content-center"

@@ -82,6 +82,11 @@ header .navItems {
   transition: width 100ms;
 }
 
+.navItems.activeNavLink {
+  color: #000;
+  fill: #000;
+}
+
 .navItems.activeNavLink::after {
   content: "";
   position: absolute;
@@ -225,4 +230,12 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.foundedUsers {
+  color: black;
+}
+
+.foundedUsers:hover {
+  background-color: #e9e9e983;
 }
