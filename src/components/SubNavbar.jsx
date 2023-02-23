@@ -14,7 +14,7 @@ const SubNavbar = () => {
         className="d-flex align-items-center"
         style={{ cursor: "pointer", flexGrow: "1" }}
       >
-        <div>
+        <div className="sbnavbarImgWrapper">
           <img
             src={isMe ? myInfo.image : specificPerson.image}
             alt=""

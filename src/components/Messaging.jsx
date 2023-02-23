@@ -5,8 +5,10 @@ import { GoSettings } from "react-icons/go";
 import { FaRegEdit, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import "../styles/messaging.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Messaging = () => {
+  const navigate = useNavigate();
   const myInfo = useSelector((state) => state.me);
   const userList = useSelector((state) => state.users)?.slice(0, 15);
   const [showMore, setShowMore] = useState(false);
@@ -33,8 +35,6 @@ const Messaging = () => {
                 style={{
                   maxWidth: "32px",
                   height: "32px",
-                  objectFit: "cover",
-                  objectPosition: "center",
                 }}
                 alt=""
                 className="rounded-circle"
@@ -95,6 +95,9 @@ const Messaging = () => {
             userList.map((u) => {
               return (
                 <div
+                  onClick={() => {
+                    navigate("/in/" + u._id);
+                  }}
                   key={u._id}
                   className="msgUser d-flex align-items-center pl-2 mt-3"
                 >
