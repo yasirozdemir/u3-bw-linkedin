@@ -35,6 +35,9 @@ function PostInput() {
     imgForm.append("postData", postSth);
     dispatch(addPost(imgForm));
     console.log(imgForm.get("postData"));
+    setPost({
+      text: "",
+    });
   };
 
   const handleFileChange = (event) => {
@@ -56,6 +59,7 @@ function PostInput() {
           <Form.Group style={{ flexGrow: "0.95" }}>
             <Form.Control
               type="text"
+              name="text"
               value={post.text}
               placeholder="Start a post..."
               onChange={handleInputChange}
@@ -74,15 +78,14 @@ function PostInput() {
             <svg className="mr-1" viewBox="0 0 24 24" width="24" height="24">
               <path d="M16 13a4 4 0 11-4-4 4 4 0 014 4zm6-4v11H2V9a3 3 0 013-3h1.3l1.2-3h9l1.2 3H19a3 3 0 013 3zm-5 4a5 5 0 10-5 5 5 5 0 005-5z"></path>
             </svg>
-            Add Image
+            Add photo
           </button>
-          <Form.Group className="d-none">
-            <Form.File
-              ref={inputRef}
-              id="imageFile"
-              onChange={handleFileChange}
-            />
-          </Form.Group>
+          <Form.File
+            className="d-none"
+            ref={inputRef}
+            id="imageFile"
+            onChange={handleFileChange}
+          />
         </div>
       </Form>
     </div>
