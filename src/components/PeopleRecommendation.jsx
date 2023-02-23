@@ -9,7 +9,7 @@ const PeopleRecommendation = ({ title, profiles }) => {
           <div className="nav-section">
             <h5 className="mb-3">{title}</h5>
             {profiles.map((profile) => {
-              return <ContactCard profile={profile} />;
+              return <ContactCard key={profile._id} profile={profile} />;
             })}
 
             <div className="show-more">

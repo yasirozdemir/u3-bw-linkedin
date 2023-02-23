@@ -127,6 +127,9 @@ const CustomFooter = () => {
                 Select Language
               </small>
               <select className="w-100">
+                <option value="en_US" lang="en-us">
+                  English (English)
+                </option>
                 <option value="ar_AE" lang="ar-ae">
                   العربية (Arabic)
                 </option>
@@ -138,9 +141,6 @@ const CustomFooter = () => {
                 </option>
                 <option value="de_DE" lang="de-de">
                   Deutsch (German)
-                </option>
-                <option value="en_US" lang="en-us" selected>
-                  English (English)
                 </option>
                 <option value="es_ES" lang="es-es">
                   Español (Spanish)

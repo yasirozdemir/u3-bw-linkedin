@@ -67,8 +67,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="20.22"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#33aada"></stop>
-                        <stop offset="1" stop-color="#0091ca"></stop>
+                        <stop offset="0" stopColor="#33aada"></stop>
+                        <stop offset="1" stopColor="#0091ca"></stop>
                       </linearGradient>
                       <linearGradient
                         id="app-learning-@1-b"
@@ -78,8 +78,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="24.33"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                     </defs>
                     <path
@@ -125,8 +125,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="19.5"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                     </defs>
                     <path
@@ -161,8 +161,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="26.36"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                     </defs>
                     <path
@@ -207,8 +207,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="25.84"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                     </defs>
                     <g fill="url(#app-ads-@1-a)">
@@ -253,8 +253,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="19.17"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                     </defs>
                     <circle
@@ -296,8 +296,8 @@ const WorkModalRight = ({ show, setShow }) => {
                         y2="25.05"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#665ed0"></stop>
-                        <stop offset="1" stop-color="#0073b1"></stop>
+                        <stop offset="0" stopColor="#665ed0"></stop>
+                        <stop offset="1" stopColor="#0073b1"></stop>
                       </linearGradient>
                       <clipPath id="app-groups-@1-a">
                         <path

@@ -215,32 +215,30 @@ const MainSection = () => {
             {experienceData &&
               experienceData.map((e) => {
                 return (
-                  <>
-                    <div key={e._id}>
-                      <h5>Role: {e.role}</h5>
-                      <p>
-                        At {e.company}, located in {e.area}
-                        <br />
-                        <p>In charge of: {e.description}</p>
-                      </p>
-                      {userId === "63f3370b8381fc0013fffad1" && (
-                        <div className="d-flex gap">
-                          <p
-                            onClick={() => setEditExperience(e)}
-                            className="edit-experience-button"
-                          >
-                            edit
-                          </p>
-                          <p
-                            onClick={() => setRemoveExperience(e)}
-                            className="remove-experience-button ml-3"
-                          >
-                            remove
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </>
+                  <div key={e._id}>
+                    <h5>Role: {e.role}</h5>
+                    <p>
+                      At {e.company}, located in {e.area}
+                      <br />
+                      <span>In charge of: {e.description}</span>
+                    </p>
+                    {userId === "63f3370b8381fc0013fffad1" && (
+                      <div className="d-flex gap">
+                        <p
+                          onClick={() => setEditExperience(e)}
+                          className="edit-experience-button"
+                        >
+                          edit
+                        </p>
+                        <p
+                          onClick={() => setRemoveExperience(e)}
+                          className="remove-experience-button ml-3"
+                        >
+                          remove
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
           </div>
