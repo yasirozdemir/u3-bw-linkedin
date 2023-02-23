@@ -302,6 +302,9 @@ export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 export const SET_SPECIFIC_USER = "SET_SPECIFIC_USER";
 export const SET_URL_PARAM = "SET_URL_PARAM";
+export const SET_PROFILE_PIC = "SET_PROFILE_PIC";
+export const CHANGE_PROFILE_PIC = "CHANGE_PROFILE_PIC";
+export const DELETE_PROFILE_PIC = "DELETE_PROFILE_PIC";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 
 export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
@@ -313,6 +316,8 @@ export const SET_NETWORK_LIST = "SET_NETWORK_LIST";
 export const ADD_POST = "ADD_POST";
 
 export const url = "https://striveschool-api.herokuapp.com/api/";
+export const auth =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0";
 
 export const setMyInfo = () => {
   return async (dispatch) => {
@@ -320,8 +325,7 @@ export const setMyInfo = () => {
       const res = await fetch(url + "profile/me", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0",
+          Authorization: auth,
         },
       });
       if (res.ok) {
@@ -345,8 +349,7 @@ export const setUserList = () => {
       const res = await fetch(url + "profile/", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0",
+          Authorization: auth,
         },
       });
       if (res.ok) {
@@ -379,6 +382,27 @@ export const setUrlParam = (param) => {
       type: SET_URL_PARAM,
       payload: param,
     });
+  };
+};
+
+export const setPP = (userId, img) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(url + "profile/" + userId + "/picture", {
+        method: "POST",
+        body: img,
+        headers: {
+          Authorization: auth,
+        },
+      });
+      if (res.ok) {
+        console.log("well done");
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
