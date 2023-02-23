@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import { editPost } from "../redux/actions";
 import { doEditPost } from "../redux/actions";
@@ -10,6 +10,10 @@ import "../styles/SinglePost.css";
 
 const SinglePost = ({ post }) => {
   const dispatch = useDispatch();
+
+  const myInfo = useSelector((state) => state.me);
+  const [wannaEdit, setWannaEdit] = useState(false);
+  const isMe = myInfo?._id === post?.user._id;
 
   const [editPost, setEditPost] = useState(post);
   const handleInputChange = (event) => {
@@ -54,19 +58,42 @@ const SinglePost = ({ post }) => {
               <p className="m-0 profile-description">{post?.user.title}</p>
             </div>
           </Link>
-          <button className="followBtn ml-auto d-flex align-items-center">
-            <svg
-              className="mr-2"
-              viewBox="0 0 16 16"
-              width="16px"
-              height="16px"
-            >
-              <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
-            </svg>
-            Follow
-          </button>
+          {isMe ? (
+            <div className="ml-auto postEditDelete">
+              <button
+                onClick={() => {
+                  setWannaEdit(!wannaEdit);
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
+                </svg>
+              </button>
+              <button
+                onClick={() => {
+                  setRemovePost(postId);
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path d="M20 4v1H4V4a1 1 0 011-1h4a1 1 0 011-1h4a1 1 0 011 1h4a1 1 0 011 1zM5 6h14v13a3 3 0 01-3 3H8a3 3 0 01-3-3zm9 12h1V8h-1zm-5 0h1V8H9z"></path>
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <button className="followBtn ml-auto d-flex align-items-center">
+              <svg
+                className="mr-2"
+                viewBox="0 0 16 16"
+                width="16px"
+                height="16px"
+              >
+                <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
+              </svg>
+              Follow
+            </button>
+          )}
         </div>
-        <div className="post-list-post">
+        <div className="post-list-post mt-3">
           <p>{post?.text}</p>
         </div>
         {post?.image && (
@@ -74,28 +101,34 @@ const SinglePost = ({ post }) => {
             <img src={post?.image} alt="stuff" />
           </div>
         )}
-        <Form className="post-form" onSubmit={handleSubmit}>
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>
-              <h5>Edit post</h5>
-            </Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              type="text"
-              name="text"
-              value={editPost.text}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Update
-          </Button>
-          <br />
-          <Button variant="danger" onClick={() => setRemovePost(postId)}>
-            Remove
-          </Button>
-        </Form>
+        {isMe && wannaEdit && (
+          <Form
+            className="post-form d-flex flex-column"
+            onSubmit={handleSubmit}
+          >
+            <Form.Group>
+              <Form.Label>
+                <h6 className="m-0 text-muted">Edit post</h6>
+              </Form.Label>
+              <div className="d-flex">
+                <Form.Control
+                  type="text"
+                  name="text"
+                  value={editPost.text}
+                  className="w-75"
+                  onChange={handleInputChange}
+                />
+                <Button
+                  className="mx-auto mb-3"
+                  variant="primary"
+                  type="submit"
+                >
+                  Update
+                </Button>
+              </div>
+            </Form.Group>
+          </Form>
+        )}
         <Row className="postBtnWrapper">
           <button>
             <svg viewBox="0 0 24 24" width="24" height="24">

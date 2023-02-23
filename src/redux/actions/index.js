@@ -253,7 +253,7 @@ export const addPost = (imgForm) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+          Authorization: auth,
         },
         body: JSON.stringify(dataFinal),
       });
@@ -265,6 +265,7 @@ export const addPost = (imgForm) => {
         payload: newPost,
       });
       dispatch(setPostPicture(picture, newPost._id));
+      dispatch(getAllPosts());
     } catch (error) {
       console.log(error);
     }
@@ -282,8 +283,7 @@ export const setPostPicture = (picture, postId) => {
         method: "POST",
         body: formData,
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+          Authorization: auth,
         },
       });
       console.log(res);
@@ -306,7 +306,7 @@ export const getAllPosts = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0`,
+          Authorization: auth,
         },
       });
       if (res.ok) {
@@ -332,7 +332,7 @@ export const doEditPost = (postId, data) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+          Authorization: auth,
         },
         body: JSON.stringify(data),
       });
@@ -344,15 +344,13 @@ export const doEditPost = (postId, data) => {
   };
 };
 
-
 export const setSpecificPost = (postId) => {
   return async (dispatch) => {
     try {
       const res = await fetch(url + "posts/" + postId, {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M",
+          Authorization: auth,
         },
       });
       if (res.ok) {
@@ -380,11 +378,12 @@ export const removePost = (postId) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y0ODdiMTExZDczZDAwMTM3YWFhZTMiLCJpYXQiOjE2NzY5Njk5MDUsImV4cCI6MTY3ODE3OTUwNX0.wnWDyOXq7eCRJePCONHIx4b6dRu2NHzZaNbFPSdHr1M`,
+          Authorization: auth,
         },
       });
       dispatch(setSpecificPost(postId));
-       } catch (error) {
+      dispatch(getAllPosts());
+    } catch (error) {
       console.log(error);
     }
   };
@@ -405,7 +404,7 @@ export const setExperienceImage = (userId, expId, image) => {
       const res = await fetch(url, {
         method: "POST",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzMzcwYjgzODFmYzAwMTNmZmZhZDEiLCJpYXQiOjE2NzY4ODM3MjMsImV4cCI6MTY3ODA5MzMyM30.3Ms15UaeaqBmJxH7LkgsUdQIJBcZNUraxkMwAEZy-Y0`,
+          Authorization: auth,
         },
         body: formData,
       });

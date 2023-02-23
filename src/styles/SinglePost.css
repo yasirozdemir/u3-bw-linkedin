@@ -1,3 +1,30 @@
+.postRow .form-group {
+  margin-block-end: 0;
+}
+
+.postEditDelete button {
+  border: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 300ms;
+  fill: #777777;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+}
+
+.postEditDelete button:nth-of-type(1):hover {
+  background-color: #0a66c250;
+  fill: #000;
+}
+
+.postEditDelete button:nth-last-of-type(1):hover {
+  background-color: #c20a0a50;
+  fill: #000;
+}
+
 .followBtn {
   border: transparent;
   border-radius: 0.3rem;
