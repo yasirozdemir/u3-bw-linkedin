@@ -83,7 +83,9 @@ const MainSection = () => {
           <div className="main-div">
             <div className="upper-part">
               <img
-                src="https://media.licdn.com/dms/image/C5616AQEMdMdUfoLALA/profile-displaybackgroundimage-shrink_350_1400/0/1642410753940?e=1682553600&v=beta&t=KCi12rGY4UskuB0E5Q0Anu9MXsFoZm0_cUUibM3-_bA"
+                src="https://live-production.wcms.abc-cdn.net.au/8393f16b3a14cd32d0d5d75c1c05d56b?impolicy=wcms_crop_resize&cropH=1080&cropW=1918&xPos=1&yPos=0&width=862&height=485"
+                className="w-100"
+                style={{ height: "220px", objectFit: "cover" }}
                 alt=""
               />
             </div>
