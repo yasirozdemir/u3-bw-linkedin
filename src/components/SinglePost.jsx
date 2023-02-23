@@ -70,7 +70,7 @@ const SinglePost = ({ post }) => {
           <Button variant="primary" type="submit">
             Update
           </Button>
-          <br />
+
           <Button variant="danger" onClick={() => setRemovePost(postId)}>
             Remove
           </Button>
