@@ -47,9 +47,9 @@ const LeftSidebar = () => {
               <span
                 className="ml-auto"
                 style={{
-                  fontSize: "0.8rem",
+                  fontSize: "0.7rem",
                   color: "#0A66C2",
-                  fontWeight: "600",
+                  fontWeight: "700",
                 }}
               >
                 962
@@ -62,7 +62,7 @@ const LeftSidebar = () => {
               <span
                 className="ml-auto"
                 style={{
-                  fontSize: "0.8rem",
+                  fontSize: "0.7rem",
                   color: "#0A66C2",
                   fontWeight: "700",
                 }}
