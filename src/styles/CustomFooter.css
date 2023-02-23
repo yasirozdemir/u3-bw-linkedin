@@ -1,13 +1,14 @@
 footer a {
-  color: rgb(77, 77, 77);
+  color: rgb(122, 122, 122);
 }
 
 footer a:hover {
   text-decoration: underline !important;
+  color: rgb(20, 127, 248) !important;
 }
 
 footer svg {
-  fill: rgb(77, 77, 77);
+  fill: rgb(122, 122, 122);
 }
 
 footer select {

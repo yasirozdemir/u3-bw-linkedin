@@ -89,7 +89,10 @@ const CustomFooter = () => {
                     <Link to="/">
                       <p
                         className="m-0"
-                        style={{ fontSize: "0.9rem", fontWeight: "700" }}
+                        style={{
+                          fontSize: "0.9rem",
+                          fontWeight: "700",
+                        }}
                       >
                         Questions?
                       </p>
