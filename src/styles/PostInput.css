@@ -6,7 +6,7 @@
   background-color: #fff;
   min-width: 100%;
   margin-inline: -1rem;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem;
   border-radius: 0.75rem;
   margin-block-end: 2rem;
   position: relative;
@@ -25,6 +25,53 @@
 }
 
 #createPostWrapper button {
+  flex-grow: 1;
+  background-color: transparent;
+  border: transparent;
+  color: #777777;
+  border-radius: 2rem;
+  padding: 0.75rem 1rem;
+  outline: solid 1px #777777;
+  transition: 300ms;
+  text-align: start;
+}
+
+#createPostWrapper button:focus {
+  box-shadow: none;
+}
+
+#createPostWrapper button:hover {
+  background-color: #ebebeb;
+}
+
+#postModal .modal-content {
+  border-radius: 0.8rem;
+  min-height: 300px;
+}
+
+#postModal .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#postModal form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+}
+
+#postModal form textarea {
+  border: transparent;
+  background-color: transparent;
+  resize: none;
+}
+
+#postModal form textarea:focus {
+  box-shadow: none;
+}
+
+#postModal button {
   background-color: transparent;
   color: #777777;
   fill: #777777;
@@ -34,19 +81,6 @@
   transition: 300ms;
 }
 
-#createPostWrapper button:hover {
+#postModal button:hover {
   background-color: #ebebeb;
-}
-
-#createPostWrapper input[type="text"] {
-  background-color: transparent;
-  border: transparent;
-  color: #000;
-  border-radius: 2rem;
-  padding: 1.5rem 1rem;
-  outline: solid 1px #777777;
-}
-
-#createPostWrapper input[type="text"]:focus {
-  box-shadow: none;
 }
