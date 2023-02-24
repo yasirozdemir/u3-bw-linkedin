@@ -292,3 +292,8 @@ form {
   max-width: 300px!important;
 }
 }
+
+@media screen and (max-width: 853px) {
+.navItems.activeNavLink::after {
+  bottom: 10px!important;
+}}
