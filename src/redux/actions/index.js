@@ -206,7 +206,7 @@ export const addExperience = (formData) => {
         payload: newExperience,
       });
       dispatch(setExperienceImage(userId, newExperience._id, imageFile));
-      // dispatch(setSpecificUserExperience(userId));
+      dispatch(setSpecificUserExperience(userId));
     } catch (error) {
       console.log(error);
     }
@@ -358,6 +358,7 @@ export const doEditPost = (postId, data) => {
       });
       const editedPost = await res.json();
       console.log("successfully edited", editedPost);
+      dispatch(getAllPosts());
     } catch (error) {
       console.log(error);
     }

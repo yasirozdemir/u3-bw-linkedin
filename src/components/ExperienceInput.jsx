@@ -76,7 +76,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               <Form.Control
                 type="text"
                 name="role"
-                value={data.role}
+                value={data?.role}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -86,7 +86,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               <Form.Control
                 type="text"
                 name="company"
-                value={data.company}
+                value={data?.company}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -96,7 +96,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               <Form.Control
                 type="text"
                 name="area"
-                value={data.area}
+                value={data?.area}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -107,7 +107,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
                 as="textarea"
                 rows={3}
                 name="description"
-                value={data.description}
+                value={data?.description}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -117,7 +117,7 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               <Form.Control
                 type="date"
                 name="startDate"
-                value={data.startDate.slice(0, 10)}
+                value={data?.startDate.slice(0, 10)}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -127,16 +127,16 @@ function ExperienceInput({ userId, method, heading, onClose, experience }) {
               <Form.Control
                 type="date"
                 name="endDate"
-                value={data.endDate.slice(0, 10)}
+                value={data.endDate?.slice(0, 10)}
                 onChange={handleInputChange}
               />
             </Form.Group>
 
             <Form.Group>
               <div>
-                {data.image && (
+                {data?.image && (
                   <div className="exp-image-lg">
-                    <img src={data.image} />
+                    <img src={data?.image} alt="" />
                   </div>
                 )}
                 <Form.File
