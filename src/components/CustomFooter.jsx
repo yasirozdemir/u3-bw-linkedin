@@ -6,7 +6,7 @@ const CustomFooter = () => {
   return (
     <footer className="mt-5 pb-4">
       <Container>
-        <Row className="px-3 mb-3">
+        <Row className="px-1 mb-3">
           <svg
             viewBox="0 0 84 21"
             width="84"
@@ -22,7 +22,7 @@ const CustomFooter = () => {
           </svg>
         </Row>
         <Row className="mb-2">
-          <Col className="d-flex align-items-start">
+          <Col className="d-flex align-items-start px-1">
             <div
               className="d-flex flex-column"
               style={{ width: "33%", fontSize: "0.8rem" }}
@@ -209,7 +209,7 @@ const CustomFooter = () => {
             </div>
           </Col>
         </Row>
-        <Row className="px-3">
+        <Row className="px-1">
           <small className="text-muted">LinkedIn Corporation © 2023</small>
         </Row>
       </Container>
