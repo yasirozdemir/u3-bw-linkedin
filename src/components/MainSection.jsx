@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/main-section.css";
 import "../styles/PPModal.css";
@@ -16,7 +16,6 @@ import {
 } from "../redux/actions";
 import ExperienceInput from "./ExperienceInput";
 import Modal from "react-bootstrap/Modal";
-import PostInput from "./PostInput";
 import PPModal from "./PPModal";
 
 const MainSection = () => {
