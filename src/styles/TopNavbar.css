@@ -6,6 +6,16 @@ header {
   background-color: #fff;
 }
 
+/* @media screen and (max-width: 710px) {
+.container .row {
+    width: 100%;
+}} */
+
+.navItems-container {
+  margin-left: 450px!important;
+}
+
+
 #profilePic {
   display: inline-flex;
   justify-content: center;

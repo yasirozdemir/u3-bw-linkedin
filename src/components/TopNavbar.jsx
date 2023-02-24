@@ -98,7 +98,7 @@ const TopNavbar = () => {
                 </div>
               )}
             </Form>
-            <div className="d-flex ml-auto">
+            <div className="d-flex ml-auto position-absolute navItems-container">
               <Link
                 to="/feed"
                 className={urlParams ? "navItems" : "navItems activeNavLink"}
