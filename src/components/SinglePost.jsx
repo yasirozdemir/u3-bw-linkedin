@@ -99,14 +99,9 @@ const SinglePost = ({ post }) => {
         <div className="post-list-post mt-3">
           <p>{post?.text}</p>
         </div>
-        {post?.image && (
-          <div className="postImgWrapper">
-            <img src={post?.image} alt="stuff" />
-          </div>
-        )}
         {isMe && wannaEdit && (
           <Form
-            className="post-form d-flex flex-column"
+            className="post-form d-flex flex-column my-4"
             onSubmit={handleSubmit}
           >
             <Form.Group>
@@ -131,6 +126,11 @@ const SinglePost = ({ post }) => {
               </div>
             </Form.Group>
           </Form>
+        )}
+        {post?.image && (
+          <div className="postImgWrapper">
+            <img src={post?.image} alt="stuff" />
+          </div>
         )}
         <Row className="postBtnWrapper">
           {post && isLiked ? (
