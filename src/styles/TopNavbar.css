@@ -6,6 +6,18 @@ header {
   background-color: #fff;
 }
 
+.navItems-container {
+  margin-left: 450px!important;
+}
+
+#magnifying-glass {
+  fill: #38434f!important;
+}
+
+#magnifying-glass.activeNavLink {
+  fill: #535353!important;
+}
+
 #profilePic {
   display: inline-flex;
   justify-content: center;
@@ -124,6 +136,8 @@ form {
   background-color: #eef3f8;
 }
 
+
+
 #searchInput:focus {
   border: solid 2px #0a66c2 !important;
   max-width: 380px;
@@ -239,3 +253,53 @@ form {
 .foundedUsers:hover {
   background-color: #e9e9e983;
 }
+
+@media screen and (max-width: 853px) {
+  header .navItems .small, small {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  header .navItems {
+    display: flex!important;
+    flex-direction: column!important;
+    align-self: center!important; 
+    margin: 2px;      
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #searchInput {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .navItems-container {
+    margin-left: 340px!important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .navItems-container {
+    margin-left: 100px!important;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+#searchInput:focus  {
+  max-width: 300px;
+}}
+
+@media screen and (max-width: 1230px) {
+#searchResults  {
+  min-width: 300px!important;
+  max-width: 300px!important;
+}
+}
+
+@media screen and (max-width: 853px) {
+.navItems.activeNavLink::after {
+  bottom: 10px!important;
+}}

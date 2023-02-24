@@ -69,17 +69,17 @@ const TopNavbar = () => {
             <Form
               onSubmit={handleSubmit}
               className="d-flex align-items-center position-relative"
-            >
+            > <a href="#" id="magnifying-glass">
               <svg
                 viewBox="0 0 16 16"
                 width="16"
                 height="16"
                 focusable="false"
                 className="position-absolute"
-                style={{ left: "1rem" }}
+                style={{ left: "1rem", bottom: "0.7rem" }}
               >
                 <path d="M14.56 12.44L11.3 9.18a5.51 5.51 0 10-2.12 2.12l3.26 3.26a1.5 1.5 0 102.12-2.12zM3 6.5A3.5 3.5 0 116.5 10 3.5 3.5 0 013 6.5z"></path>
-              </svg>
+              </svg></a>
               <Form.Control
                 onChange={handleChange}
                 id="searchInput"
@@ -98,7 +98,7 @@ const TopNavbar = () => {
                 </div>
               )}
             </Form>
-            <div className="d-flex ml-auto">
+            <div className="d-flex ml-auto position-absolute navItems-container">
               <Link
                 to="/feed"
                 className={urlParams ? "navItems" : "navItems activeNavLink"}

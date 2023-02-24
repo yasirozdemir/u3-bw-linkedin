@@ -142,7 +142,7 @@ const MainSection = () => {
                     <div>
                       <button className="send-invite">
                         Send invitation
-                        <span>
+                        <span className="ml-1">
                           <svg
                             viewBox="0 0 16 16"
                             fill="#6c757d"
