@@ -11,7 +11,7 @@ const CustomFooter2 = () => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
-  const isFixed = scrollValue >= 1920;
+  const isFixed = scrollValue >= 1850;
 
   return (
     <div
