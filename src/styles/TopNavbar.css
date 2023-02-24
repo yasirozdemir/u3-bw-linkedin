@@ -85,6 +85,14 @@ header .navItems {
   }
 }
 
+@media screen and (max-width: 853px) {
+  header .navItems {
+    display: flex!important;
+    flex-direction: column!important;
+    align-self: center!important;    
+  }
+}
+
 .navItems::after {
   content: "";
   position: absolute;
