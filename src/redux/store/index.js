@@ -14,6 +14,7 @@ import addExperience from "../reducers/addExperience";
 import { editExperience } from "../actions";
 import getPostsReducer from "../reducers/getPostsReducer";
 import urlParamReducer from "../reducers/urlParamReducer";
+import likesReducer from "../reducers/likesReducer";
 
 const persistConfig = {
   storage: localStorage,
@@ -31,6 +32,7 @@ const combinedReducers = combineReducers({
   users: userListReducer,
   specificUser: specificUserReducer,
   urlParams: urlParamReducer,
+  likedPosts: likesReducer,
 
   allPosts: getPostsReducer,
   experienceData: userExperienceReducer,

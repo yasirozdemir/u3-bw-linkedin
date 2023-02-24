@@ -9,6 +9,8 @@ export const SET_URL_PARAM = "SET_URL_PARAM";
 export const SET_PROFILE_PIC = "SET_PROFILE_PIC";
 export const CHANGE_PROFILE_PIC = "CHANGE_PROFILE_PIC";
 export const DELETE_PROFILE_PIC = "DELETE_PROFILE_PIC";
+export const LIKE = "LIKE";
+export const DISLIKE = "DISLIKE";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 
 export const GET_SPECIFIC_USER = "GET_SPECIFIC_USER";
@@ -110,6 +112,21 @@ export const setPP = (userId, img, setIsChanging) => {
     } catch (error) {
       console.error(error);
     }
+  };
+};
+
+export const likePost = (post) => {
+  return (dispatch) => {
+    dispatch({
+      type: LIKE,
+      payload: post,
+    });
+  };
+};
+
+export const dislikePost = (postId) => {
+  return (dispatch) => {
+    dispatch({ type: DISLIKE, payload: postId });
   };
 };
 
