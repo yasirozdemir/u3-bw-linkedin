@@ -21,7 +21,9 @@ const FeedPage = () => {
         </div>
         <div className="topHeaderFix">
           <RightNavbar />
-          <CustomFooter2 />
+          <div className="d-lg-none d-xl-inline-block">
+            <CustomFooter2 />
+          </div>
         </div>
       </Row>
     </Container>
