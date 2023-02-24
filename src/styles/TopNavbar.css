@@ -79,6 +79,12 @@ header .navItems {
   position: relative;
 }
 
+@media screen and (max-width: 853px) {
+  header .navItems .small, small {
+    opacity: 0;
+  }
+}
+
 .navItems::after {
   content: "";
   position: absolute;
@@ -132,6 +138,13 @@ form {
   max-width: 250px;
   transition: max-width 300ms ease-in;
   background-color: #eef3f8;
+}
+
+@media screen and (max-width: 1024px) {
+  #searchInput {
+    /* flex-grow: 0; */
+    opacity: 0;
+  }
 }
 
 #searchInput:focus {
