@@ -3,7 +3,7 @@ import { Col, Row, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import { editPost } from "../redux/actions";
-import { dislikePost, doEditPost, LIKE, likePost } from "../redux/actions";
+import { dislikePost, doEditPost, likePost } from "../redux/actions";
 import { useParams } from "react-router-dom";
 import { removePost } from "../redux/actions";
 import "../styles/SinglePost.css";

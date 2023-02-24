@@ -1,27 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts, setUrlParam } from "../redux/actions";
 
-import PostInput from "./PostInput";
 import SinglePost from "./SinglePost";
-import LeftSidebar from "./LeftSidebar";
 
 const FeedList = () => {
   const dispatch = useDispatch();
   const allPosts = useSelector((state) => state.allPosts.posts);
-  // const sortedPosts = allPosts.slice(0, 30);
-  // const currentUser = { id: 123 };
-  const userPosts = allPosts.filter((post) => post.username === "dianabertego");
 
+  // const userPosts = allPosts.filter((post) => post.username === "dianabertego");
   const reversedPosts = allPosts.slice().reverse().slice(0, 30);
-  console.log("reversedPosts:", reversedPosts);
 
-  console.log("here are the sorted", userPosts);
+  // console.log("reversedPosts:", reversedPosts);
+  // console.log("here are the sorted", userPosts);
 
   useEffect(() => {
-    console.log("UEf triggered");
+    // console.log("UEf triggered");
     dispatch(getAllPosts());
     dispatch(setUrlParam(null));
     window.scrollTo(0, 0);

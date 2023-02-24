@@ -16,7 +16,7 @@ const RightNavbar = () => {
 
   useEffect(() => {
     dispatch(setNetworkList());
-    console.log("UE triggered");
+    // console.log("UE triggered");
   }, []);
 
   return (

@@ -169,7 +169,7 @@ export const setNetworkList = () => {
       if (res.ok) {
         const data = await res.json();
         const shuffledUsers = [...data].sort(() => 0.5 - Math.random());
-        console.log(data);
+        // console.log(data);
         dispatch({
           type: SET_NETWORK_LIST,
           payload: shuffledUsers,
@@ -328,7 +328,7 @@ export const getAllPosts = () => {
       });
       if (res.ok) {
         const posts = await res.json();
-        console.log("posts fetched successfully:", posts);
+        // console.log("posts fetched successfully:", posts);
         dispatch({
           type: GET_ALL_POSTS,
           payload: posts,

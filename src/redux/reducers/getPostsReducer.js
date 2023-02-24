@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const getPostsReducer = (state = initialState, action) => {
-  console.log("reducer tirggered");
+  // console.log("reducer tirggered");
   switch (action.type) {
     case GET_ALL_POSTS:
       return {
@@ -17,6 +17,6 @@ const getPostsReducer = (state = initialState, action) => {
   }
 };
 
-console.log("initialState:", initialState);
+// console.log("initialState:", initialState);
 
 export default getPostsReducer;
