@@ -166,10 +166,13 @@
 
 .popup-form {
   background-color: white;
+  height: 500px;
+  overflow: auto;
 }
-
-.popup .modal-body {
-  min-height: 825px;
+.popup-form-2 {
+  background-color: white;
+  min-height: 570px;
+  overflow: hidden;
 }
 
 .add-experience-button {
@@ -199,21 +202,27 @@
 }
 
 .exp-image {
-  margin-bottom: 13px;
-  padding-bottom: 30px;
-  margin-top: 10px;
-  border-bottom: 1px solid rgb(233, 233, 233);
+  margin-top: 5px;
 }
 
 .exp-card {
-  padding-top: 10px;
+  padding-block-end: 20px;
+  padding-block-start: 20px;
+  border-bottom: 1px solid rgb(233, 233, 233);
 }
 
 .exp-image img {
-  width: 300px;
+  width: 50px;
   object-fit: cover;
-  max-height: 150px;
-  border-radius: 10px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.exp-image-lg img {
+  width: 100px;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 5px;
 }
 
 .minor-section h2 {
@@ -254,4 +263,30 @@
 .connections {
   color: #0b66c2;
   font-weight: 700;
+}
+
+.create-exp-button {
+  background-color: #0b65c2 !important;
+  border-radius: 20px !important;
+}
+
+.exp-add-footer {
+  border-top: 1px solid #dee2e6;
+  padding-block-start: 10px;
+  padding-right: 1rem;
+}
+
+.edit-button-exp {
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.edit-button-exp:hover {
+  background-color: rgb(234, 234, 234);
+  cursor: pointer;
 }

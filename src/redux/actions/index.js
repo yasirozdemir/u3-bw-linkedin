@@ -213,7 +213,9 @@ export const addExperience = (formData) => {
   };
 };
 
-export const editExperience = (userId, data, experience) => {
+export const editExperience = (userId, data, experience, formData) => {
+  const imageFile = formData?.get("imageFile");
+  console.log("arrived it");
   return async (dispatch) => {
     try {
       const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experience}`;
@@ -230,6 +232,7 @@ export const editExperience = (userId, data, experience) => {
         type: EDIT_EXPERIENCE,
         payload: editedExperience,
       });
+      dispatch(setExperienceImage(userId, experience, imageFile));
       dispatch(setSpecificUserExperience(userId));
     } catch (error) {
       console.log(error);

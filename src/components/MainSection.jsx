@@ -223,7 +223,7 @@ const MainSection = () => {
             >
               <h2 className="mb-0">Experience</h2>
               {userId === "63f3370b8381fc0013fffad1" && (
-                <div onClick={setAddExperience}>
+                <div onClick={setAddExperience} className="edit-button-exp">
                   <svg height="23" width="23">
                     <path
                       fill="grey"
@@ -245,58 +245,74 @@ const MainSection = () => {
                 .map((e) => {
                   return (
                     <div className="exp-card" key={e._id}>
-                      <div className="d-flex justify-content-between">
-                        <h5>{e.role}</h5>
-                        {userId === "63f3370b8381fc0013fffad1" && (
-                          <div className="d-flex gap">
-                            <div
-                              onClick={() => setEditExperience(e)}
-                              className="edit-experience-button"
-                            >
-                              <svg height={23} width={23}>
-                                <path
-                                  fill="grey"
-                                  d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"
-                                />
-                              </svg>
-                            </div>
-                            <div
-                              onClick={() => setRemoveExperience(e)}
-                              className="remove-experience-button ml-3"
-                            >
-                              <svg height={23} width={23}>
-                                <path
-                                  fill="none"
-                                  stroke="grey"
-                                  strokeWidth="2"
-                                  d="M19.5 12.5H3.5C3.22 12.5 3 12.28 3 12s.22-.5.5-.5h16c.28 0 .5.22.5.5s-.22.5-.5.5z"
-                                />
-                              </svg>
-                            </div>
+                      <div className="d-flex">
+                        {e.image && (
+                          <div className="exp-image">
+                            <img src={e.image} alt=""></img>
                           </div>
                         )}
+                        <div className="d-flex  flex-grow-1 justify-content-between ml-3">
+                          <div className="d-flex flex-column">
+                            <h5>{e.role}</h5>
+                            <p className="company">
+                              {e.company.toUpperCase()}{" "}
+                            </p>
+                            <p className="greyClass"> {e.area}</p>
+                            <p className="greyClass">
+                              {" "}
+                              {e.startDate?.slice(0, 10)} -{" "}
+                              {e.endDate?.slice(0, 10)}
+                            </p>
+                          </div>
+                          {userId === "63f3370b8381fc0013fffad1" && (
+                            <div className="d-flex gap">
+                              <div
+                                onClick={() => setEditExperience(e)}
+                                className="edit-experience-button"
+                              >
+                                <div className="edit-button-exp">
+                                  <svg height={23} width={23}>
+                                    <path
+                                      fill="grey"
+                                      d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                onClick={() => setRemoveExperience(e)}
+                                className="remove-experience-button ml-3"
+                              >
+                                <div className="edit-button-exp">
+                                  <svg height={23} width={23}>
+                                    <path
+                                      fill="none"
+                                      stroke="grey"
+                                      strokeWidth="2"
+                                      d="M19.5 12.5H3.5C3.22 12.5 3 12.28 3 12s.22-.5.5-.5h16c.28 0 .5.22.5.5s-.22.5-.5.5z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                      <p className="company">{e.company.toUpperCase()} </p>
-                      <p className="greyClass"> {e.area}</p>
-                      <p className="greyClass">
-                        {" "}
-                        {e.startDate?.slice(0, 10)} - {e.endDate?.slice(0, 10)}
-                      </p>
 
                       <p className="exp-description">{e.description}</p>
-
-                      {e.image && (
-                        <div className="exp-image">
-                          <img src={e.image} alt=""></img>
-                        </div>
-                      )}
                     </div>
                   );
                 })}
           </div>
         </Col>
         <div>
-          <Modal id="popup" className="popup" show={show} onHide={handleClose}>
+          <Modal
+            id="popup"
+            className="popup"
+            show={show}
+            size="lg"
+            onHide={handleClose}
+          >
             <ExperienceInput
               userId={userId}
               method={method}
