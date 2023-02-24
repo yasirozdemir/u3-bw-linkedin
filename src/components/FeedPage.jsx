@@ -1,4 +1,5 @@
 import { Container, Row } from "react-bootstrap";
+import CustomFooter2 from "./CustomFooter2";
 import FeedList from "./FeedList";
 import LeftSidebar from "./LeftSidebar";
 import PostInput from "./PostInput";
@@ -20,6 +21,7 @@ const FeedPage = () => {
         </div>
         <div className="topHeaderFix">
           <RightNavbar />
+          <CustomFooter2 />
         </div>
       </Row>
     </Container>

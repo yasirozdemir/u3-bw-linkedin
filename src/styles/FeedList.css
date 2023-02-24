@@ -23,3 +23,19 @@
 .post-list-post {
   font-size: 13px !important;
 }
+
+#customFooter2 {
+  max-width: 295px;
+  position: absolute;
+  margin-inline-start: 4.5rem;
+}
+
+#customFooter2 a:hover {
+  color: #0a66c2 !important;
+  text-decoration: underline !important;
+}
+
+#customFooter2.fixed {
+  position: fixed;
+  top: 70px;
+}
