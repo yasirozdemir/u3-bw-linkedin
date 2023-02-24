@@ -9,8 +9,8 @@ const PostModal = ({
   myInfo,
   post,
   handleInputChange,
-  handleSubmit,
   handleFileChange,
+  handleSubmit,
 }) => {
   const inputRef = useRef(null);
   const imitateInputFile = () => {
@@ -62,7 +62,7 @@ const PostModal = ({
                 />
                 Share
               </button>
-              <button onClick={imitateInputFile}>
+              <button type="button" onClick={imitateInputFile}>
                 <svg
                   className="mr-1"
                   viewBox="0 0 24 24"
