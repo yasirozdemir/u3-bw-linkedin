@@ -10,7 +10,13 @@ header {
   margin-left: 450px!important;
 }
 
+#magnifying-glass {
+  fill: #38434f!important;
+}
 
+#magnifying-glass.activeNavLink {
+  fill: #535353!important;
+}
 
 #profilePic {
   display: inline-flex;
