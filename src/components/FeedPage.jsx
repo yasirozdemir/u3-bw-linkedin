@@ -14,11 +14,11 @@ const FeedPage = () => {
         <div className="topHeaderFix mr-4">
           <LeftSidebar />
         </div>
-        <div className="topHeaderFix w-50">
+        <div className="topHeaderFix" style={{ width: "48%" }}>
           <PostInput />
           <FeedList />
         </div>
-        <div className="w-25">
+        <div className="topHeaderFix">
           <RightNavbar />
         </div>
       </Row>

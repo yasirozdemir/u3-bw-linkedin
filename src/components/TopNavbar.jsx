@@ -62,7 +62,7 @@ const TopNavbar = () => {
       <WorkModalRight show={showModal} setShow={setShowModal} />
       <header className="fixed-top">
         <Container>
-          <Row className="pl-3 pr-3">
+          <Row>
             <Link to="/">
               <LinkedIn style={{ height: "2.5rem", width: "2.5rem" }} />
             </Link>
@@ -268,7 +268,7 @@ const TopNavbar = () => {
         >
           <Container>
             {/* increase the value */}
-            <Row className="px-3 justify-content-between align-items-center">
+            <Row className="justify-content-between align-items-center">
               <SubNavbar />
             </Row>
           </Container>

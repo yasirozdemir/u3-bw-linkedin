@@ -1,10 +1,13 @@
 .right-navbar {
   margin-bottom: 8px;
-  margin-top: 8px;
   display: flex;
   /* border: 1px solid grey; */
   justify-content: center;
   margin-left: auto;
+}
+
+.right-navbar-outer {
+  margin-right: -10px !important;
 }
 
 .right-navbar-main {
@@ -106,9 +109,9 @@
 }
 .connect-button {
   border-radius: 20px !important;
-  max-width: 130px !important;
+  width: 130px !important;
   font-weight: 600 !important;
-
+  margin-inline: auto;
   font-size: 15px !important;
   border-color: grey !important;
   color: #47525d;
@@ -127,6 +130,8 @@ a:hover {
   border-bottom: 1px solid rgb(208, 208, 208);
   padding-bottom: 20px;
   padding-top: 20px;
+  max-width: 305px;
+  overflow: hidden;
 }
 
 .promo-card {

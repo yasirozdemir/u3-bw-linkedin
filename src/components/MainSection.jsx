@@ -78,7 +78,7 @@ const MainSection = () => {
   return (
     <Container className="topHeaderFix">
       <Row>
-        <Col className="main-section my-1">
+        <Col className="main-section">
           <div className="main-div">
             <div className="upper-part">
               <img

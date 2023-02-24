@@ -4,12 +4,12 @@ import RightNavbar from "./RightNavbar";
 
 const ProfilePage = () => {
   return (
-    <Container>
+    <Container className="p-0">
       <Row className="no-gutters">
         <Col xs={8}>
           <MainSection />
         </Col>
-        <Col>
+        <Col className="topHeaderFix">
           <RightNavbar />
         </Col>
       </Row>
